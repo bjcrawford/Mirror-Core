@@ -1,0 +1,42 @@
+<resources>
+  <declare-styleable name="AppTheme">
+      
+    <!-- main.xml resources -->  
+    <attr name="pauseButton" format="reference" />
+    <attr name="snapshotButton" format="reference" />
+    <attr name="photoboothButton" format="reference" />
+    
+    <!-- menu.xml resources -->
+    <attr name="snapshotIcon" format="reference" />
+    <attr name="photoboothIcon" format="reference" />
+    <attr name="pauseIcon" format="reference" />
+    <attr name="optionsIcon" format="reference" />
+    <attr name="frameIcon" format="reference" />
+    <attr name="zoomIcon" format="reference" />
+    <attr name="exposureIcon" format="reference" />
+    <attr name="whiteBalanceIcon" format="reference" />
+    <attr name="wbAutoIcon" format="reference" />
+    <attr name="wbDaylightIcon" format="reference" />
+    <attr name="wbIncanIcon" format="reference" />
+    <attr name="wbFluorIcon" format="reference" />
+    <attr name="mirrorIcon" format="reference" />
+    <attr name="switchCameraIcon" format="reference" />
+    <attr name="screenRotationIcon" format="reference" />
+    <attr name="themesIcon" format="reference" />
+    <attr name="darkThemeIcon" format="reference" />
+    <attr name="lightThemeIcon" format="reference" />
+    <attr name="redThemeIcon" format="reference" />
+    <attr name="orangeThemeIcon" format="reference" />
+    <attr name="greenThemeIcon" format="reference" />
+    <attr name="purpleThemeIcon" format="reference" />
+    <attr name="blueThemeIcon" format="reference" />
+    <attr name="infoIcon" format="reference" />
+    <attr name="helpIcon" format="reference" />
+    <attr name="exitIcon" format="reference" />
+    
+    <!-- framedialog.xml resources -->
+    
+    <attr name="dialogColor" format="reference" />
+    
+  </declare-styleable>
+</resources>

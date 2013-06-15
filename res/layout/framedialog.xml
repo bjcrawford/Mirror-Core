@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout  
+ 	    xmlns:android="http://schemas.android.com/apk/res/android" 
+	    android:id="@+id/layout_root"
+		android:orientation="vertical"  
+		android:layout_width="match_parent"  
+		android:layout_height="wrap_content"  
+		android:paddingTop="3dip"
+		android:paddingLeft="10dp"
+    	android:paddingRight="10dp"
+    	android:layout_marginBottom="15dp" > 
+
+	<LinearLayout 
+	    android:orientation="vertical"
+	    android:layout_width="match_parent"
+	    android:layout_height="match_parent"
+	    android:layout_alignParentTop="true"  
+	    android:paddingTop="10dp"
+	    android:paddingBottom="10dp" >
+	    
+	    <RelativeLayout  
+			android:orientation="vertical"  
+			android:layout_width="match_parent"  
+			android:layout_height="wrap_content"  
+			android:paddingTop="3dip"
+			android:paddingLeft="10dp"
+	    	android:paddingRight="10dp"
+	    	android:layout_marginBottom="15dp" > 
+			 
+	    	<ImageView 
+	    	    android:id="@+id/custom_close"  
+	    		android:layout_width="40dip"   
+	    		android:layout_height="40dip"   
+	            android:layout_alignParentRight="true"  
+	            android:layout_marginRight="8dp"
+	            android:layout_marginTop="8dp"
+	            android:src="?attr/exitIcon"
+	            android:contentDescription="@string/dialog_frames_close" />  
+	            
+	    	<TextView 
+	    	    android:id="@+id/custom_title"  
+	            android:layout_width="wrap_content"  
+	            android:layout_height="wrap_content"
+	            android:layout_marginTop="5dp" 
+	            android:layout_marginLeft="6dp" 
+	            android:layout_alignParentLeft="true"
+	            android:textSize="28sp"
+	            android:textColor="?attr/dialogColor"
+	            android:text="@string/dialog_frames_title" />
+	    	  
+		</RelativeLayout>  
+		
+	    <ImageView
+		    android:id="@+id/custom_divider_top" 
+		    android:layout_width="match_parent"
+		    android:layout_height="2dp"
+		    android:scaleType="fitXY"
+		    android:background="?attr/dialogColor"
+		    android:contentDescription="@string/dialog_frames_divider" />
+	                
+	 	<GridView  
+	    	android:id="@+id/gridview"  
+		    android:layout_width="match_parent"   
+		    android:layout_height="match_parent"  
+	        android:layout_marginBottom="64dp"  
+		    android:columnWidth="250dp"
+		    android:numColumns="2"  
+		    android:verticalSpacing="10dp"  
+		    android:horizontalSpacing="10dp"  
+		    android:stretchMode="columnWidth"
+		    android:gravity="center"/>
+	 	
+	</LinearLayout>
+	
+	<RelativeLayout   
+			android:orientation="vertical"  
+			android:layout_width="match_parent"  
+			android:layout_height="wrap_content"  
+			android:layout_alignParentBottom="true" 
+			android:paddingBottom="6dp"> 
+	    
+	    <Button
+			android:id="@+id/add_ons_button"
+			android:layout_width="match_parent"
+			android:layout_height="60dip"
+			android:layout_alignParentBottom="true"  
+			android:layout_marginTop="5dp" 
+			android:text="@string/dialog_frames_add_ons"/>
+		
+	 	<ImageView
+		    android:id="@+id/custom_divider_bottom" 
+		    android:layout_width="match_parent"
+		    android:layout_height="2dp"
+		    android:layout_above="@id/add_ons_button" 
+		    android:scaleType="fitXY"
+		    android:background="?attr/dialogColor"
+		    android:contentDescription="@string/dialog_frames_divider" />
+	 	
+	 </RelativeLayout>
+
+</RelativeLayout>

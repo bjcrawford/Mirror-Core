@@ -1,0 +1,31 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.wckd_dev.mirror.core"
+    android:versionCode="23"
+    android:versionName="2.4" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="17" />
+    
+    <uses-permission
+        android:name="android.permission.CAMERA"
+        android:required="false" />
+    
+    <uses-feature 
+        android:name="android.hardware.camera"
+        android:required="false" />
+    
+    <!-- <uses-permission  
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> -->
+
+    <application>
+        
+        <activity
+            android:name="com.wckd_dev.mirror.core.MirrorActivity" 
+            android:configChanges="orientation|screenSize|screenLayout"
+            android:exported="true" >
+        </activity>
+        
+    </application>
+
+</manifest>

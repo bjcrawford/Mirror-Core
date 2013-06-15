@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:id="@+id/full_mirror_view"
+		android:layout_width="match_parent"
+    	android:layout_height="match_parent">
+
+		<com.wckd_dev.mirror.core.MirrorView
+        	xmlns:android="http://schemas.android.com/apk/res/android"
+     		android:id="@+id/mirror_view_view" 
+     		android:layout_width="match_parent" 
+     		android:layout_height="match_parent" />
+		
+		<ImageView
+        	android:id="@+id/frame_overlay"
+        	android:src="@drawable/transparent"
+			android:contentDescription="@string/frame_descr"
+			android:background="@null"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scaleType="fitXY" />
+		
+		<ImageButton
+			android:id="@+id/invis_button"
+			android:src="@drawable/transparent"
+			android:contentDescription="@string/button_invisible"
+			android:background="@null"
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:scaleType="fitXY" />
+
+		<ImageButton
+		    android:id="@+id/pause_button"
+		    android:layout_width="100dp"
+		    android:layout_height="100dp"
+		    android:layout_centerHorizontal="true"
+		    android:layout_alignParentBottom="true"
+		    android:background="@null"
+		    android:contentDescription="@string/button_pause"
+		    android:scaleType="fitXY"
+		    android:src="?attr/pauseButton" />
+
+		<ImageButton
+		    android:id="@+id/snapshot_button"
+		    android:layout_width="100dp"
+		    android:layout_height="100dp"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentRight="true"
+		    android:layout_marginBottom="30dp"
+		    android:background="@null"
+		    android:contentDescription="@string/button_snapshot"
+		    android:scaleType="fitXY"
+		    android:src="?attr/snapshotButton" />
+		
+		<ImageButton
+		    android:id="@+id/photobooth_button"
+		    android:layout_width="100dp"
+		    android:layout_height="100dp"
+		    android:layout_alignParentBottom="true"
+		    android:layout_alignParentLeft="true"
+		    android:layout_marginBottom="30dp"
+		    android:background="@null"
+		    android:contentDescription="@string/button_photobooth"
+		    android:scaleType="fitXY"
+		    android:src="?attr/photoboothButton" />
+
+</RelativeLayout>

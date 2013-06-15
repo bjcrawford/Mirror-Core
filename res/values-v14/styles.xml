@@ -1,0 +1,170 @@
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+ 	
+    <style 
+        name="HoloDark" 
+        parent="android:style/Theme.Holo" >
+        
+        <item name="pauseButton" >@drawable/button_pause_holo_dark</item>
+        <item name="snapshotButton" >@drawable/button_snapshot_holo_dark</item>
+        <item name="photoboothButton" >@drawable/button_photobooth_holo_dark</item>
+        
+        <item name="snapshotIcon" >@drawable/menu_snapshot_holo_dark</item>
+        <item name="photoboothIcon" >@drawable/menu_snapshot_photobooth_holo_dark</item>
+        <item name="pauseIcon" >@drawable/menu_pause_holo_dark</item>
+        <item name="optionsIcon" >@drawable/menu_options_holo_dark</item>
+        <item name="frameIcon" >@drawable/menu_frame_holo_dark</item>
+        <item name="zoomIcon" >@drawable/menu_options_zoom_holo_dark</item>
+        <item name="exposureIcon" >@drawable/menu_options_exposure_holo_dark</item>
+        <item name="whiteBalanceIcon" >@drawable/menu_options_white_balance_auto_holo_dark</item>
+        <item name="wbAutoIcon" >@drawable/menu_options_white_balance_auto_holo_dark</item>
+        <item name="wbDaylightIcon" >@drawable/menu_options_white_balance_daylight_holo_dark</item>
+        <item name="wbIncanIcon" >@drawable/menu_options_white_balance_incandescent_holo_dark</item>
+        <item name="wbFluorIcon" >@drawable/menu_options_white_balance_fluorescent_holo_dark</item>
+        <item name="mirrorIcon" >@drawable/menu_options_mirror_holo_dark</item>
+        <item name="switchCameraIcon" >@drawable/menu_options_switch_camera_holo_dark</item>
+        <item name="screenRotationIcon" >@drawable/menu_options_screen_rotation_holo_dark</item>
+        <item name="themesIcon" >@drawable/menu_options_themes_holo_dark</item>
+        <item name="darkThemeIcon" >@drawable/menu_options_theme_dark</item>
+        <item name="lightThemeIcon" >@drawable/menu_options_theme_light</item>
+        <item name="redThemeIcon" >@drawable/menu_options_theme_red</item>
+        <item name="orangeThemeIcon" >@drawable/menu_options_theme_orange</item>
+        <item name="greenThemeIcon" >@drawable/menu_options_theme_green</item>
+        <item name="purpleThemeIcon" >@drawable/menu_options_theme_purple</item>
+        <item name="blueThemeIcon" >@drawable/menu_options_theme_blue</item>
+        <item name="infoIcon" >@drawable/menu_options_app_info_holo_dark</item>
+        <item name="helpIcon" >@drawable/menu_options_help_holo_dark</item>
+        <item name="exitIcon" >@drawable/menu_exit_holo_dark</item>
+        
+    </style>
+    
+    <style 
+        name="HoloLight" 
+        parent="android:style/Theme.Holo.Light" >
+        
+        <item name="pauseButton" >@drawable/button_pause_holo_light</item>
+        <item name="snapshotButton" >@drawable/button_snapshot_holo_light</item>
+        <item name="photoboothButton" >@drawable/button_photobooth_holo_light</item>
+        
+        <item name="snapshotIcon" >@drawable/menu_snapshot_holo_light</item>
+        <item name="photoboothIcon" >@drawable/menu_snapshot_photobooth_holo_light</item>
+        <item name="pauseIcon" >@drawable/menu_pause_holo_light</item>
+        <item name="optionsIcon" >@drawable/menu_options_holo_light</item>
+        <item name="frameIcon" >@drawable/menu_frame_holo_light</item>
+        <item name="zoomIcon" >@drawable/menu_options_zoom_holo_light</item>
+        <item name="exposureIcon" >@drawable/menu_options_exposure_holo_light</item>
+        <item name="whiteBalanceIcon" >@drawable/menu_options_white_balance_auto_holo_light</item>
+        <item name="wbAutoIcon" >@drawable/menu_options_white_balance_auto_holo_light</item>
+        <item name="wbDaylightIcon" >@drawable/menu_options_white_balance_daylight_holo_light</item>
+        <item name="wbIncanIcon" >@drawable/menu_options_white_balance_incandescent_holo_light</item>
+        <item name="wbFluorIcon" >@drawable/menu_options_white_balance_fluorescent_holo_light</item>
+        <item name="mirrorIcon" >@drawable/menu_options_mirror_holo_light</item>
+        <item name="switchCameraIcon" >@drawable/menu_options_switch_camera_holo_light</item>
+        <item name="screenRotationIcon" >@drawable/menu_options_screen_rotation_holo_light</item>
+        <item name="themesIcon" >@drawable/menu_options_themes_holo_light</item>
+        <item name="darkThemeIcon" >@drawable/menu_options_theme_dark</item>
+        <item name="lightThemeIcon" >@drawable/menu_options_theme_light</item>
+        <item name="redThemeIcon" >@drawable/menu_options_theme_red</item>
+        <item name="orangeThemeIcon" >@drawable/menu_options_theme_orange</item>
+        <item name="greenThemeIcon" >@drawable/menu_options_theme_green</item>
+        <item name="purpleThemeIcon" >@drawable/menu_options_theme_purple</item>
+        <item name="blueThemeIcon" >@drawable/menu_options_theme_blue</item>
+        <item name="infoIcon" >@drawable/menu_options_app_info_holo_light</item>
+        <item name="helpIcon" >@drawable/menu_options_help_holo_light</item>
+        <item name="exitIcon" >@drawable/menu_exit_holo_light</item>
+        
+    </style>
+	
+    <style 
+        name="HoloRed" 
+        parent="HoloDark">
+
+  		<item name="android:actionBarStyle">@style/HoloRed.ActionBar</item>
+        <item name="dialogColor" >@android:color/holo_red_dark</item>
+  		<!--  <item name="android:itemBackground">@android:color/holo_red_dark</item> -->
+  		<item name="android:actionMenuTextColor">@android:color/holo_red_dark</item>
+        
+ 	</style>
+ 	
+    <style 
+        name="HoloRed.ActionBar" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_red_dark</item>
+
+	</style>
+	
+    <style 
+        name="HoloOrange" 
+        parent="HoloLight">
+
+  		<item name="android:actionBarStyle">@style/actionBarOrange</item>
+        <item name="dialogColor" >@android:color/holo_orange_dark</item>
+        
+ 	</style>
+	
+    <style 
+        name="HoloGreen" 
+        parent="HoloLight">
+
+  		<item name="android:actionBarStyle">@style/actionBarGreen</item>
+        <item name="dialogColor" >@android:color/holo_green_dark</item>
+        
+ 	</style>
+	
+    <style 
+        name="HoloPurple" 
+        parent="HoloLight">
+
+  		<item name="android:actionBarStyle">@style/actionBarPurple</item>
+        <item name="dialogColor" >@android:color/holo_purple</item>
+        
+ 	</style>
+	
+    <style 
+        name="HoloBlue" 
+        parent="HoloLight">
+
+  		<item name="android:actionBarStyle">@style/actionBarBlue</item>
+        <item name="dialogColor" >@android:color/holo_blue_dark</item>
+        
+ 	</style>
+ 	
+ 	
+    <style 
+        name="actionBarOrange" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_orange_dark</item>
+  		<item name="android:textColor">@android:color/holo_orange_dark</item>
+
+	</style>
+ 	
+    <style 
+        name="actionBarGreen" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_green_dark</item>
+  		<item name="android:textColor">@android:color/holo_green_dark</item>
+
+	</style>
+ 	
+    <style 
+        name="actionBarPurple" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_purple</item>
+  		<item name="android:textColor">@android:color/holo_purple</item>
+
+	</style>
+ 	
+    <style 
+        name="actionBarBlue" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_blue_dark</item>
+  		<item name="android:textColor">@android:color/holo_blue_dark</item>
+
+	</style>
+ 	
+
+</resources>

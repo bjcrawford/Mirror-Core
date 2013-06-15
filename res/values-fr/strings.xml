@@ -1,0 +1,265 @@
+<resources>
+
+    <string name="app_name">Miroir Gratuit</string>
+    
+    <string name="menu_pause">Pause</string>
+    <string name="menu_frame">Style de Encadrement</string>
+    
+    <string name="menu_snapshot">Instantané</string>
+    	<string name="menu_snapshot_snapshot">Instantané</string>
+    	<string name="menu_snapshot_photobooth">Photomaton</string>
+    	
+    <string name="menu_options">Options</string>
+    
+    	<string name="menu_options_mirror_mode">Mode Miroir</string>
+    		<string name="menu_options_mirror_mode_on">Activer le Mode Miroir</string>
+    		<string name="menu_options_mirror_mode_off">Désactiver le Mode Miroir</string>
+    		
+    	<string name="menu_options_switch_camera">Changer la Caméra</string>
+    	
+    	<string name="menu_options_screen_rotation">Rotation de l\'écran</string>
+    		<string name="menu_options_screen_rotation_portrait">Portrait</string>
+    		<string name="menu_options_screen_rotation_landscape">Paysage</string>
+    		
+    	<string name="menu_options_zoom">Zoom</string>
+    	<string name="menu_options_exposure">Exposition</string>
+    	
+    	<string name="menu_options_white_balance">Balance des Blancs</string>
+		    <string name="menu_options_white_balance_auto">Automatique</string>
+		    <string name="menu_options_white_balance_daylight">Lumière du Jour</string>
+		    <string name="menu_options_white_balance_incandescent">Incandescent</string>
+		    <string name="menu_options_white_balance_fluorescent">Fluorescent</string>
+		    
+    	<string name="menu_options_themes">Thème</string>
+		    <string name="menu_options_theme_dark">Noir Thème</string>
+		    <string name="menu_options_theme_light">Blancheur Thème</string>
+		    <string name="menu_options_theme_red">Rouge Thème</string>
+		    <string name="menu_options_theme_orange">Orange Thème</string>
+		    <string name="menu_options_theme_green">Vert Thème</string>
+		    <string name="menu_options_theme_purple">Pourpre Thème</string>
+		    <string name="menu_options_theme_blue">Bleu Thème</string>
+		    
+    	<string name="menu_options_app_info">des info d\'app</string>
+    	<string name="menu_options_help">Aider</string>
+    	
+    <string name="menu_exit">Sortir</string>
+    
+    <string name="button_ok">OK</string>
+    <string name="button_try">Essayez</string>
+    <string name="button_bug">Envoyer un Rapport de Bug</string>
+    <string name="button_rate">Noter Cette</string>
+    <string name="button_dont_ask">Ne plus demander</string>
+    <string name="button_cancel">Annuler</string>
+    <string name="button_close">Sortir</string>
+    <string name="button_upgrade_ads">Annonces</string>
+    <string name="button_upgrade_paid">Prime</string>
+    <string name="button_frames">Plus Encadrement</string>
+    <string name="button_pause">Bouton d\'Pause</string>
+    <string name="button_snapshot">Bouton d\'Instantané</string>
+    <string name="button_photobooth">Bouton d\'Photomaton</string>
+    <string name="button_invisible">Tapez pour afficher ou masquer la barre d\'action</string>
+        					  
+    <string name="dialog_frames_title">Choisissez un cadre:</string>
+    <string name="dialog_frames_close">Bouton de sortie</string>
+    <string name="dialog_frames_image">Image de cadre</string>
+    <string name="dialog_frames_divider">Divider Image</string>
+    <string name="dialog_frames_add_ons">Ajouter plus de cadre</string>
+    
+    <string name="dialog_app_info_title">Info App</string>
+    <string name="dialog_app_info_text">Salut tout le monde! J\'espère que vous appréciez l\'application. Cette 
+                              application a été construit miroir spécifiquement pour le Nexus 7, mais a 
+                              récemment été mis à la disposition de tous 4.0+ appareils avec caméras face 
+                              avant.\n
+        					  \n 
+        					  Cette application constitue ma première sortie et je a évolué peu à peu au 
+        					  cours des quelques dernières mois. Un grand merci à Sébastien \'seb \' 
+        					  Hasselbarth pour son aide à la traductions allemandes. Amusez-vous!\n
+        					  \n
+        					  <b>wckd Development</b>\n
+		        			  www.wckd-dev.net\n</string>
+        					  
+    <string name="dialog_upgrade_title">Améliorer!</string>
+    <string name="dialog_upgrade_text">Cette fonction n\'est disponible que dans la version prime ou la version 
+                                      annonces de Miroir. S\'il vous plaît mise à niveau pour 
+                                      soutenir le développement continu de cette application. 
+                                      Merci!</string>
+        					  
+    <string name="dialog_welcome_title">Bienvenue!</string>
+    <string name="dialog_welcome_text"><b>Quoi de Neuf</b>\n
+        								 \n
+        								 -Pincez pour zoomer\n
+        								 -Portrait/Paysage Mode\n
+        								 -Utiliser avant ou caméra de recul\n
+        								 \n
+        								 <b>**Les encadrements qui ont été précédemment inclus avec Miroir Caméra Frontale 
+        								 avant ont été déplacés vers des paquetages optionnels que vous pouvez 
+        								 télécharger dans la boutique Lecture Android. Ils sont étiquetés comme des 
+        								 collections classiques. Collections châssis nouvelles sont disponibles pour un 
+        								 petit prix.**</b>\n
+        								 \n
+        					             Vous pouvez laisser ou passer en mode plein écran en appuyant sur n\'importe
+                                         l\'intérieur du cadre.  \n
+        								 \n
+        								 Si vous avez des problèmes, n\'hésitez pas à contacter
+         								 moi en utilisant l\'option de rapport de bug dans le menu Info dev. je le ferai
+        								 travailler rapidement pour aider à résoudre tout problème que vous pourriez avoir.
+										 Si vous appréciez avant Miroir Caméra libre, s\'il vous plaît
+        								 prendre un moment pour l\'évaluer. Merci pour votre soutien!</string>
+        					             
+    <string name="dialog_rate_title">Merci pour votre soutien!</string>
+    <string name="dialog_rate_text"><b>Si vous appréciez avant Miroir Caméra libre, s\'il vous plaît
+        								 prendre un moment pour l\'évaluer.</b></string>
+        					        
+    <string name="dialog_pause_title">Pause</string>
+    <string name="dialog_pause_text">Vous pouvez utiliser ce bouton pour mettre en pause le miroir.</string>
+        					  
+    <string name="dialog_snapshot_title">Instantané Mode</string>
+    <string name="dialog_snapshot_text">Le mode Photo vous permet de prendre un instantané de la
+									   miroir, y compris le cadre et les effets que vous avez
+									   appliqué.\n
+        							   \n
+                                       Vous pouvez utiliser le bouton de capture instantanée sur la barre d\'action pour montrer
+									   ou masquer le bouton d\'instantané de l\'écran. Le mode Instantané
+									   est activée lorsque le bouton d\'instantané est affiché dans la
+									   le coin inférieur droit de votre écran.\n
+        							   \n
+        							   Lorsque la photo est prise, l\'image est enregistrée dans le
+							           Instantanés Miroir dossier sur votre appareil. Vous pouvez facilement
+							           visualiser les images avec votre application Galerie normale. instantané
+								   	   mode peut être quitté en cliquant sur le bouton snapshot sur le
+									   barre d\'action ou en entrant en mode Instantané.\n
+        							   \n
+        							   S\'il vous plaît laissez-moi savoir si vous rencontrez des problèmes lors de l\'utilisation
+            						   mode instantané. Merci! et appréciez!</string>
+        							    
+    <string name="dialog_snapshot_size_title">Snapshot Size</string>
+    <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
+    <string name="dialog_snapshot_size_small">Small  -  50%</string>
+    <string name="dialog_snapshot_size_medium">Medium -  75%</string>
+    <string name="dialog_snapshot_size_large">Large  - 100%</string>
+        							   
+    <string name="dialog_photobooth_title">Photomaton Mode</string>
+    <string name="dialog_photobooth_text">Photomaton mode vous permet de prendre quatre clichés
+								       qui seront combinés en un style de photobooth Miniatures.
+								       Vous pouvez utiliser le bouton photobooth de prendre chaque photo avec
+								       aucune limite de temps. :) \n
+        							   \n
+        							   Vous pouvez utiliser le bouton de la barre d\'action pour afficher ou masquer
+							           le bouton stand photo de l\'écran. Mode photomaton est
+							           activé lorsque le bouton stand photo est affiché dans la
+							           le coin inférieur gauche de votre écran.\n
+        							   \n
+        							   Vous pouvez quitter le mode stand photo en sélectionnant le bouton 
+        							   de la barre d\'action. Sortie du mode stand photo avant de remplir 
+        							   quatre images causera des photos à perdre. \n
+        							   \n
+        							   S\'il vous plaît laissez-moi savoir si vous avez
+         							   des problèmes lors de l\'utilisation du mode photomaton. Merci! et appréciez!</string>
+        							   
+    <string name="dialog_help_title">Aider</string>
+    <string name="dialog_help_text">Si vous rencontrez des problèmes, s\'il vous plaît contactez-moi.
+								   Je vais travailler rapidement pour aider à résoudre votre problème. utiliser
+								   le bouton rapport de bogue.\n
+        					       \n
+        					       <b>Mode plein écran</b>\n
+        					       \n
+	        					        Vous pouvez utiliser le mode plein écran en tapant n\'importe où à l\'intérieur
+										le cadre du miroir. Le mode plein écran vous permet d\'utiliser le
+										plein écran. Quitter le mode plein écran affichera la barre d\'action
+										qui contient les fonctions et paramètres de miroir.\n
+        					           \n
+        					       <b>Instantané Mode</b>\n
+        					       \n
+	        					       Le mode Photo vous permet de prendre un instantané de la
+									   miroir, y compris le cadre et les effets que vous avez
+									   appliqué.\n
+        							   \n
+                                       Vous pouvez utiliser le bouton de capture instantanée sur la barre d\'action pour montrer
+									   ou masquer le bouton d\'instantané de l\'écran. Le mode Instantané
+									   est activée lorsque le bouton d\'instantané est affiché dans la
+									   le coin inférieur droit de votre écran.\n
+        							   \n
+        							   Lorsque la photo est prise, l\'image est enregistrée dans le
+							           Instantanés Miroir dossier sur votre appareil. Vous pouvez facilement
+							           visualiser les images avec votre application Galerie normale. instantané
+								   	   mode peut être quitté en cliquant sur le bouton snapshot sur le
+									   barre d\'action ou en entrant en mode Instantané.\n
+       							   	   \n
+       							   <b>Photomaton Mode</b>\n
+       							   \n
+        						   	   Photomaton mode vous permet de prendre quatre clichés
+								       qui seront combinés en un style de photobooth Miniatures.
+								       Vous pouvez utiliser le bouton photobooth de prendre chaque photo avec
+								       aucune limite de temps. :) \n
+        							   \n
+        							   Vous pouvez utiliser le bouton de la barre d\'action pour afficher ou masquer
+							           le bouton stand photo de l\'écran. Mode photomaton est
+							           activé lorsque le bouton stand photo est affiché dans la
+							           le coin inférieur gauche de votre écran.\n
+        							   \n
+        							   Vous pouvez quitter le mode stand photo en sélectionnant le bouton 
+        							   de la barre d\'action. Sortie du mode stand photo avant de remplir 
+        							   quatre images causera des photos à perdre. \n
+        							   \n</string>
+    
+    <string name="dialog_theme_title">Changer le thème?</string>
+    <string name="dialog_theme_dark_text">Cela va changer la couleur de l\'application pour le thème noir.
+        								 L\'application devra être redémarré.</string>
+    <string name="dialog_theme_light_text">Cela va changer la couleur de l\'application pour le thème blancheur.
+        								  L\'application devra être redémarré.</string>
+    <string name="dialog_theme_custom_text">Cela va changer la couleur de l\'application pour le thème azur/noir.
+        								 L\'application devra être redémarré.</string>
+        								   
+    <string name="dialog_no_front_camera_title">Impossible de Localiser la Caméra Frontale</string>
+    <string name="dialog_no_front_camera_text">La caméra frontale n\'a pas pu être initialisées. S\'il vous plaît vérifier:\n
+        							  \n
+                                      -Que votre appareil dispose d\'une caméra frontale \ n
+                                       -La caméra n\'est pas en cours d\'utilisation \ n
+                                       -Essayez de redémarrer l\'application\n
+                                      \n
+                                      Si rien ne fonctionne, utilisez l\'option rapport de bogue et
+                                      Je vais répondre rapidement. Pour utiliser l\'appareil photo, 
+									  appuyez sur \'Essayez\'.</string>
+        								   
+    <string name="dialog_no_camera_title">Impossible de Localiser la Caméra</string>
+    <string name="dialog_no_camera_text">La caméra n\'a pas pu être initialisées. S\'il vous plaît vérifier:\n
+        							  \n
+                                      -Que votre appareil dispose d\'une caméra frontale \ n
+                                       -La caméra n\'est pas en cours d\'utilisation \ n
+                                       -Essayez de redémarrer l\'application\n
+                                      \n
+                                      Si rien ne fonctionne, utilisez l\'option rapport de bogue et
+                                       Je vais répondre rapidement. J\'ai mis Essayez
+                                       de toute façon le bouton au cas où vous recevez
+                                       ce message par erreur.</string>
+    
+    <string name="dialog_exposure_title">Choisissez le niveau d\'exposition:</string>
+    <string name="dialog_zoom_title">Choisissez le niveau de zoom:</string>
+    
+    <string name="toast_no_zoom">Votre appareil ne prend pas en charge les paramètres de zoom.</string>
+    <string name="toast_no_exposure">Votre appareil ne prend pas en charge les paramètres d\'exposition.</string>
+    <string name="toast_no_white_balance">Votre appareil ne prend pas en charge les paramètres de balance des blancs.</string>
+    
+    <string name="toast_photo_one">Première photo prise</string>
+    <string name="toast_photo_two">Deuxième photo prise</string>
+    <string name="toast_photo_three">Troisième photo prise</string>
+    <string name="toast_photo_four">Quatrième photo prise</string>
+    <string name="toast_strip_complete">Photo bande rempli et sauvegardé</string>
+    
+    <string name="toast_photo_taken">Photo prise</string>
+    <string name="toast_photo_saved">Photo enregistrée</string>
+    
+    <string name="frame_no_frame">Pas de Cadre</string>
+    <string name="frame_low_light">Faible Luminosité</string>
+    <string name="frame_soft_gold">Doux Or</string>
+    <string name="frame_brushed">Métal brossé</string>
+    
+    <string name="bug_report">S\'il vous plaît inclure une brève description du problème que vous rencontrez: </string>
+    <string name="bug_report_send">Envoyer un e-mail avec: </string>
+    
+    <string name="folder_name">Instantanés Miroir</string>
+    
+    
+    <string name="frame_descr">Cadre Décoratif</string>
+
+</resources>

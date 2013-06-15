@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    
+    <item
+        android:id="@+id/menu_snapshot"
+        android:title="@string/menu_snapshot"
+        android:icon="?attr/snapshotIcon"
+        android:showAsAction="always" >
+        
+        <menu>
+            
+            <item
+       			android:id="@+id/menu_snapshot_snapshot"
+        		android:title="@string/menu_snapshot_snapshot"
+        		android:icon="?attr/snapshotIcon" />
+            
+            <item
+       			android:id="@+id/menu_snapshot_photobooth"
+        		android:title="@string/menu_snapshot_photobooth"
+        		android:icon="?attr/photoboothIcon" />
+            
+        </menu>
+        
+    </item>
+    
+    <item
+        android:id="@+id/menu_pause"
+        android:title="@string/menu_pause"
+        android:icon="?attr/pauseIcon"
+        android:showAsAction="always" />
+    
+    <item
+        android:id="@+id/menu_options"
+        android:title="@string/menu_options"
+        android:icon="?attr/optionsIcon"
+        android:showAsAction="always" >
+    
+    	<menu>
+    	    
+    	    <item
+        		android:id="@+id/menu_frame"
+        		android:title="@string/menu_frame"
+        		android:icon="?attr/frameIcon"
+        		android:showAsAction="always" />
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_zoom"
+    	        android:title="@string/menu_options_zoom"
+			    android:icon="?attr/zoomIcon"  />
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_exposure"
+    	        android:title="@string/menu_options_exposure"
+			    android:icon="?attr/exposureIcon"  />
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_white_balance"
+    	        android:title="@string/menu_options_white_balance"
+			    android:icon="?attr/whiteBalanceIcon"  >
+    	        
+    	        <menu>
+    	            
+		    	    <item 
+			    	    android:id="@+id/menu_options_white_balance_auto"
+			    	    android:title="@string/menu_options_white_balance_auto"
+			        	android:icon="?attr/wbAutoIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_white_balance_daylight"
+			    	    android:title="@string/menu_options_white_balance_daylight"
+			        	android:icon="?attr/wbDaylightIcon" />
+			    	
+			    	<item 
+			    	    android:id="@+id/menu_options_white_balance_incandescent"
+			    	    android:title="@string/menu_options_white_balance_incandescent"
+			        	android:icon="?attr/wbIncanIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_white_balance_fluorescent"
+			    	    android:title="@string/menu_options_white_balance_fluorescent"
+			        	android:icon="?attr/wbFluorIcon" />
+		    	    
+		    	</menu>
+		    	
+		    </item>
+		    
+    	    <item
+    	        android:id="@+id/menu_options_mirror_mode"
+    	        android:title="@string/menu_options_mirror_mode"
+			    android:icon="?attr/mirrorIcon" >
+    	        
+    	        <menu>
+    	            
+		            <group 
+		                android:id="@+id/menu_options_mirror_mode_group"
+		                android:checkableBehavior="single" >
+		                
+		                <item 
+		                    android:id="@+id/menu_options_mirror_mode_on"
+		                    android:title="@string/menu_options_mirror_mode_on"
+		                    android:checked="true"  />
+		                <item 
+		                    android:id="@+id/menu_options_mirror_mode_off"
+		                    android:title="@string/menu_options_mirror_mode_off" />
+		            </group>
+		        </menu>
+    	        
+    	    </item>
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_switch_camera"
+    	        android:title="@string/menu_options_switch_camera"
+			    android:icon="?attr/switchCameraIcon"
+			    android:enabled="false"  />
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_screen_rotation"
+    	        android:title="@string/menu_options_screen_rotation"
+			    android:icon="?attr/screenRotationIcon" >
+    	        
+    	        <menu>
+    	            
+		            <group 
+		                android:id="@+id/menu_options_screen_rotation_group"
+		                android:checkableBehavior="single" >
+		                
+		                <item 
+		                    android:id="@+id/menu_options_screen_rotation_portrait"
+		                    android:title="@string/menu_options_screen_rotation_portrait"  />
+		                <item 
+		                    android:id="@+id/menu_options_screen_rotation_landscape"
+		                    android:title="@string/menu_options_screen_rotation_landscape" />
+		            </group>
+		        </menu>
+    	        
+    	    </item>
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_themes"
+    	        android:title="@string/menu_options_themes"
+			    android:icon="?attr/themesIcon"  >
+    	        
+    	        <menu>
+    	            
+		    	    <item 
+			    	    android:id="@+id/menu_options_theme_dark"
+			    	    android:title="@string/menu_options_theme_dark"
+			        	android:icon="?attr/darkThemeIcon" />
+			    	    
+			    	<item 
+			    	    android:id="@+id/menu_options_theme_light"
+			    	    android:title="@string/menu_options_theme_light"
+			        	android:icon="?attr/lightThemeIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_theme_red"
+			    	    android:title="@string/menu_options_theme_red"
+			        	android:icon="?attr/redThemeIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_theme_orange"
+			    	    android:title="@string/menu_options_theme_orange"
+			        	android:icon="?attr/orangeThemeIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_theme_green"
+			    	    android:title="@string/menu_options_theme_green"
+			        	android:icon="?attr/greenThemeIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_theme_purple"
+			    	    android:title="@string/menu_options_theme_purple"
+			        	android:icon="?attr/purpleThemeIcon" />
+			    	    
+			    	<item
+			    	    android:id="@+id/menu_options_theme_blue"
+			    	    android:title="@string/menu_options_theme_blue"
+			        	android:icon="?attr/blueThemeIcon" />
+		    	    
+		    	</menu>
+		    	
+		    </item>
+		    
+    	    <item 
+        		android:id="@+id/menu_options_app_info"
+        		android:title="@string/menu_options_app_info"
+        		android:icon="?attr/infoIcon"/>
+    	    
+    	    <item 
+        		android:id="@+id/menu_options_help"
+        		android:title="@string/menu_options_help"
+        		android:icon="?attr/helpIcon"/>
+		    
+    	</menu>
+    	
+    </item>
+    
+    <item 
+        android:id="@+id/menu_exit" 
+        android:title="@string/menu_exit"
+        android:icon="?attr/exitIcon"
+        android:showAsAction="always" />
+    
+</menu>
