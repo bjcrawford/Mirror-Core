@@ -89,9 +89,11 @@ public class DialogManager {
 	    /* Snapshot */
 	    	case MirrorActivity.SNAPSHOT_SIZE:
 	    		
+	    		/*
 	    		CharSequence[] sizes = {  mirrorActivity.getString(R.string.dialog_snapshot_size_small), 
 	    				                  mirrorActivity.getString(R.string.dialog_snapshot_size_medium), 
 	    						          mirrorActivity.getString(R.string.dialog_snapshot_size_large)  };
+	    		*/
 	    		
 	    		builder
 	    		.setMessage(R.string.dialog_snapshot_size_text)	

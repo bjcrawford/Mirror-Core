@@ -35,6 +35,8 @@
         <item name="helpIcon" >@drawable/menu_options_help_holo_dark</item>
         <item name="exitIcon" >@drawable/menu_exit_holo_dark</item>
         
+        <item name="dialogColor" >@android:color/holo_blue_dark</item>
+        
     </style>
     
     <style 
@@ -72,26 +74,20 @@
         <item name="helpIcon" >@drawable/menu_options_help_holo_light</item>
         <item name="exitIcon" >@drawable/menu_exit_holo_light</item>
         
+        <item name="dialogColor" >@android:color/holo_blue_light</item>
+        
     </style>
 	
     <style 
         name="HoloRed" 
         parent="HoloDark">
 
-  		<item name="android:actionBarStyle">@style/HoloRed.ActionBar</item>
+  		<item name="android:actionBarStyle">@style/actionBarRed</item>
         <item name="dialogColor" >@android:color/holo_red_dark</item>
   		<!--  <item name="android:itemBackground">@android:color/holo_red_dark</item> -->
   		<item name="android:actionMenuTextColor">@android:color/holo_red_dark</item>
         
  	</style>
- 	
-    <style 
-        name="HoloRed.ActionBar" 
-        parent="android:style/Widget.Holo.ActionBar">
-  
-  		<item name="android:background">@android:color/holo_red_dark</item>
-
-	</style>
 	
     <style 
         name="HoloOrange" 
@@ -128,6 +124,14 @@
         <item name="dialogColor" >@android:color/holo_blue_dark</item>
         
  	</style>
+ 	
+    <style 
+        name="actionBarRed" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_red_dark</item>
+
+	</style>
  	
  	
     <style 
