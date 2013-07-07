@@ -220,14 +220,14 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
 		// Log.d(TAG, "bitmap - x: " + x + " y: " + y + " w: " + width + " b: " + height);
     	result = Bitmap.createBitmap(textureView.getBitmap(), x, y, width, height);
 		switch(size) {
-		case SMALL:
-			result = Bitmap.createScaledBitmap(result, (int) (width * 0.5f), (int) (height * 0.5f), false);
-			break;
-		case MEDIUM:
-			result = Bitmap.createScaledBitmap(result, (int) (width * 0.75f), (int) (height * 0.75f), false);
-			break;
-		case LARGE:
-			break;
+			case SMALL:
+				result = Bitmap.createScaledBitmap(result, (int) (width * 0.5f), (int) (height * 0.5f), false);
+				break;
+			case MEDIUM:
+				result = Bitmap.createScaledBitmap(result, (int) (width * 0.75f), (int) (height * 0.75f), false);
+				break;
+			case LARGE:
+				break;
 		}
     	
     	return result;
