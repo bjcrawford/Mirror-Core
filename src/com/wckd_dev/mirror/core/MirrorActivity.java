@@ -1,11 +1,5 @@
-<<<<<<< HEAD
 /*/ Mirror Core Development Branch
  * 
-=======
-/*/ Mirror Core Feature Release 001
- *  Adding photo size selections
- *  
->>>>>>> feature-001-photosize
  *  wckd Development 
  *  Brett Crawford 
  *  2013/06/22
