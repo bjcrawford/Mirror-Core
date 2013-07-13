@@ -1,8 +1,6 @@
-/*/ Mirror Core Development Branch
- * 
+/*/ Mirror Core
  *  wckd Development 
  *  Brett Crawford 
- *  2013/06/22
  */
 
 package com.wckd_dev.mirror.core;
