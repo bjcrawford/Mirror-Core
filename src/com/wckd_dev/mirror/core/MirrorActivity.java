@@ -1,9 +1,6 @@
-/*/ Mirror Core Feature Release 001
- *  Adding photo size selections
- *  
+/*/ Mirror Core
  *  wckd Development 
  *  Brett Crawford 
- *  2013/06/22
  */
 
 package com.wckd_dev.mirror.core;
