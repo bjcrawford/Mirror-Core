@@ -24,7 +24,6 @@ import android.hardware.Camera.CameraInfo;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
 import android.util.FloatMath;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -36,7 +35,6 @@ import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RadioButton;
 import android.widget.SeekBar;
 import android.widget.SeekBar.OnSeekBarChangeListener;
 import android.widget.Toast;
@@ -324,8 +322,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	        		takeSnapshot.startAnimation(rightSlideIn);
 	                takeSnapshot.setVisibility(View.VISIBLE);
 	        		isSnapshotButtonVisible = true;
-	        		if(version.compareTo("free") != 0)
-	        			displayDialog(SNAPSHOT_SIZE);
 	        		showSnapshotDialog();
 	        	}
 	        	result = true;
@@ -1315,32 +1311,5 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 			Toast.makeText(getApplicationContext(), R.string.toast_no_white_balance, Toast.LENGTH_SHORT).show();
 			whiteBalancePref = 0;
 		}
-    }  
-    
-    public void onSizesRadioButtonClicked(View view) {
-    	// Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-        
-        // Check which radio button was clicked
-        int id = view.getId();
-        if (id == R.id.imageSmall) {
-        	if(checked) {
-        		imageSize = Snapshot.ImageSize.SMALL;
-				Log.d(TAG, "Size small chosen");
-        	}
-        }
-        else if (id == R.id.imageMedium){
-        	if(checked) {
-        		imageSize = Snapshot.ImageSize.MEDIUM;
-				Log.d(TAG, "Size medium chosen");
-        	}
-        }
-        else if (id == R.id.imageLarge){
-        	if(checked) {
-        		imageSize = Snapshot.ImageSize.LARGE;
-				Log.d(TAG, "Size large chosen");
-        	}
-        }
     }
-    
 }
