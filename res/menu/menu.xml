@@ -192,7 +192,7 @@
     	        <menu>
     	            
     	            <group 
-		                android:id="@+id/menu_options_mirror_mode_group"
+		                android:id="@+id/menu_options_snapshot_size_group"
 		                android:checkableBehavior="single" >
     	            
 			    	    <item 
