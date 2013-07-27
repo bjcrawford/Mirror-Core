@@ -53,6 +53,11 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
     public boolean isFullscreen;
     public boolean isPortrait;
     
+    /* Scale Values */
+    
+    private float xScaleValue = 1.0f;
+    private float yScaleValue = 1.0f;
+    
     /* Objects */
     
     private WindowManager wm;
@@ -312,12 +317,29 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
     public void mirrorMode(boolean mode) {
     	if(mode) {
     		Matrix flip = new Matrix();
-    		flip.setScale(1.0f, 1.0f, (float) (screenSize.width/2), (float) (screenSize.height/2));
+    		xScaleValue = 1.0f;
+    		flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2));
 	        textureView.setTransform(flip);
     	}
     	else {
 	    	Matrix flip = new Matrix();
-	    	flip.setScale(-1.0f, 1.0f, (float) (screenSize.width/2), (float) (screenSize.height/2));
+	    	xScaleValue = -1.0f;
+	    	flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2));
+		    textureView.setTransform(flip);
+    	}
+    }
+    
+    public void flipMode(boolean mode) {
+    	if(mode) {
+    		Matrix flip = new Matrix();
+    		yScaleValue = -1.0f;
+    		flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2 - cropSize.height));
+	        textureView.setTransform(flip);
+    	}
+    	else {
+	    	Matrix flip = new Matrix();
+	    	yScaleValue = 1.0f;
+	    	flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2 - cropSize.height));
 		    textureView.setTransform(flip);
     	}
     }

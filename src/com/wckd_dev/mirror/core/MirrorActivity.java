@@ -132,6 +132,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private   boolean   isWhiteBalanceSupported   = false;
     private   boolean   isFullscreen              = true;
     private   boolean   isMirrorMode              = true;
+    private   boolean   isFlipMode                = false;
     private   boolean   isPortrait;
     private   boolean   isPauseButtonVisible      = false;
     private   boolean   isSnapshotButtonVisible   = false;
@@ -269,8 +270,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	}
     	else {
     		(menu.findItem(R.id.menu_options_flip_mode_on)).setChecked(true);
-    	//	mirrorView.flipMode(true);
-    	//	isFlipMode = true;
+    		mirrorView.flipMode(true);
+    		isFlipMode = true;
     	}
     	
     	if(Math.round(zoomPrefF) > 0)
@@ -505,12 +506,16 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    /* Flip Mode On */
         else if(id == R.id.menu_options_flip_mode_on) {
         	flipPref = 1;
+        	isFlipMode = true;
         	item.setChecked(true);
+            mirrorView.flipMode(true);
         }
 	    /* Flip Mode Off */
         else if(id == R.id.menu_options_flip_mode_off) {
         	flipPref = 0;
+        	isFlipMode = false;
         	item.setChecked(true);
+            mirrorView.flipMode(false);
         }
         /* Switch Camera */
         else if(id == R. id.menu_options_switch_camera) {
