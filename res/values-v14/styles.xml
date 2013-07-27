@@ -31,6 +31,7 @@
         <item name="greenThemeIcon" >@drawable/menu_options_theme_green</item>
         <item name="purpleThemeIcon" >@drawable/menu_options_theme_purple</item>
         <item name="blueThemeIcon" >@drawable/menu_options_theme_blue</item>
+        <item name="snapshotSizeIcon" >@drawable/menu_options_snapshot_size_dark</item>
         <item name="infoIcon" >@drawable/menu_options_app_info_holo_dark</item>
         <item name="helpIcon" >@drawable/menu_options_help_holo_dark</item>
         <item name="exitIcon" >@drawable/menu_exit_holo_dark</item>
@@ -70,6 +71,7 @@
         <item name="greenThemeIcon" >@drawable/menu_options_theme_green</item>
         <item name="purpleThemeIcon" >@drawable/menu_options_theme_purple</item>
         <item name="blueThemeIcon" >@drawable/menu_options_theme_blue</item>
+        <item name="snapshotSizeIcon" >@drawable/menu_options_snapshot_size_light</item>
         <item name="infoIcon" >@drawable/menu_options_app_info_holo_light</item>
         <item name="helpIcon" >@drawable/menu_options_help_holo_light</item>
         <item name="exitIcon" >@drawable/menu_exit_holo_light</item>

@@ -24,6 +24,7 @@ import android.hardware.Camera.CameraInfo;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
 import android.util.FloatMath;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -46,9 +47,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	/* Intent variables */
 	
 	protected final static String MIRROR_MESSAGE = "com.wckd_dev.mirror.core.MESSAGE";
-	private String intentMessage;
-	private String store;
-	protected String version;
+	private                String intentMessage;
+	private                String store;
+	protected              String version;
 	
 	/* Constants for Calling Dialogs */
 	
@@ -81,6 +82,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final String APP_PREFERENCES_INITIAL_LOAD       = "InitialLoad";
     protected static final String APP_PREFERENCES_INITIAL_PAUSE      = "InitialPause";
     protected static final String APP_PREFERENCES_INITIAL_SNAPSHOT   = "InitialSnapshot";
+    protected static final String APP_PREFERENCES_SNAPSHOT_SIZE      = "SnapshotSize";
     protected static final String APP_PREFERENCES_INITIAL_PHOTOBOOTH = "InitialPhotoBooth";
     protected static final String APP_PREFERENCES_THEME              = "Theme";
     protected static final String APP_PREFERENCES_EXPOSURE           = "Exposure";
@@ -91,21 +93,22 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     /* Preferences */
     
-    private int    reversePref;
-	private int    orientationPref;
-    private int    frameModePref;
-	private int    framePacksPref;
- 	private int    initialLoadPref;
-	private int    initialPausePref;
-	private int    initialSnapshotPref;
-	private int    initialPhotoBoothPref;
-	protected int  themePref;
-	private String themeColor;
-	private int    exposurePref;
-	private int    whiteBalancePref;
-    private float  zoomPrefF;
-	protected int  hasRatedPref;
-	private int    useCountPref;
+    private   int    reversePref;
+	private   int    orientationPref;
+    private   int    frameModePref;
+	private   int    framePacksPref;
+ 	private   int    initialLoadPref;
+	private   int    initialPausePref;
+	private   int    initialSnapshotPref;
+	private   int    initialPhotoBoothPref;
+	protected int    themePref;
+	private   String themeColor;
+	private   int    exposurePref;
+	private   int    whiteBalancePref;
+    private   float  zoomPrefF;
+	protected int    hasRatedPref;
+	private   int    useCountPref;
+	private   int    snapshotSizePref;
 	
 	/* Camera */
 	
@@ -117,36 +120,38 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	
 	/* Flags */
 
-	private boolean   isPaused = false;
-	private boolean   isPreviewStopped = false;
-	private boolean   isBackCameraFound = false;
-    private boolean   isFrontCameraFound = false;
-    private boolean   isUsingFrontCamera = false;
-    protected boolean isZoomSupported = false;
-    protected boolean isExposureSupported = false;
-    private boolean   isWhiteBalanceSupported = false;
-    private boolean   isFullscreen = true;
-    private boolean   isMirrorMode = true;
-    private boolean   isPortrait;
-    private boolean   isPauseButtonVisible = false;
-    private boolean   isSnapshotButtonVisible = false;
-    private boolean   isPhotoBoothButtonVisible = false;
+	private   boolean   isPaused                  = false;
+	private   boolean   isPreviewStopped          = false;
+	private   boolean   isBackCameraFound         = false;
+    private   boolean   isFrontCameraFound        = false;
+    private   boolean   isUsingFrontCamera        = false;
+    protected boolean   isZoomSupported           = false;
+    protected boolean   isExposureSupported       = false;
+    private   boolean   isWhiteBalanceSupported   = false;
+    private   boolean   isFullscreen              = true;
+    private   boolean   isMirrorMode              = true;
+    private   boolean   isPortrait;
+    private   boolean   isPauseButtonVisible      = false;
+    private   boolean   isSnapshotButtonVisible   = false;
+    private   boolean   isPhotoBoothButtonVisible = false;
     
     /* Objects */
     
-    private Camera                camera = null;
-    private MirrorView            mirrorView;
-    protected SharedPreferences   appSettings;
-    protected Dialog              dialog;
-    private MenuItem              menuItemWB, menuItemMMt, menuItemMMf;
-    private Animation             slideUp, slideDown;
-    private Animation             rightSlideIn, rightSlideOut;
-    private Animation             leftSlideIn, leftSlideOut;
-    private ImageButton           pause, takeSnapshot, takePhotoBooth;
-    protected FrameManager        frameMgr;
-    private Snapshot              snapshot;   // Paid/Ads Only
-    protected Snapshot.ImageSize  imageSize = Snapshot.ImageSize.LARGE;  // Paid/Ads Only
-    private PhotoBooth            booth;      // Paid/Ads Only
+    private   Camera                camera = null;
+    private   MirrorView            mirrorView;
+    protected SharedPreferences     appSettings;
+    protected Dialog                dialog;
+    private   MenuItem              menuItemWhiteBalance;
+    private   MenuItem              menuItemMirrorModeOn;
+    private   MenuItem              menuItemMirrorModeOff;
+    private   Animation             slideUp, slideDown;
+    private   Animation             rightSlideIn, rightSlideOut;
+    private   Animation             leftSlideIn, leftSlideOut;
+    private   ImageButton           pause, takeSnapshot, takePhotoBooth;
+    protected FrameManager          frameMgr;
+    private   Snapshot              snapshot;   // Paid/Ads Only
+    protected Snapshot.ImageSize    imageSize = Snapshot.ImageSize.LARGE;  // Paid/Ads Only
+    private   PhotoBooth            booth;      // Paid/Ads Only
     
     /* Touch */
     
@@ -160,12 +165,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     private int touchState = NONE;
     
-    private PointF start = new PointF();
-    private PointF mid = new PointF();
+    private PointF start     = new PointF();
+    private PointF mid       = new PointF();
     private float  startDist = 1f;
-    private float  lastDist = 0f;
-    private float  minDist = 10f;
-    private float  zoomRate = 0f;
+    private float  lastDist  = 0f;
+    private float  minDist   = 10f;
+    private float  zoomRate  = 0f;
     
     /* Store Links */
     
@@ -219,6 +224,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 		editor.putString(APP_PREFERENCES_ZOOM, Integer.toString(Math.round(zoomPrefF)));
 		editor.putString(APP_PREFERENCES_HAS_RATED, Integer.toString(hasRatedPref));
 		editor.putString(APP_PREFERENCES_USE_COUNT, Integer.toString(useCountPref));
+		editor.putString(APP_PREFERENCES_SNAPSHOT_SIZE, Integer.toString(snapshotSizePref));
 		editor.commit();
     }
     
@@ -265,7 +271,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         	}
         }
 
-        menuItemWB = menu.findItem(R.id.menu_options_white_balance);
+        menuItemWhiteBalance = menu.findItem(R.id.menu_options_white_balance);
         if(whiteBalancePref != 0)
         	setWhiteBalance(whiteBalancePref); // Set the white balance preference
         
@@ -278,19 +284,45 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         else {
 	    	(menu.findItem(R.id.menu_options_screen_rotation_landscape)).setChecked(true);
         }
+    	
+    	if(snapshotSizePref == 2) {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
+    	}
+    	else if(snapshotSizePref == 1) {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_medium)).setChecked(true);
+    	}
+    	else {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
+    	}
+    	Log.d(TAG, "onCreateOptionsMenu: snapshotSizePref: " + snapshotSizePref);
+    	
+    	
         return true;
     }
     
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
     	
-    	menuItemWB = menu.findItem(R.id.menu_options_white_balance);
-    	menuItemMMt = menu.findItem(R.id.menu_options_mirror_mode_on);
-    	menuItemMMf = menu.findItem(R.id.menu_options_mirror_mode_off);
+    	menuItemWhiteBalance = menu.findItem(R.id.menu_options_white_balance);
+    	menuItemMirrorModeOn = menu.findItem(R.id.menu_options_mirror_mode_on);
+    	menuItemMirrorModeOff = menu.findItem(R.id.menu_options_mirror_mode_off);
     	
     	if(reversePref == 0) {
-    		menuItemMMf.setChecked(true);
+    		menuItemMirrorModeOff.setChecked(true);
     	}
+
+    	
+    	if(snapshotSizePref == 2) {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
+    	}
+    	else if(snapshotSizePref == 1) {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_medium)).setChecked(true);
+    	}
+    	else {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
+    	}
+    	Log.d(TAG, "onPrepareOptionsMenu: snapshotSizePref: " + snapshotSizePref);
+    	
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -472,7 +504,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     			isMirrorMode = true;
     			reversePref = 1;
                 mirrorView.mirrorMode(true);
-    			menuItemMMt.setChecked(true);
+    			menuItemMirrorModeOn.setChecked(true);
     			
     			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	        	mirrorView.isPortrait = isPortrait = true;
@@ -489,7 +521,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     			isMirrorMode = true;
     			reversePref = 1;
                 mirrorView.mirrorMode(true);
-    			menuItemMMt.setChecked(true);
+    			menuItemMirrorModeOn.setChecked(true);
     			
         		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 	        	mirrorView.isPortrait = isPortrait = false;
@@ -566,6 +598,24 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         		displayDialog(UPGRADE);
         	result = true;
         }
+	    /* Snapshot Size Large */
+        else if(id == R.id.menu_options_snapshot_size_large) {
+        	snapshotSizePref = 0;
+	    	item.setChecked(true);
+        	Log.d(TAG, "Large Selected");
+        }
+	    /* Snapshot Size Medium */
+        else if(id == R.id.menu_options_snapshot_size_medium) {
+        	snapshotSizePref = 1;
+	    	item.setChecked(true);
+        	Log.d(TAG, "Medium Selected");
+        }
+	    /* Snapshot Size Small */
+        else if(id == R.id.menu_options_snapshot_size_small) {
+        	snapshotSizePref = 2;
+	    	item.setChecked(true);
+        	Log.d(TAG, "Small Selected");
+        }
         /* App Info */
         else if(id == R.id.menu_options_app_info) {
         	displayDialog(APP_INFO_DIALOG);
@@ -619,6 +669,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         zoomPrefF = Integer.parseInt(appSettings.getString(APP_PREFERENCES_ZOOM, "0"));
         hasRatedPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_HAS_RATED, "0"));
         useCountPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_USE_COUNT, "0"));
+        snapshotSizePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_SNAPSHOT_SIZE, "0"));
     }
     
     private void initTheme() {
@@ -900,6 +951,17 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         		else {
         		
 	        		snapshot = new Snapshot(mirrorView, findViewById(R.id.frame_overlay), getApplicationContext());
+	        		
+	        		if(snapshotSizePref == 2) {
+	        			imageSize = Snapshot.ImageSize.SMALL;
+	        		}
+	        		else if(snapshotSizePref == 1) {
+	        			imageSize = Snapshot.ImageSize.MEDIUM;
+	        		}
+	        		else {
+	        			imageSize = Snapshot.ImageSize.LARGE;
+	        		}
+	        		
 	        		snapshot.takePhoto(imageSize);
 	        		try {
 	    	    		ContentValues values = snapshot.savePhoto();
@@ -1282,27 +1344,27 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    	switch(level) {
 			    case 0:
 					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_auto_holo_light);
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_auto_holo_light);
 					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_auto_holo_dark);
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_auto_holo_dark);
 					break;
 				case 1:
 					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_daylight_holo_light);
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_daylight_holo_light);
 					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_daylight_holo_dark);
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_daylight_holo_dark);
 					break;
 				case 2:
 					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_light);
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_light);
 					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_dark);
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_dark);
 					break;
 				case 3:
 					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_light);
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_light);
 					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_dark);
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_dark);
 					break;
 	    	}
 	    	

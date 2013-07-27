@@ -30,6 +30,7 @@
     <attr name="greenThemeIcon" format="reference" />
     <attr name="purpleThemeIcon" format="reference" />
     <attr name="blueThemeIcon" format="reference" />
+    <attr name="snapshotSizeIcon" format="reference" />
     <attr name="infoIcon" format="reference" />
     <attr name="helpIcon" format="reference" />
     <attr name="exitIcon" format="reference" />

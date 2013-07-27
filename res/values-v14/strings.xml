@@ -37,6 +37,11 @@
 		    <string name="menu_options_theme_purple">Purple Theme</string>
 		    <string name="menu_options_theme_blue">Blue Theme</string>
 		    
+    	<string name="menu_options_snapshot_size">Snapshot Size</string>
+		    <string name="menu_options_snapshot_size_large">Large</string>
+		    <string name="menu_options_snapshot_size_medium">Medium</string>
+		    <string name="menu_options_snapshot_size_small">Small</string>
+		    
     	<string name="menu_options_app_info">App Info</string>
     	<string name="menu_options_help">Help</string>
     	
