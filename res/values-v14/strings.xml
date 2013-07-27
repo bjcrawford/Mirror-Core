@@ -13,6 +13,10 @@
     		<string name="menu_options_mirror_mode_on">Mirror Mode On</string>
     		<string name="menu_options_mirror_mode_off">Mirror Mode Off</string>
     		
+    	<string name="menu_options_flip_mode">Flip Mode</string>
+    		<string name="menu_options_flip_mode_on">Flip Mode On</string>
+    		<string name="menu_options_flip_mode_off">Flip Mode Off</string>
+    		
     	<string name="menu_options_switch_camera">Switch Camera</string>
     	
     	<string name="menu_options_screen_rotation">Screen Rotation</string>

@@ -21,6 +21,7 @@
         <item name="wbIncanIcon" >@drawable/menu_options_white_balance_incandescent_holo_dark</item>
         <item name="wbFluorIcon" >@drawable/menu_options_white_balance_fluorescent_holo_dark</item>
         <item name="mirrorIcon" >@drawable/menu_options_mirror_holo_dark</item>
+        <item name="flipIcon" >@drawable/menu_options_flip_holo_dark</item>
         <item name="switchCameraIcon" >@drawable/menu_options_switch_camera_holo_dark</item>
         <item name="screenRotationIcon" >@drawable/menu_options_screen_rotation_holo_dark</item>
         <item name="themesIcon" >@drawable/menu_options_themes_holo_dark</item>
@@ -61,6 +62,7 @@
         <item name="wbIncanIcon" >@drawable/menu_options_white_balance_incandescent_holo_light</item>
         <item name="wbFluorIcon" >@drawable/menu_options_white_balance_fluorescent_holo_light</item>
         <item name="mirrorIcon" >@drawable/menu_options_mirror_holo_light</item>
+        <item name="flipIcon" >@drawable/menu_options_flip_holo_light</item>
         <item name="switchCameraIcon" >@drawable/menu_options_switch_camera_holo_light</item>
         <item name="screenRotationIcon" >@drawable/menu_options_screen_rotation_holo_light</item>
         <item name="themesIcon" >@drawable/menu_options_themes_holo_light</item>

@@ -77,12 +77,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	protected static final String APP_PREFERENCES                    = "AppPrefs";
 	protected static final String APP_PREFERENCES_ORIENTATION        = "Orientation";
 	protected static final String APP_PREFERENCES_REVERSE            = "Reverse";
+	protected static final String APP_PREFERENCES_FLIP               = "Flip";
     protected static final String APP_PREFERENCES_FRAME              = "Frame";
     protected static final String APP_PREFERENCES_FRAME_CHANGED      = "FrameChanged";
     protected static final String APP_PREFERENCES_INITIAL_LOAD       = "InitialLoad";
     protected static final String APP_PREFERENCES_INITIAL_PAUSE      = "InitialPause";
     protected static final String APP_PREFERENCES_INITIAL_SNAPSHOT   = "InitialSnapshot";
-    protected static final String APP_PREFERENCES_SNAPSHOT_SIZE      = "SnapshotSize";
     protected static final String APP_PREFERENCES_INITIAL_PHOTOBOOTH = "InitialPhotoBooth";
     protected static final String APP_PREFERENCES_THEME              = "Theme";
     protected static final String APP_PREFERENCES_EXPOSURE           = "Exposure";
@@ -90,10 +90,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final String APP_PREFERENCES_ZOOM               = "Zoom";
     protected static final String APP_PREFERENCES_HAS_RATED          = "HasRated";
     protected static final String APP_PREFERENCES_USE_COUNT          = "UseCount";
+    protected static final String APP_PREFERENCES_SNAPSHOT_SIZE      = "SnapshotSize";
     
     /* Preferences */
     
     private   int    reversePref;
+    private   int    flipPref;
 	private   int    orientationPref;
     private   int    frameModePref;
 	private   int    framePacksPref;
@@ -216,6 +218,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         // Save preferences
         Editor editor = appSettings.edit();
         editor.putString(APP_PREFERENCES_REVERSE, Integer.toString(reversePref));
+        editor.putString(APP_PREFERENCES_FLIP, Integer.toString(flipPref));
         editor.putString(APP_PREFERENCES_ORIENTATION, Integer.toString(orientationPref));
 		editor.putString(APP_PREFERENCES_FRAME, Integer.toString(frameModePref));
 		editor.putString(APP_PREFERENCES_FRAME_CHANGED, Integer.toString(framePacksPref));
@@ -257,6 +260,17 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	if(reversePref == 0) {
     		mirrorView.mirrorMode(false);
     		isMirrorMode = false;
+    	}
+    	
+    	if(flipPref == 0) {
+    		(menu.findItem(R.id.menu_options_flip_mode_off)).setChecked(true);
+    	//	mirrorView.flipMode(false);
+    	//	isFlipMode = false;
+    	}
+    	else {
+    		(menu.findItem(R.id.menu_options_flip_mode_on)).setChecked(true);
+    	//	mirrorView.flipMode(true);
+    	//	isFlipMode = true;
     	}
     	
     	if(Math.round(zoomPrefF) > 0)
@@ -306,11 +320,15 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	menuItemWhiteBalance = menu.findItem(R.id.menu_options_white_balance);
     	menuItemMirrorModeOn = menu.findItem(R.id.menu_options_mirror_mode_on);
     	menuItemMirrorModeOff = menu.findItem(R.id.menu_options_mirror_mode_off);
+    	//menuItemFlipModeOn = menu.findItem(R.id.menu_options_flip_mode_on);
+    	//menuItemFlipModeOff = menu.findItem(R.id.menu_options_flip_mode_off);
     	
     	if(reversePref == 0) {
     		menuItemMirrorModeOff.setChecked(true);
     	}
-
+    	//if(flipPref == 0) {
+    	//	menuItemFlipModeOff.setChecked(true);
+    	//}
     	
     	if(snapshotSizePref == 2) {
 	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
@@ -484,6 +502,16 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         	}
         	result = true;
         }
+	    /* Flip Mode On */
+        else if(id == R.id.menu_options_flip_mode_on) {
+        	flipPref = 1;
+        	item.setChecked(true);
+        }
+	    /* Flip Mode Off */
+        else if(id == R.id.menu_options_flip_mode_off) {
+        	flipPref = 0;
+        	item.setChecked(true);
+        }
         /* Switch Camera */
         else if(id == R. id.menu_options_switch_camera) {
     		unloadCamera();
@@ -656,6 +684,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private void initPrefs() {
         appSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         reversePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_REVERSE, "1"));
+        flipPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FLIP, "0"));
         orientationPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_ORIENTATION, "0"));
         frameModePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FRAME, "0"));
         framePacksPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FRAME_CHANGED, "0"));

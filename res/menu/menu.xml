@@ -109,6 +109,29 @@
     	    </item>
     	    
     	    <item
+    	        android:id="@+id/menu_options_flip_mode"
+    	        android:title="@string/menu_options_flip_mode"
+			    android:icon="?attr/flipIcon" >
+    	        
+    	        <menu>
+    	            
+		            <group 
+		                android:id="@+id/menu_options_flip_mode_group"
+		                android:checkableBehavior="single" >
+		                
+		                <item 
+		                    android:id="@+id/menu_options_flip_mode_on"
+		                    android:title="@string/menu_options_flip_mode_on"  />
+		                <item 
+		                    android:id="@+id/menu_options_flip_mode_off"
+		                    android:title="@string/menu_options_flip_mode_off" />
+		                
+		            </group>
+		        </menu>
+    	        
+    	    </item>
+    	    
+    	    <item
     	        android:id="@+id/menu_options_switch_camera"
     	        android:title="@string/menu_options_switch_camera"
 			    android:icon="?attr/switchCameraIcon"
