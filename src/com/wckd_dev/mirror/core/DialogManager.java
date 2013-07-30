@@ -5,7 +5,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences.Editor;
 import android.net.Uri;
-import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,45 +94,12 @@ public class DialogManager {
 	    		builder
 	    		.setMessage(R.string.dialog_snapshot_size_text)	
 	    		.setTitle(mirrorActivity.getString(R.string.dialog_snapshot_size_title))
-	    		.setCustomView(R.layout.freaking, mirrorActivity)
 	    		.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
 	    			public void onClick(DialogInterface dialog, int whichButton) {
 	    				// On click, no action. Dialog closed
-	    				Log.d(TAG, "Size Selected:" + mirrorActivity.imageSize);
-	    			}
-	    		});
-	    		
-	    		// TODO - Implement setItems method on snapshot size selection dialog
-	    		
-	    		// This array can be used along with the setItems method below for a cleaner looking
-	    		// way of letting the user select a size. However, the QustomBuilderDialog needs to be
-	    		// modified to correctly handle the setItems method
-	    		/*
-	    		CharSequence[] sizes = {  mirrorActivity.getString(R.string.dialog_snapshot_size_small), 
-	    				                  mirrorActivity.getString(R.string.dialog_snapshot_size_medium), 
-	    						          mirrorActivity.getString(R.string.dialog_snapshot_size_large)  };
-	    	    			          
-	    		builder
-	    		.setItems(sizes, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
 	    				
-	    				switch(whichButton) {
-	    					case 0:
-	    						mirrorActivity.imageSize = Snapshot.ImageSize.SMALL;
-	    						Log.d(TAG, "Size small chosen");
-	    						break;
-	    					case 1:
-	    						mirrorActivity.imageSize = Snapshot.ImageSize.MEDIUM;
-	    						Log.d(TAG, "Size medium chosen");
-	    						break;
-	    					case 2:
-	    						mirrorActivity.imageSize = Snapshot.ImageSize.LARGE;
-	    						Log.d(TAG, "Size large chosen");
-	    						break;
-	    				}
 	    			}
 	    		});
-	    		*/
 	    		
 	    		break;
 	

@@ -20,6 +20,7 @@
     <attr name="wbIncanIcon" format="reference" />
     <attr name="wbFluorIcon" format="reference" />
     <attr name="mirrorIcon" format="reference" />
+    <attr name="flipIcon" format="reference" />
     <attr name="switchCameraIcon" format="reference" />
     <attr name="screenRotationIcon" format="reference" />
     <attr name="themesIcon" format="reference" />
@@ -30,6 +31,7 @@
     <attr name="greenThemeIcon" format="reference" />
     <attr name="purpleThemeIcon" format="reference" />
     <attr name="blueThemeIcon" format="reference" />
+    <attr name="snapshotSizeIcon" format="reference" />
     <attr name="infoIcon" format="reference" />
     <attr name="helpIcon" format="reference" />
     <attr name="exitIcon" format="reference" />
