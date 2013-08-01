@@ -40,5 +40,16 @@
     
     <attr name="dialogColor" format="reference" />
     
+    <!--  These custom attributes were not working when referenced from seekbar xmls
+    <attr name="scrubberTrack" format="reference" />
+    <attr name="scrubberPrimary" format="reference" />
+    <attr name="scrubberSecondary" format="reference" />
+    <attr name="scrubberControlDisabled" format="reference" />
+    <attr name="scrubberControlPressed" format="reference" />
+    <attr name="scrubberControlFocused" format="reference" />
+    <attr name="scrubberControlNormal" format="reference" />
+    -->
+    
+    
   </declare-styleable>
 </resources>

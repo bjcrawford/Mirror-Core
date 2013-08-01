@@ -17,6 +17,7 @@ import android.content.SharedPreferences;
 import android.content.SharedPreferences.Editor;
 import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
+import android.content.res.TypedArray;
 import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.hardware.Camera;
@@ -1142,6 +1143,43 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     protected void initZoomSeekBar(SeekBar zoomSeek) {
     	
+    	switch(themePref) {
+	        case 1:
+	        	setTheme(R.style.HoloDark);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_dark));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_dark));
+	        	break;
+	        case 2:
+	        	setTheme(R.style.HoloLight);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_light));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_light));
+	        	break;
+	        case 3:
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_red));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_red));
+	        	break;
+	        case 4:
+	        	setTheme(R.style.HoloOrange);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_orange));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_orange));
+	        	break;
+	        case 5:
+	        	setTheme(R.style.HoloGreen);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_green));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_green));
+	        	break;
+	        case 6:
+	        	setTheme(R.style.HoloPurple);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_purple));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_purple));
+	        	break;
+	        case 7:
+	        	setTheme(R.style.HoloBlue);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_blue));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_blue));
+	        	break;
+    	}
+    	
     	zoomSeek.setMax(mirrorView.getZoomMax());
 		zoomSeek.setProgress(Math.round(zoomPrefF) == -1 ? 0 : Math.round(zoomPrefF));
 		zoomSeek.setPadding(50, 20, 50, 20);
@@ -1151,15 +1189,16 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 				zoomPrefF = seekBar.getProgress();
 				setZoom(Math.round(zoomPrefF));
             }
+			
             public void onStartTrackingTouch(SeekBar seekBar) {
                 
             }
+            
             public void onStopTrackingTouch(SeekBar seekBar) {
             	zoomPrefF = seekBar.getProgress();
 				setZoom(Math.round(zoomPrefF));
             }
 		});
-		
     }
     
     @Override
