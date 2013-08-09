@@ -51,7 +51,7 @@ public class PhotoBooth {
 	
 	public void takePhotoOne() {
 		
-		Bitmap rawPhotoOne = Bitmap.createBitmap(mirror.grabMirrorImage(Snapshot.ImageSize.SMALL));
+		Bitmap rawPhotoOne = Bitmap.createBitmap(mirror.getMirrorImage(Snapshot.ImageSize.SMALL));
 		Toast.makeText(context, R.string.toast_photo_one, Toast.LENGTH_SHORT).show();
 		
 		frameView.setDrawingCacheEnabled(true);
@@ -73,7 +73,7 @@ public class PhotoBooth {
 	
 	public void takePhotoTwo() {
 		
-		Bitmap rawPhotoTwo = Bitmap.createBitmap(mirror.grabMirrorImage(Snapshot.ImageSize.SMALL));
+		Bitmap rawPhotoTwo = Bitmap.createBitmap(mirror.getMirrorImage(Snapshot.ImageSize.SMALL));
 		Toast.makeText(context, R.string.toast_photo_two, Toast.LENGTH_SHORT).show();
 		
 		while(!isOneFinished) {
@@ -92,7 +92,7 @@ public class PhotoBooth {
 	
 	public void takePhotoThree() {
 		
-		Bitmap rawPhotoThree = Bitmap.createBitmap(mirror.grabMirrorImage(Snapshot.ImageSize.SMALL));
+		Bitmap rawPhotoThree = Bitmap.createBitmap(mirror.getMirrorImage(Snapshot.ImageSize.SMALL));
 		Toast.makeText(context, R.string.toast_photo_three, Toast.LENGTH_SHORT).show();
 		
 		while(!isTwoFinished) {
@@ -111,7 +111,7 @@ public class PhotoBooth {
 
 	public void takePhotoFour() {
 		
-		Bitmap rawPhotoFour = Bitmap.createBitmap(mirror.grabMirrorImage(Snapshot.ImageSize.SMALL));
+		Bitmap rawPhotoFour = Bitmap.createBitmap(mirror.getMirrorImage(Snapshot.ImageSize.SMALL));
 		Toast.makeText(context, R.string.toast_photo_four, Toast.LENGTH_SHORT).show();
 		
 		while(!isThreeFinished) {
