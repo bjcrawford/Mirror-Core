@@ -1,11 +1,11 @@
-# built application files
+# application files
 *.apk
 *.ap_
 
-# files for the dex VM
+# dex VM files
 *.dex
 
-# Java class files
+# java class files
 *.class
 
 # generated files
