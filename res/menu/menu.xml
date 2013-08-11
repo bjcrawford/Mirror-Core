@@ -159,6 +159,7 @@
     	        android:id="@+id/menu_options_switch_camera"
     	        android:title="@string/menu_options_switch_camera"
 			    android:icon="?attr/switchCameraIcon"
+			    android:visible="false"
 			    android:enabled="false"  />
     	    
     	    <item

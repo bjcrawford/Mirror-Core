@@ -291,10 +291,10 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         if(whiteBalancePref != 0)
         	setWhiteBalance(whiteBalancePref); // Set the white balance preference
         
-        // TODO - If no rear camera exists, do not show menu option
-        
-        if(numberOfCameras > 1) 
+        if(numberOfCameras > 1) {
         	(menu.findItem(R.id.menu_options_switch_camera)).setEnabled(true);
+        	(menu.findItem(R.id.menu_options_switch_camera)).setVisible(true);
+        }
 
     	if(isPortrait) {
 	    	(menu.findItem(R.id.menu_options_screen_rotation_portrait)).setChecked(true);
