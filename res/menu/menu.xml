@@ -132,12 +132,6 @@
     	    </item>
     	    
     	    <item
-    	        android:id="@+id/menu_options_switch_camera"
-    	        android:title="@string/menu_options_switch_camera"
-			    android:icon="?attr/switchCameraIcon"
-			    android:enabled="false"  />
-    	    
-    	    <item
     	        android:id="@+id/menu_options_screen_rotation"
     	        android:title="@string/menu_options_screen_rotation"
 			    android:icon="?attr/screenRotationIcon" >
@@ -160,6 +154,12 @@
 		        </menu>
     	        
     	    </item>
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_switch_camera"
+    	        android:title="@string/menu_options_switch_camera"
+			    android:icon="?attr/switchCameraIcon"
+			    android:enabled="false"  />
     	    
     	    <item
     	        android:id="@+id/menu_options_themes"
