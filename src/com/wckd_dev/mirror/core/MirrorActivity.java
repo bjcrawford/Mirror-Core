@@ -21,6 +21,7 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
 import android.util.FloatMath;
@@ -289,6 +290,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         menuItemWhiteBalance = menu.findItem(R.id.menu_options_white_balance);
         if(whiteBalancePref != 0)
         	setWhiteBalance(whiteBalancePref); // Set the white balance preference
+        
+        // TODO - If no rear camera exists, do not show menu option
         
         if(numberOfCameras > 1) 
         	(menu.findItem(R.id.menu_options_switch_camera)).setEnabled(true);
@@ -1313,9 +1316,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     }
      
     protected void sendBugReport(String subject) {
-    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);  
-		String aEmailList[] = { "wckd.dev@gmail.com" };
-		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList); 
+    	Intent emailIntent = new Intent(android.content.Intent.ACTION_VIEW); 
+    	emailIntent.setData(Uri.parse("mailto:wckd.dev@gmail.com"));
 		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);  
 		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "" +
 				getResources().getString(R.string.bug_report) +
