@@ -895,61 +895,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         }
     }
     
-    private void loadCamera() {
-    	if(camera == null) {
-        	
-		    try {
-		        camera = Camera.open(currentCameraId);
-			    if(isPortrait)
-			    	camera.setDisplayOrientation(90);
-			    else
-			    	camera.setDisplayOrientation(0);
-		    	mirrorView.setCamera(camera); //
-		    	Camera.Parameters parameters = camera.getParameters();
-		    	isZoomSupported = parameters.isZoomSupported();
-		    	if(parameters.getMinExposureCompensation() != 0 || parameters.getMaxExposureCompensation() != 0 ) 
-		    		isExposureSupported = true;
-		    	if(parameters.getWhiteBalance() != null)
-		    		isWhiteBalanceSupported = true;
-		    } 
-	        catch(RuntimeException e) {
-	        		displayDialog(CAMERA_NOT_FOUND);
-	        		e.printStackTrace();
-	        }
-		    
-		    if(isPreviewStopped) {
-		    	mirrorView.startPreview();
-		    	isPreviewStopped = false;
-		    }
-        }
-    }
-    
-    private void unloadCamera() {
-    	if (camera != null) {
-            
-            try { 
-            	mirrorView.setCamera(null);
-            }
-            catch(RuntimeException e) {
-	        	Toast.makeText(this, "Error Unloading Camera", Toast.LENGTH_SHORT).show();
-	        }
-            
-            camera.stopPreview();
-            isPreviewStopped = true;
-            camera.release();
-            camera = null;
-        }
-    }
-    
-    private void initOnTouchListener() {
-	    // Initialize onTouchListener
-	    ImageView view = (ImageView) findViewById(R.id.invis_button);
-	    view.setOnTouchListener(this);
-	    
-	    matrix = new Matrix();
-	    savedMatrix = new Matrix();
-    }
-    
     private void initPauseButton() {
     	// Prepare pause button
         pause = (ImageButton) findViewById(R.id.pause_button);
@@ -1067,48 +1012,13 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         });
     }
     
-    private void showWelcomeDialog() {
-    	// If first load, display instruction dialog
-    	if(initialLoadPref != INFO_DIALOGS) {
-    		initialLoadPref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_LOAD, Integer.toString(initialLoadPref));
-    		editor.commit();
-    		displayDialog(WELCOME_DIALOG);	
-    	}
-    }
-    
-    private void showSnapshotDialog() {
-    	// If first button press, display instruction dialog
-    	if(initialSnapshotPref != INFO_DIALOGS) {
-    		initialSnapshotPref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_SNAPSHOT, Integer.toString(initialSnapshotPref));
-    		editor.commit();
-    		displayDialog(SNAPSHOT_DIALOG);	
-    	}
-    }
-    
-    private void showPhotoBoothDialog() {
-    	// If first button press, display instruction dialog
-    	if(initialPhotoBoothPref != INFO_DIALOGS) {
-    		initialPhotoBoothPref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, Integer.toString(initialPhotoBoothPref));
-    		editor.commit();
-    		displayDialog(PHOTOBOOTH_DIALOG);	
-    	}
-    }
-    
-    private void showPauseDialog() {
-    	// If first button press, display instruction dialog
-    	if(initialPausePref != INFO_DIALOGS) {
-    		initialPausePref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_PAUSE, Integer.toString(initialPausePref));
-    		editor.commit();
-    		displayDialog(PAUSE_DIALOG);	
-    	}
+    private void initOnTouchListener() {
+	    // Initialize onTouchListener
+	    ImageView view = (ImageView) findViewById(R.id.invis_button);
+	    view.setOnTouchListener(this);
+	    
+	    matrix = new Matrix();
+	    savedMatrix = new Matrix();
     }
     
     protected void initExpSeekBar(SeekBar expSeek) {
@@ -1204,108 +1114,98 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 		});
     }
     
-    @Override
-    public boolean onTouch(View v, MotionEvent event) {
-    	
-    	switch(event.getAction() & MotionEvent.ACTION_MASK){
-    	
-    		case MotionEvent.ACTION_DOWN:
-				savedMatrix.set(matrix);
-				start.set(event.getX(), event.getY());
-    			touchState = PRESS;
-    			break;
-    			
-    		case MotionEvent.ACTION_POINTER_DOWN:
-    			startDist = spacing(event);
-    	        if (startDist > minDist) {
-    	           savedMatrix.set(matrix);
-    	           midPoint(mid, event);
-    	           touchState = ZOOM;
-    	        }
-    			break;
-    			
-    		case MotionEvent.ACTION_UP:
-    			if(touchState == PRESS) {
-	    			float moveDist = spacing(event, start);
-	    			if(moveDist < minDist) {
-	    				fullScreenClick();
-	    			}
-    			}
-    			break;
-    			
-    		case MotionEvent.ACTION_POINTER_UP:
-    			if(touchState == ZOOM) {
-        			touchState = NONE;
-    			}
-    			break;
-    			
-    		case MotionEvent.ACTION_MOVE:
-    			if ( (touchState == PRESS && spacing(event, start) > minDist) || touchState == DRAG) {
-    	            matrix.set(savedMatrix);
-    	            matrix.postTranslate(event.getX() - start.x,
-    	                  event.getY() - start.y);
-    	            touchState = DRAG;
-    	         }
-    	         else if (touchState == ZOOM) {
-    	            float nowDist = spacing(event);
-    	            if (nowDist > minDist) {
-    	               matrix.set(savedMatrix);
-    	               float scale = nowDist / startDist;
-    	               matrix.postScale(scale, scale, mid.x, mid.y);
-    	               
-    	               if(nowDist > lastDist) 
-    	            	   zoomIn();
-    	               else 
-    	            	   zoomOut();
-    	            }
-    	            lastDist = nowDist;
-    	         }
-    			 break;
-    	}
-    	
-    	return true;
-    }
+    // TODO - These show<action>Dialog methods could be condensed into one method
+    // or they could be removed in favor of something else
     
-    private void zoomIn() {
-    	if(zoomRate == 0f) 
-    		zoomRate = mirrorView.getZoomMax() * 0.02f;
-    	if(zoomPrefF < (mirrorView.getZoomMax() - zoomRate)) {
-    		zoomPrefF += zoomRate;
-    		setZoom(Math.round(zoomPrefF));
+    private void showWelcomeDialog() {
+    	// If first load, display instruction dialog
+    	if(initialLoadPref != INFO_DIALOGS) {
+    		initialLoadPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_LOAD, Integer.toString(initialLoadPref));
+    		editor.commit();
+    		displayDialog(WELCOME_DIALOG);	
     	}
     }
     
-    private void zoomOut() {
-    	if(zoomRate == 0f) 
-    		zoomRate = mirrorView.getZoomMax() * 0.02f;
-    	if(zoomPrefF > (0 + zoomRate)) {
-    		zoomPrefF -= zoomRate;
-    		setZoom(Math.round(zoomPrefF));
+    private void showSnapshotDialog() {
+    	// If first button press, display instruction dialog
+    	if(initialSnapshotPref != INFO_DIALOGS) {
+    		initialSnapshotPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_SNAPSHOT, Integer.toString(initialSnapshotPref));
+    		editor.commit();
+    		displayDialog(SNAPSHOT_DIALOG);	
     	}
     }
     
-    /** Determine the space between a finger and a saved point */
-    @SuppressLint("FloatMath")
-	private float spacing(MotionEvent event, PointF point) {
-        float x = event.getX() - point.x;
-        float y = event.getY() - point.y;
-        return FloatMath.sqrt(x * x + y * y);
-     }
+    private void showPhotoBoothDialog() {
+    	// If first button press, display instruction dialog
+    	if(initialPhotoBoothPref != INFO_DIALOGS) {
+    		initialPhotoBoothPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, Integer.toString(initialPhotoBoothPref));
+    		editor.commit();
+    		displayDialog(PHOTOBOOTH_DIALOG);	
+    	}
+    }
     
-    /** Determine the space between the first two fingers */
-    @SuppressLint("FloatMath")
-	private float spacing(MotionEvent event) {
-        float x = event.getX(0) - event.getX(1);
-        float y = event.getY(0) - event.getY(1);
-        return FloatMath.sqrt(x * x + y * y);
-     }
-
-     /** Calculate the mid point of the first two fingers */
-     private void midPoint(PointF point, MotionEvent event) {
-        float x = event.getX(0) + event.getX(1);
-        float y = event.getY(0) + event.getY(1);
-        point.set(x / 2, y / 2);
-     }
+    private void showPauseDialog() {
+    	// If first button press, display instruction dialog
+    	if(initialPausePref != INFO_DIALOGS) {
+    		initialPausePref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_PAUSE, Integer.toString(initialPausePref));
+    		editor.commit();
+    		displayDialog(PAUSE_DIALOG);	
+    	}
+    }
+    
+    private void loadCamera() {
+    	if(camera == null) {
+        	
+		    try {
+		        camera = Camera.open(currentCameraId);
+			    if(isPortrait)
+			    	camera.setDisplayOrientation(90);
+			    else
+			    	camera.setDisplayOrientation(0);
+		    	mirrorView.setCamera(camera); //
+		    	Camera.Parameters parameters = camera.getParameters();
+		    	isZoomSupported = parameters.isZoomSupported();
+		    	if(parameters.getMinExposureCompensation() != 0 || parameters.getMaxExposureCompensation() != 0 ) 
+		    		isExposureSupported = true;
+		    	if(parameters.getWhiteBalance() != null)
+		    		isWhiteBalanceSupported = true;
+		    } 
+	        catch(RuntimeException e) {
+	        		displayDialog(CAMERA_NOT_FOUND);
+	        		e.printStackTrace();
+	        }
+		    
+		    if(isPreviewStopped) {
+		    	mirrorView.startPreview();
+		    	isPreviewStopped = false;
+		    }
+        }
+    }
+    
+    private void unloadCamera() {
+    	if (camera != null) {
+            
+            try { 
+            	mirrorView.setCamera(null);
+            }
+            catch(RuntimeException e) {
+	        	Toast.makeText(this, "Error Unloading Camera", Toast.LENGTH_SHORT).show();
+	        }
+            
+            camera.stopPreview();
+            isPreviewStopped = true;
+            camera.release();
+            camera = null;
+        }
+    }
     
      private void displayDialog(int id) {     
     	QustomDialogBuilder builder = new QustomDialogBuilder(this);
@@ -1334,29 +1234,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 				"\n" + mirrorView.getDisplayInfo());   
 		startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.bug_report_send))); 
 		MirrorActivity.this.finish();
-    }
-    
-    private void fullScreenClick() {
-		
-		// Exit fullscreen mode
-		if(isFullscreen) {
-			
-	        showWelcomeDialog();
-			
-			// Show navigation and notification bar
-			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE); 
-			getActionBar().show(); // Show action bar
-			isFullscreen = false;
-			mirrorView.isFullscreen = false;
-		}
-		// Enter fullscreen mode
-		else {
-			// Hide notification bar and set navigation bar to low profile
-			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LOW_PROFILE);
-			getActionBar().hide(); // Hide action bar
-			isFullscreen = true;
-			mirrorView.isFullscreen = true;
-		}
     }
 
     protected void setFrame(int position) {
@@ -1449,4 +1326,132 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 			whiteBalancePref = 0;
 		}
     }
+    
+    @Override
+    public boolean onTouch(View v, MotionEvent event) {
+    	
+    	switch(event.getAction() & MotionEvent.ACTION_MASK){
+    	
+    		case MotionEvent.ACTION_DOWN:
+				savedMatrix.set(matrix);
+				start.set(event.getX(), event.getY());
+    			touchState = PRESS;
+    			break;
+    			
+    		case MotionEvent.ACTION_POINTER_DOWN:
+    			startDist = spacing(event);
+    	        if (startDist > minDist) {
+    	           savedMatrix.set(matrix);
+    	           midPoint(mid, event);
+    	           touchState = ZOOM;
+    	        }
+    			break;
+    			
+    		case MotionEvent.ACTION_UP:
+    			if(touchState == PRESS) {
+	    			float moveDist = spacing(event, start);
+	    			if(moveDist < minDist) {
+	    				fullScreenClick();
+	    			}
+    			}
+    			break;
+    			
+    		case MotionEvent.ACTION_POINTER_UP:
+    			if(touchState == ZOOM) {
+        			touchState = NONE;
+    			}
+    			break;
+    			
+    		case MotionEvent.ACTION_MOVE:
+    			if ( (touchState == PRESS && spacing(event, start) > minDist) || touchState == DRAG) {
+    	            matrix.set(savedMatrix);
+    	            matrix.postTranslate(event.getX() - start.x,
+    	                  event.getY() - start.y);
+    	            touchState = DRAG;
+    	         }
+    	         else if (touchState == ZOOM) {
+    	            float nowDist = spacing(event);
+    	            if (nowDist > minDist) {
+    	               matrix.set(savedMatrix);
+    	               float scale = nowDist / startDist;
+    	               matrix.postScale(scale, scale, mid.x, mid.y);
+    	               
+    	               if(nowDist > lastDist) 
+    	            	   zoomIn();
+    	               else 
+    	            	   zoomOut();
+    	            }
+    	            lastDist = nowDist;
+    	         }
+    			 break;
+    	}
+    	
+    	return true;
+    }
+    
+    /** Determine the space between a finger and a saved point */
+    @SuppressLint("FloatMath")
+	private float spacing(MotionEvent event, PointF point) {
+        float x = event.getX() - point.x;
+        float y = event.getY() - point.y;
+        return FloatMath.sqrt(x * x + y * y);
+     }
+    
+    /** Determine the space between the first two fingers */
+    @SuppressLint("FloatMath")
+	private float spacing(MotionEvent event) {
+        float x = event.getX(0) - event.getX(1);
+        float y = event.getY(0) - event.getY(1);
+        return FloatMath.sqrt(x * x + y * y);
+     }
+
+     /** Calculate the mid point of the first two fingers */
+     private void midPoint(PointF point, MotionEvent event) {
+        float x = event.getX(0) + event.getX(1);
+        float y = event.getY(0) + event.getY(1);
+        point.set(x / 2, y / 2);
+     }
+     
+     private void fullScreenClick() {
+ 		
+ 		// Exit fullscreen mode
+ 		if(isFullscreen) {
+ 			
+ 	        showWelcomeDialog();
+ 			
+ 			// Show navigation and notification bar
+ 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE); 
+ 			getActionBar().show(); // Show action bar
+ 			isFullscreen = false;
+ 			mirrorView.isFullscreen = false;
+ 		}
+ 		// Enter fullscreen mode
+ 		else {
+ 			// Hide notification bar and set navigation bar to low profile
+ 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LOW_PROFILE);
+ 			getActionBar().hide(); // Hide action bar
+ 			isFullscreen = true;
+ 			mirrorView.isFullscreen = true;
+ 		}
+     }
+     
+     private void zoomIn() {
+     	if(zoomRate == 0f) 
+     		zoomRate = mirrorView.getZoomMax() * 0.02f;
+     	if(zoomPrefF < (mirrorView.getZoomMax() - zoomRate)) {
+     		zoomPrefF += zoomRate;
+     		setZoom(Math.round(zoomPrefF));
+     	}
+     }
+     
+     private void zoomOut() {
+     	if(zoomRate == 0f) 
+     		zoomRate = mirrorView.getZoomMax() * 0.02f;
+     	if(zoomPrefF > (0 + zoomRate)) {
+     		zoomPrefF -= zoomRate;
+     		setZoom(Math.round(zoomPrefF));
+     	}
+     }
+    
+    
 }
