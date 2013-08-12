@@ -154,7 +154,6 @@ public class DialogManager {
 	            builder.setView(layout);  // Set builder to custom view
 	            break;
 	
-	    // TODO - Zoom and exposure dialogs need to be themed
 	    /* Zoom */
 	    	case MirrorActivity.ZOOM_DIALOG:
 	    		

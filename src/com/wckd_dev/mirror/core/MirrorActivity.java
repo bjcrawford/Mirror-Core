@@ -569,9 +569,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
             result = true;
         }	
 
-	    // TODO - Custom theme should bring up dialog asking for theme color choices.
-	    // Allow users to seperately choose action bar and text/accent colors from android colors
-	    
         /* Dark Theme */
         else if(id == R.id.menu_options_theme_dark) {
         	themePref = 1;
@@ -1022,6 +1019,44 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     }
     
     protected void initExpSeekBar(SeekBar expSeek) {
+    	
+    	switch(themePref) {
+	        case 1:
+	        	setTheme(R.style.HoloDark);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_dark));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_dark));
+	        	break;
+	        case 2:
+	        	setTheme(R.style.HoloLight);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_light));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_light));
+	        	break;
+	        case 3:
+	        	setTheme(R.style.HoloRed);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_red));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_red));
+	        	break;
+	        case 4:
+	        	setTheme(R.style.HoloOrange);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_orange));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_orange));
+	        	break;
+	        case 5:
+	        	setTheme(R.style.HoloGreen);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_green));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_green));
+	        	break;
+	        case 6:
+	        	setTheme(R.style.HoloPurple);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_purple));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_purple));
+	        	break;
+	        case 7:
+	        	setTheme(R.style.HoloBlue);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_blue));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_blue));
+	        	break;
+    	}
     	
     	int[] range = mirrorView.getExposureRange();
 		expSeek.setMax(range[1] - range[0]);
