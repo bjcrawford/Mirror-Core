@@ -71,7 +71,6 @@
     <string name="dialog_frames_divider">Divider Image</string>
     <string name="dialog_frames_add_ons">Add More Frames</string>
     
-    <!-- TODO - Change app info to custom dialog, split text string -->
     
     <string name="dialog_app_info_title">App Info</string>
     <string name="dialog_app_info_text">Thanks for downloading Mirror. I hope you are enjoying the 
@@ -89,8 +88,7 @@
     <string name="dialog_upgrade_title">Upgrade!</string>	  
     <string name="dialog_upgrade_text">This feature is only available in the premium or advertisement version of Mirror. Please 
         					           upgrade to support continued development of this app. Thanks!</string>
-        					  
-    <!-- TODO - Change welcome to custom dialog, split text string -->
+
     
     <string name="dialog_welcome_title">Welcome!</string>
 	<string name="dialog_welcome_text"><b>What\'s New</b>\n
@@ -172,8 +170,7 @@
         							      \n
         							      Please let me know if you experience 
         							      any issues while using PhotoBooth mode. Thanks! and Enjoy!</string>
-        							   
-    <!-- TODO - Move help section to website -->
+
     
     <string name="dialog_help_title">Help</string>
     <string name="dialog_help_text">If you are have any problems, please don\'t hesitate to 
