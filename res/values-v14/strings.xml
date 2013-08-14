@@ -338,5 +338,7 @@
     <string name="folder_name">Mirror Snapshots</string>
     
     <string name="frame_descr">Frame Overlay</string>
+    
+    <string name="testing">Tap anywhere to show/hide the action bar</string>
 
 </resources>
