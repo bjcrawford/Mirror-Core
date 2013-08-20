@@ -397,25 +397,24 @@ public class DialogManager {
 	    		mirrorActivity.dialog = null;     
 	    }		
         
-		
-		if(id == MirrorActivity.APP_INFO_DIALOG) {
-			
-			// This block of code show a text only dialog (transparent dialog background)
-			// on top of a dimmed background view.
-			Dialog dialog = new Dialog(mirrorActivity);
-			dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-			dialog.setContentView(R.layout.welcome);
-			dialog.show();
-        	Window window = dialog.getWindow();
-        	window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-            WindowManager.LayoutParams wlp = window.getAttributes();
+		// TODO - Replace wall of text dialogs with this
+		/*
+		// This block of code shows a text only dialog (transparent dialog background)
+		// on top of a dimmed background view.
+		Dialog dialog = new Dialog(mirrorActivity);
+		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		dialog.setContentView(R.layout.welcome);
+		dialog.show();
+    	Window window = dialog.getWindow();
+    	window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        WindowManager.LayoutParams wlp = window.getAttributes();
 
-    		wlp.gravity = Gravity.CENTER;
-    		wlp.dimAmount = 0.5f;
-    		window.setAttributes(wlp);
-        }
-		else
-	        mirrorActivity.dialog = builder.show();
+		wlp.gravity = Gravity.CENTER;
+		wlp.dimAmount = 0.5f;
+		window.setAttributes(wlp);
+    	*/
+    		
+	   mirrorActivity.dialog = builder.show();
 			
 
         
