@@ -160,7 +160,7 @@
 	
     <style 
         name="HoloPurple" 
-        parent="HoloLight">
+        parent="HoloDark">
 
   		<item name="android:actionBarStyle">@style/actionBarPurple</item>
         <item name="dialogColor" >@android:color/holo_purple</item>

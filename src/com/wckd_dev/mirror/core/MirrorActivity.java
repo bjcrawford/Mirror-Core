@@ -303,16 +303,26 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    	(menu.findItem(R.id.menu_options_screen_rotation_landscape)).setChecked(true);
         }
     	
-    	if(snapshotSizePref == 2) {
-	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
-    	}
-    	else if(snapshotSizePref == 1) {
-	    	(menu.findItem(R.id.menu_options_snapshot_size_medium)).setChecked(true);
+
+    	if(version.compareTo("free") != 0) {
+
+        	if(snapshotSizePref == 2) {
+    	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
+        	}
+        	else if(snapshotSizePref == 1) {
+    	    	(menu.findItem(R.id.menu_options_snapshot_size_medium)).setChecked(true);
+        	}
+        	else {
+    	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
+        	}
+        	Log.d(TAG, "onCreateOptionsMenu: snapshotSizePref: " + snapshotSizePref);
     	}
     	else {
-	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
+
+        	(menu.findItem(R.id.menu_options_snapshot_size)).setEnabled(false);
+        	(menu.findItem(R.id.menu_options_snapshot_size)).setVisible(false);
     	}
-    	Log.d(TAG, "onCreateOptionsMenu: snapshotSizePref: " + snapshotSizePref);
+    	
     	
     	
         return true;
@@ -1330,25 +1340,25 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    	
 	    	switch(level) {
 			    case 0:
-					if(themePref == 2) 
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
 			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_auto_holo_light);
 					else
 				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_auto_holo_dark);
 					break;
 				case 1:
-					if(themePref == 2) 
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7)  
 			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_daylight_holo_light);
 					else
 				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_daylight_holo_dark);
 					break;
 				case 2:
-					if(themePref == 2) 
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7)  
 			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_light);
 					else
 				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_dark);
 					break;
 				case 3:
-					if(themePref == 2) 
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7)  
 			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_light);
 					else
 				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_dark);
