@@ -19,6 +19,7 @@ import android.content.pm.ActivityInfo;
 import android.content.res.Resources;
 import android.graphics.Matrix;
 import android.graphics.PointF;
+import android.graphics.drawable.ColorDrawable;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.net.Uri;
@@ -26,6 +27,7 @@ import android.os.Bundle;
 import android.provider.MediaStore.Images;
 import android.util.FloatMath;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -33,6 +35,7 @@ import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnTouchListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
 import android.widget.ImageButton;
@@ -666,7 +669,22 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         }
         /* Help */
         else if(id == R.id.menu_options_help) {
-        	displayDialog(HELP_DIALOG);
+        	//displayDialog(HELP_DIALOG);
+        	
+        	
+        	Dialog dialog = new Dialog(this);
+    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+    		dialog.setContentView(R.layout.welcome);
+    		dialog.show();
+        	Window window = dialog.getWindow();
+        	window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+            WindowManager.LayoutParams wlp = window.getAttributes();
+
+    		wlp.gravity = Gravity.CENTER;
+    		wlp.dimAmount = 0.5f;
+    		window.setAttributes(wlp);
+        	
+      
         	result = true;
         }
         /* Exit */

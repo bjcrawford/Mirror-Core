@@ -339,6 +339,8 @@
     
     <string name="frame_descr">Frame Overlay</string>
     
-    <string name="testing">Tap anywhere to show/hide the action bar</string>
+    <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar</string>
+    <string name="dialog_welcome_two_text_top">Settings</string>
+    <string name="dialog_welcome_two_text_center">Pinch to zoom in/out</string>
 
 </resources>
