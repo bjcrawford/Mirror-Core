@@ -1,6 +1,5 @@
 package com.wckd_dev.mirror.core;
 
-import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -26,99 +25,10 @@ public class DialogManager {
 	
 	public static final String TAG = "wckd";
 
-	public static boolean buildDialog(final MirrorActivity mirrorActivity, int id, QustomDialogBuilder builder) {
+	public static boolean buildQustomDialog(final MirrorActivity mirrorActivity, int id, QustomDialogBuilder builder) {
 		boolean result = true;
 		switch(id) {   
 	    
-	    /* Welcome */
-		
-		// TODO - Custom dialog on welcome?
-	    	case MirrorActivity.WELCOME_DIALOG:
-			
-	    		builder
-	    		.setMessage(R.string.dialog_welcome_text)	
-	    		.setTitle(mirrorActivity.getString(R.string.dialog_welcome_title))
-	    		.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				// On click, no action. Dialog closed
-	    			}
-	    		})
-	    		.setNeutralButton(R.string.button_frames, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				Uri uriUrl = Uri.parse(MirrorActivity.frameLink);
-	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to wckd_dev apps
-	    				mirrorActivity.finish();
-	    			}
-	    		})
-	    		.setNegativeButton(R.string.button_rate, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				Uri uriUrl = Uri.parse(MirrorActivity.rateLink);
-	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to rate mirror free
-	    		        mirrorActivity.finish();
-	    			}
-	    		});
-		
-	    		break;
-	
-	    /* Pause */
-	    	case MirrorActivity.PAUSE_DIALOG:
-	    		
-	    		builder
-	    		.setMessage(R.string.dialog_pause_text)	
-	    		.setTitle(mirrorActivity.getString(R.string.dialog_pause_title))
-	    		.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				// On click, no action. Dialog closed
-	    			}
-	    		});
-		
-	    		break;
-	
-	    /* Snapshot */
-	    	case MirrorActivity.SNAPSHOT_DIALOG:
-	    		
-	    		builder
-	    		.setMessage(R.string.dialog_snapshot_text)	
-	    		.setTitle(mirrorActivity.getString(R.string.dialog_snapshot_title))
-	    		.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				// On click, no action. Dialog closed
-	    			}
-	    		});
-		
-	    		break;
-	    		
-	    /* Snapshot */
-	    	case MirrorActivity.SNAPSHOT_SIZE:
-	    		
-	    		builder
-	    		.setMessage(R.string.dialog_snapshot_size_text)	
-	    		.setTitle(mirrorActivity.getString(R.string.dialog_snapshot_size_title))
-	    		.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				// On click, no action. Dialog closed
-	    				
-	    			}
-	    		});
-	    		
-	    		break;
-	
-	    /* Photobooth */
-	    	case MirrorActivity.PHOTOSTRIP_DIALOG:
-	    		
-	    		builder
-	    		.setMessage(R.string.dialog_photobooth_text)	
-	    		.setTitle(mirrorActivity.getString(R.string.dialog_photobooth_title))
-	    		.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				// On click, no action. Dialog closed
-	    			}
-	    		});
-		
-	    		break;
-	
 	    /* Frames */
 	    	case MirrorActivity.FRAME_STYLE_DIALOG:
 	
@@ -231,23 +141,33 @@ public class DialogManager {
 	    /* App Info */
 	    	case MirrorActivity.APP_INFO_DIALOG:
 	        	
+
+	    		if(mirrorActivity.version.compareTo("free") != 0) {
+		    		builder.setPositiveButton(R.string.button_ok, new DialogInterface.OnClickListener() {
+		    			public void onClick(DialogInterface dialog, int whichButton) {
+		    				// No action
+		    			}
+		    		});
+	    		}
+	    		else{
+		    		builder.setPositiveButton(R.string.button_upgrade_paid, new DialogInterface.OnClickListener() {
+		    			public void onClick(DialogInterface dialog, int whichButton) {
+		    				Uri uriUrl = Uri.parse(MirrorActivity.upgradePaidLink);
+		    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+		    		        mirrorActivity.startActivity(launchBrowser); 
+		    		        mirrorActivity.finish();
+		    			}
+		    		});
+	    		}
 	    		
 	    		builder
 	    		.setMessage(R.string.dialog_app_info_text)	
 	    		.setTitle(mirrorActivity.getString(R.string.dialog_app_info_title))
-	    		.setPositiveButton(R.string.button_upgrade_paid, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				Uri uriUrl = Uri.parse(MirrorActivity.upgradePaidLink);
-	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to wckd_dev apps
-	    		        mirrorActivity.finish();
-	    			}
-	    		})
 	    		.setNeutralButton(R.string.button_frames, new DialogInterface.OnClickListener() {
 	    			public void onClick(DialogInterface dialog, int whichButton) {
 	    				Uri uriUrl = Uri.parse(MirrorActivity.frameLink);
 	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to wckd_dev apps
+	    		        mirrorActivity.startActivity(launchBrowser);
 	    		        mirrorActivity.finish();
 	    			}
 	    		})
@@ -255,7 +175,7 @@ public class DialogManager {
 	    			public void onClick(DialogInterface dialog, int whichButton) {
 	    				Uri uriUrl = Uri.parse(MirrorActivity.rateLink);
 	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to rate app
+	    		        mirrorActivity.startActivity(launchBrowser);
 	    		        mirrorActivity.finish();
 	    			}
 	    		});
@@ -293,7 +213,7 @@ public class DialogManager {
 	    		break;
 	    		
 	    /* No Front Camera Found */
-	    	case MirrorActivity.FRONT_CAMERA_NOT_FOUND: 
+	    	case MirrorActivity.FRONT_CAMERA_NOT_FOUND:
 	        	
 	    		builder
 	    		.setMessage(R.string.dialog_no_front_camera_text)	
@@ -396,29 +316,10 @@ public class DialogManager {
 	    	default:     
 	    		mirrorActivity.dialog = null;     
 	    }		
-        
-		// TODO - Replace wall of text dialogs with this
-		/*
-		// This block of code shows a text only dialog (transparent dialog background)
-		// on top of a dimmed background view.
-		Dialog dialog = new Dialog(mirrorActivity);
-		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-		dialog.setContentView(R.layout.welcome);
-		dialog.show();
-    	Window window = dialog.getWindow();
-    	window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-        WindowManager.LayoutParams wlp = window.getAttributes();
-
-		wlp.gravity = Gravity.CENTER;
-		wlp.dimAmount = 0.5f;
-		window.setAttributes(wlp);
-    	*/
     		
 	   mirrorActivity.dialog = builder.show();
 			
-
-        
-        if(id == MirrorActivity.EXPOSURE_DIALOG && mirrorActivity.isExposureSupported) {
+       if(id == MirrorActivity.EXPOSURE_DIALOG && mirrorActivity.isExposureSupported) {
         	Window window = mirrorActivity.dialog.getWindow();
             WindowManager.LayoutParams wlp = window.getAttributes();
 
@@ -440,7 +341,7 @@ public class DialogManager {
         return result;
 	}
 	
-	public static boolean buildCustomDialog(final MirrorActivity mirrorActivity, int id) {
+	public static boolean buildDialog(final MirrorActivity mirrorActivity, int id) {
 		boolean result = true;
 		
 		mirrorActivity.dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);

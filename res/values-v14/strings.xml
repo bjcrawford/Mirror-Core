@@ -1,5 +1,6 @@
 <resources>
     
+<!-- MENU STRINGS -->
     <string name="menu_pause">Pause</string>
     <string name="menu_frame">Frame Style</string>
     
@@ -51,6 +52,7 @@
     	
     <string name="menu_exit">Exit</string>
     
+<!-- BUTTON STRINGS -->
     <string name="button_ok">OK</string>
     <string name="button_try">Try it anyway</string>
     <string name="button_bug">Send Bug Report</string>
@@ -65,6 +67,14 @@
     <string name="button_photobooth">PhotoBooth Button</string>
     <string name="button_invisible">Tap to display or hide the action bar</string>
     
+<!-- DIALOG STRINGS -->
+    <string name="dialog_default_text">You should never see this dialog</string>
+    <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar</string>
+    <string name="dialog_welcome_two_text">Pinch to zoom in/out</string>
+    <string name="dialog_new_pause_text">Tap to pause the screen</string>
+    <string name="dialog_new_snapshot_text">Tap to take a snapshot</string>
+    <string name="dialog_new_photostrip_text">Tap four times to create a photostrip</string>
+    
     <string name="dialog_frames_title">Choose a frame:</string>
     <string name="dialog_frames_close">Close Button</string>
     <string name="dialog_frames_image">Frame Image</string>
@@ -73,73 +83,16 @@
     
     
     <string name="dialog_app_info_title">App Info</string>
-    <string name="dialog_app_info_text">Thanks for downloading Mirror. I hope you are enjoying the 
-                                      it. This mirror app was developed originally for the Nexus 7, but has now 
-                                      been made available to all 4.0+ devices with front facing cameras.\n
-		        					  \n 
-		        					  Mirror is the first release from wckd Dev and it has evolved bit by bit 
-		        					  over the last few months. Many thanks to Sebastian \'seb\' Häßelbarth for all 
-		        					  his help with the German translations and to all of the users who have given 
-		        					  their feedback. Enjoy!\n
-		        					  \n
-		        					  <b>wckd Development</b>\n
-		        					  www.wckd-dev.net\n</string>
         					  				
     <string name="dialog_upgrade_title">Upgrade!</string>	  
     <string name="dialog_upgrade_text">This feature is only available in the premium or advertisement version of Mirror. Please 
         					           upgrade to support continued development of this app. Thanks!</string>
 
-    
-    <string name="dialog_welcome_title">Welcome!</string>
-	<string name="dialog_welcome_text"><b>What\'s New</b>\n
-        								  \n
-        								  -Pinch to zoom\n
-        								  -Pause Mode\n
-        								  -Mirror Mode settings saved\n
-        								  \n
-        								  <b>**The frames that were previously included with
-        								  Mirror have been moved to optionally downloadable add-on packs 
-        								  available at the Android Play Store for free. These are labeled
-        								  as the Classic packs. New frame add-on packs are available
-        								  as well for a small fee.**</b> \n
-        								  \n
-        								  You can leave or enter full screen mode at any time by tapping 
-        								  anywhere inside the frame.  \n
-        								  \n
-        					              If you have any problems, please don\'t hesitate to contact
-        					              me using the bug report option in the help menu. I will 
-        					              work quickly to help resolve any issues you may have. If you 
-        					              enjoy using Mirror, please take a moment to 
-        					              rate it. Thanks for your support!</string>
         					             
     <string name="dialog_rate_title">Thanks for your support!</string>
     <string name="dialog_rate_text"><b>If you enjoy using Mirror, please take a moment to 
         					        rate it. And feel free to e-mail me with any questions, comments, or 
         					        suggestions.</b></string>
-        					        
-    <string name="dialog_pause_title">Pause</string>
-    <string name="dialog_pause_text">The button below will pause the image on the mirror. You can use it view yourself
-                                     from the side or from behind. It\'s also great for getting the perfect shot before 
-                                     you take the snapshot.</string>
-        					             
-    <string name="dialog_snapshot_title">Snapshot Mode</string>
-    <string name="dialog_snapshot_text">Snapshot mode allows you to take a snapshot of the 
-	        					        mirror, including the frame and any effects you have 
-	        					        applied.\n
-	        					        \n
-	        					        You can use the snapshot button on the action bar to show 
-	        					        or hide the snapshot button from the screen. Snapshot mode 
-	        					        is enabled when the snapshot button is displayed in the 
-	        					        lower right corner of your screen.\n
-        							    \n
-        							    When the snapshot is taken, the image is saved to the
-        							    Mirror Snapshots folder on your device. You can easily
-        							    view the images with your normal Gallery app. Snapshot 
-	       							    mode can be exited by selecting the snapshot button on the 
-	       							    action bar or by entering PhotoBooth mode.\n
-        							    \n
-        							    Please let me know if you experience any issues while using 
-        							    snapshot mode. Thanks! and Enjoy!</string>
         							    
     <string name="dialog_snapshot_size_title">Snapshot Size</string>
     <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
@@ -173,117 +126,10 @@
 
     
     <string name="dialog_help_title">Help</string>
-    <string name="dialog_help_text">If you are have any problems, please don\'t hesitate to 
-                                   contact me using the bug report option at the bottom. I will 
-        					       work quickly to help resolve any issues you may have.\n
-        					       \n
-        					       <b>Fullscreen Mode</b>\n
-        					       \n
-	        					       You can enter or exit fullscreen mode by tapping anywhere
-	        					       inside the frame of the mirror. Fullscreen mode allows you
-	        					       a full, unobstructed view of the mirror. Exiting fullscreen
-	        					       mode will display the action bar which contains the features
-	        					       and options available to Mirror.\n
-        					           \n
-        					       <b>Snapshot Mode</b>\n
-        					       \n
-	        					       Snapshot mode allows you to take a snapshot of the 
-	        					       mirror, including the frame and any effects you have 
-	        					       applied.\n
-	        					       \n
-	        					       You can use the snapshot button on the action bar to show 
-	        					       or hide the snapshot button from the screen. Snapshot mode 
-	        					       is enabled when the snapshot button is displayed in the 
-	        					       lower right corner of your screen.\n
-	       							   \n
-	       							   When the snapshot is taken, the image is saved to the
-	       							   Mirror Snapshots folder on your device. You can easily
-	       							   view the images with your normal Gallery app. Snapshot 
-	       							   mode can be exited by selecting the snapshot button on the 
-	       							   action bar or by entering PhotoBooth mode.\n
-       							   	   \n
-       							   <b>PhotoBooth Mode</b>\n
-       							   \n
-        						   	   PhotoBooth mode allows you to take four separate snapshots 
-        							   which will be combined into a photobooth style photostrip.
-        							   You can use the photobooth button to take each photo with 
-        							   no time limit so there is no rush to get into that perfect 
-        							   pose. :) \n
-        							   \n
-        							   You can use the button on the action bar to show or hide
-        							   the photobooth button from the screen. PhotoBooth mode is 
-        							   enabled when the photobooth button is displayed in the 
-        							   lower left corner of your screen.\n
-        							   \n
-        							   PhotoBooth mode can be exited by selecting the photobooth 
-        							   button on the action bar or by entering Snapshot mode.
-        							   Exiting PhotoBooth mode before completing a photo strip will 
-        							   result in the photos taken during PhotoBooth Mode to be lost
-        							   (Example: If you take three of the four photos needed to 
-        							   complete a photo strip and precede to exit PhotoBooth mode, 
-        							   those three pictures will be lost.) \n
-        							   \n
-        						   <b>Pause</b>\n
-       							   \n
-        						   	   Selecting the pause button will temporarily pause the image
-        						   	   on the mirror. It\'s perfect for viewing yourself from the
-        						   	   side or from behind. It also works well for setting up the
-        						   	   perfect picture. :) \n
-        							   \n
-        						   <b>Frames</b>\n
-        						   \n
-        						   	   Selecting the frame button from the action bar will display 
-        						   	   a menu containing the frames you can apply to the mirror.
-        						   	   The low-light frame is for when using the mirror in 
-        						   	   low-light situations. I would not recommend it for snapshots.
-        						   	   ;) Frame settings are saved so your frame will appear next
-        						   	   time you start the app. You can download additional frame
-        						   	   packs from the Play Store by clicking the button located 
-        						   	   in the frame selection dialog.\n
-        						   	   \n
-        						  <b>Zoom</b>\n
-        						  \n
-        						       If zoom is supported by your camera, you can adjust the 
-        						       zoom level on the mirror. The setting is saved and used
-        						       next time you start the app. A message will be displayed
-        						       if your camera does not support zoom settings.\n
-        						       \n
-        						   <b>Exposure</b>\n
-        						   	   If exposure is supported by your camera, you can adjust
-        						   	   the exposure level on the mirror. The setting is saved
-        						   	   and used next time you load the app. A message will be 
-        						   	   displayed if your camera does not support exposure 
-        						   	   settings.\n
-        						   	   \n
-        						   <b>White Balance</b>\n
-        						   \n
-        						       If white balance is supported by your camera, you can 
-        						       adjust the settings on the mirror. The setting is saved
-        						   	   and used next time you load the app. A message will be 
-        						   	   displayed if your camera does not support white balance 
-        						   	   settings.\n
-        						   	   \n
-        						   <b>Mirror Mode</b>\n
-        						   \n
-        						       By default, mirror reverses the image received by the 
-        						       camera to give you the impression of looking into a 
-        						       mirror. Mirror mode allows you to view the image
-        						       exactly as its received by the camera. Snapshots 
-        						       and PhotoBooth pictures are saved using the Mirror
-        						       Mode selected.\n
-        						       \n
-        						   <b>Themes</b>\n
-        						   \n
-        						       Themes allow you to select the general theme of the 
-        						       mirror app. This changes the color of the action bar
-        						       and all dialogs and menus. The app will automatically
-        						       restart when a theme is changed.\n
-        						       \n
-        						   <b>Thanks</b>\n
-        						   \n
-        						       If you made it all the way to the end, congratulations. You
-        						       are now a mirror expert! Thanks for your support!\n
-        						       \n </string>
+    <string name="dialog_help_text">Please check the website, www.wckd-dev.net, for information
+                                    on using Mirror by wckd Dev. If you are have any problems, 
+                                    please don\'t hesitate to contact me using the bug report 
+                                    option at the bottom.</string>
         					  
     <string name="dialog_theme_title">Change Theme?</string>
     <string name="dialog_theme_text">This will change the theme of the app.
@@ -314,6 +160,7 @@
     <string name="dialog_exposure_title">Choose the exposure level:</string>
     <string name="dialog_zoom_title">Choose the zoom level:</string>
     
+<!-- TOAST STRINGS -->
     <string name="toast_no_zoom">Your camera does not support zoom settings.</string>
     <string name="toast_no_exposure">Your camera does not support exposure settings.</string>
     <string name="toast_no_white_balance">Your camera does not support white balance settings.</string>
@@ -327,11 +174,13 @@
     <string name="toast_photo_taken">Photo Taken</string>
     <string name="toast_photo_saved">Photo Saved</string>
     
+<!-- FRAME STRINGS -->
     <string name="frame_no_frame">No Frame</string>
     <string name="frame_low_light">Low-Light</string>
     <string name="frame_soft_gold">Soft Gold</string>
     <string name="frame_brushed">Brushed</string>
     
+<!-- MISC STRINGS -->
     <string name="bug_report">Please include a short description of any problems you are having: </string>
     <string name="bug_report_send">Send your email with: </string>
     
@@ -339,12 +188,4 @@
     
     <string name="frame_descr">Frame Overlay</string>
     
-    <string name="dialog_default_text">You should never see this dialog</string>
-    <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar</string>
-    <string name="dialog_welcome_two_text">Pinch to zoom in/out</string>
-    <string name="dialog_new_pause_text">Tap to pause the screen</string>
-    <string name="dialog_new_snapshot_text">Tap to take a snapshot</string>
-    <string name="dialog_new_photostrip_text">Tap four times to create a photostrip</string>
-    
-
 </resources>

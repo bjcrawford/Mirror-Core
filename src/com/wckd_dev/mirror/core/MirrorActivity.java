@@ -84,7 +84,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	protected static final String APP_PREFERENCES_FLIP               = "Flip";
     protected static final String APP_PREFERENCES_FRAME              = "Frame";
     protected static final String APP_PREFERENCES_FRAME_CHANGED      = "FrameChanged";
-    protected static final String APP_PREFERENCES_INITIAL_LOAD       = "InitialLoad";
+    protected static final String APP_PREFERENCES_INITIAL_LOAD_ONE   = "InitialLoadOne";
+    protected static final String APP_PREFERENCES_INITIAL_LOAD_TWO   = "InitialLoadTwo";
     protected static final String APP_PREFERENCES_INITIAL_PAUSE      = "InitialPause";
     protected static final String APP_PREFERENCES_INITIAL_SNAPSHOT   = "InitialSnapshot";
     protected static final String APP_PREFERENCES_INITIAL_PHOTOBOOTH = "InitialPhotoBooth";
@@ -103,7 +104,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	private   int    orientationPref;
     private   int    frameModePref;
 	private   int    framePacksPref;
- 	private   int    initialLoadPref;
+ 	private   int    initialLoadOnePref;
+ 	private   int    initialLoadTwoPref;
 	private   int    initialPausePref;
 	private   int    initialSnapshotPref;
 	private   int    initialPhotoBoothPref;
@@ -136,7 +138,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private   boolean   isWhiteBalanceSupported   = false;
     private   boolean   isFullscreen              = true;
     private   boolean   isMirrorMode              = true;
-    private   boolean   isFlipMode                = false;
     private   boolean   isPortrait;
     private   boolean   isPauseButtonVisible      = false;
     private   boolean   isSnapshotButtonVisible   = false;
@@ -202,6 +203,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         initSnapshotButton();
         initPhotoBoothButton();
         initOnTouchListener();
+	    showWelcomeOneDialog();
     }
     
     @Override
@@ -269,13 +271,10 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	
     	if(flipPref == 0) {
     		(menu.findItem(R.id.menu_options_flip_mode_off)).setChecked(true);
-    	//	mirrorView.flipMode(false);
-    	//	isFlipMode = false;
     	}
     	else {
     		(menu.findItem(R.id.menu_options_flip_mode_on)).setChecked(true);
     		mirrorView.flipMode(true);
-    		isFlipMode = true;
     	}
     	
     	if(Math.round(zoomPrefF) > 0)
@@ -522,14 +521,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    /* Flip Mode On */
         else if(id == R.id.menu_options_flip_mode_on) {
         	flipPref = 1;
-        	isFlipMode = true;
         	item.setChecked(true);
             mirrorView.flipMode(true);
         }
 	    /* Flip Mode Off */
         else if(id == R.id.menu_options_flip_mode_off) {
         	flipPref = 0;
-        	isFlipMode = false;
         	item.setChecked(true);
             mirrorView.flipMode(false);
         }
@@ -706,7 +703,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         orientationPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_ORIENTATION, "0"));
         frameModePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FRAME, "0"));
         framePacksPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FRAME_CHANGED, "0"));
-        initialLoadPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_LOAD, "0"));
+        initialLoadOnePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_LOAD_ONE, "0"));
+        initialLoadTwoPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_LOAD_TWO, "0"));
         initialPausePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_PAUSE, "0"));
         initialSnapshotPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_SNAPSHOT, "0"));
         initialPhotoBoothPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, "0"));
@@ -1165,15 +1163,25 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     // TODO - These show<action>Dialog methods could be condensed into one method
     // or they could be removed in favor of something else
     
-    private void showWelcomeDialog() {
-    	// If first load, display instruction dialog
-    	if(initialLoadPref != INFO_DIALOGS) {
-    		initialLoadPref = INFO_DIALOGS; // Set app preferences initial load to false
+    private void showWelcomeOneDialog() {
+    	// If first load, first click, display instruction dialog
+    	if(initialLoadOnePref != INFO_DIALOGS) {
+    		initialLoadOnePref = INFO_DIALOGS; // Set app preferences initial load to false
     		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_LOAD, Integer.toString(initialLoadPref));
+    		editor.putString(APP_PREFERENCES_INITIAL_LOAD_ONE, Integer.toString(initialLoadOnePref));
     		editor.commit();
-    		//displayDialog(WELCOME_DIALOG);
     		displayCustomDialog(WELCOME_ONE_DIALOG);
+    	}
+    }
+    
+    private void showWelcomeTwoDialog() {
+    	// If first load, second click, display instruction dialog
+    	if(initialLoadOnePref == INFO_DIALOGS && initialLoadTwoPref != INFO_DIALOGS) {
+    		initialLoadTwoPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_LOAD_TWO, Integer.toString(initialLoadTwoPref));
+    		editor.commit();
+    		displayCustomDialog(WELCOME_TWO_DIALOG);
     	}
     }
     
@@ -1261,12 +1269,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	builder
     	  .setTitleColor(themeColor)
     	  .setDividerColor(themeColor);
-        DialogManager.buildDialog(this, id, builder);
+        DialogManager.buildQustomDialog(this, id, builder);
     }
      
      private void displayCustomDialog(int id) {
      	dialog = new Dialog(this);
-     	DialogManager.buildCustomDialog(this, id);
+     	DialogManager.buildDialog(this, id);
      }
      
     protected void sendBugReport(String subject) {
@@ -1467,12 +1475,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
      }
      
      private void fullScreenClick() {
- 		
+
+	    showWelcomeTwoDialog();
+	        
  		// Exit fullscreen mode
  		if(isFullscreen) {
- 			
- 	        showWelcomeDialog();
- 			
+
  			// Show navigation and notification bar
  			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE); 
  			getActionBar().show(); // Show action bar
