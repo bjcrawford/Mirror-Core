@@ -32,7 +32,7 @@
                 android:paddingRight="8dip"
                 android:layout_marginLeft="8dip"
                 android:src="@null" 
-                android:contentDescription="@string/app_name" />
+                android:contentDescription="@string/app_desc" />
             
             <com.android.internal.widget.DialogTitle 
                 android:id="@+id/alertTitle"

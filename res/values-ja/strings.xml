@@ -1,19 +1,22 @@
 <resources>
-
-    <string name="app_name">鏡無償</string>
     
+<!-- MENU STRINGS -->
     <string name="menu_pause">一時停止</string>
     <string name="menu_frame">フレームスタイル</string>
     
     <string name="menu_snapshot">スナップショット</string>
     	<string name="menu_snapshot_snapshot">スナップショット</string>
-    	<string name="menu_snapshot_photobooth">プリクラ</string>
+    	<string name="menu_snapshot_photobooth">写真のストリップ</string>
     	
     <string name="menu_options">オプション</string>
     
-    	<string name="menu_options_mirror_mode">ミラーモード</string>
-    		<string name="menu_options_mirror_mode_on">ミラーモードでは、アクティブ</string>
-    		<string name="menu_options_mirror_mode_off">ミラーモードでは、無効化</string>
+    	<string name="menu_options_mirror_mode">ミラーを逆に</string>
+    		<string name="menu_options_mirror_mode_on">ノーマルミラー</string>
+    		<string name="menu_options_mirror_mode_off">ミラーを逆に</string>
+    		
+    	<string name="menu_options_flip_mode">ミラーを反転</string>
+    		<string name="menu_options_flip_mode_on">ミラーを反転</string>
+    		<string name="menu_options_flip_mode_off">ノーマルミラー</string>
     		
     	<string name="menu_options_switch_camera">カメラを変更</string>
     	
@@ -39,16 +42,21 @@
 		    <string name="menu_options_theme_purple">紫のテーマ</string>
 		    <string name="menu_options_theme_blue">青のテーマ</string>
 		    
+    	<string name="menu_options_snapshot_size">スナップショットのサイズ</string>
+		    <string name="menu_options_snapshot_size_large">ラージ</string>
+		    <string name="menu_options_snapshot_size_medium">ミディアム</string>
+		    <string name="menu_options_snapshot_size_small">スモール</string>
+		    
     	<string name="menu_options_app_info">アプリケーション情報</string>
     	<string name="menu_options_help">助ける</string>
     	
     <string name="menu_exit">終了する</string>
     
+<!-- BUTTON STRINGS -->
     <string name="button_ok">OK</string>
     <string name="button_try">試み</string>
     <string name="button_bug">バグレポートを送る</string>
     <string name="button_rate">評価する</string>
-    <string name="button_dont_ask">今後この質問を表示しない</string>
     <string name="button_cancel">キャンセル</string>
     <string name="button_close">終了する</string>
     <string name="button_upgrade_ads">広告</string>
@@ -58,7 +66,15 @@
     <string name="button_snapshot">スナップショットボタン</string>
     <string name="button_photobooth">プリクラ ボタン</string>
     <string name="button_invisible">アクションバーを表示または非表示にする]をタップ</string>
-        					  
+        				
+<!-- DIALOG STRINGS -->	  
+    <string name="dialog_default_text">このダイアログが表示されてはいけません</string>
+    <string name="dialog_welcome_one_text">アクションバーを表示/非表示にする任意の場所をタップ</string>
+    <string name="dialog_welcome_two_text">で/ズームアウトするピンチ</string>
+    <string name="dialog_new_pause_text">一時停止画面をタップする</string>
+    <string name="dialog_new_snapshot_text">スナップショットを作成する]をタップ</string>
+    <string name="dialog_new_photostrip_text">写真のストリップを作成するために4回のタップ</string>
+    
     <string name="dialog_frames_title">フレームを選択してください：</string>
     <string name="dialog_frames_close">閉じる</string>
     <string name="dialog_frames_image">フレーム画像</string>
@@ -66,137 +82,23 @@
     <string name="dialog_frames_add_ons">より多くのフレームを追加</string>
     
     <string name="dialog_app_info_title">アプリ情報</string>
-    <string name="dialog_app_info_text">こんにちは！私の翻訳のために私を深くお詫び申し上げます。私はあなたがアプリケーションを楽しんでいる願っています。ミラーが建てられました
-                              ネクサス7のが、今のフロントカメラと多くの装置に利用可能です。\n
-        					  \n 
-        				   	     ミラーは私の最初のアプリケーションは、過去数にわたって少しずつ進化してきましたです
-                              ヶ月。お楽しみください！ :)\n
-        					  \n
-        					  <b>wckd Development</b>\n
-		        			  www.wckd-dev.net\n</string>
         					  
     <string name="dialog_upgrade_title">購入！</string>
     <string name="dialog_upgrade_text">この関数は、プレミアムバージョンまたはミラーの広告バージョンでのみ使用可能です。してください
                                       このアプリの継続的な開発をサポートするためにアップグレードします。</string>
-        					  
-    <string name="dialog_welcome_title">ようこそ！</string>
-    <string name="dialog_welcome_text"><b>新着情報</b>\n
-        								 \n
-        								 -ズームピンチ\n
-        								 -ポートレート/風景モード\n
-        								 -前面または背面のカメラを使って\n
-        								 \n
-        								 <b>**以前にフロントカメラのミラーに含まれていた画像のフレームはあなたがAndroidプレイStoreでダウンロードすることができ、オプションパッケージに移動されました。
-        								 彼らは、クラシックコレクションとしてラベル付けされます。新しいフレームコレクションは小さい価格のために用意されています。**</b>\n
-        								 \n
-        					                              あなたはどこをタップしてフルスクリーンモードのままにするか、入力することができます
-                                         フレームの内側。  \n
-        								 \n
-        								  もし何か問題があれば、ご連絡ください。
-                                         私は、開発者の情報メニューにバグレポートボタンを使用して。私は意志
-                                         あなたが持つかもしれない問題を解決するお手伝いをするために迅速に働く。
-                      					  ミラーを使用して楽しむ場合は、それを評価してください。ご支援いただきありがとうございます！</string>
-        					             
+        				         
     <string name="dialog_rate_title">ご支援いただきありがとうございます！</string>
     <string name="dialog_rate_text"><b>ミラーを使用して楽しむ場合は、それを評価してください。</b></string>
-        					        
-    <string name="dialog_pause_title">一時停止</string>
-    <string name="dialog_pause_text">あなたは、一時停止、ミラーをするには、このボタンを使用することができます。</string>
-        					  
-    <string name="dialog_snapshot_title">スナップショットモード</string>
-    <string name="dialog_snapshot_text">スナップショットモードでは、のスナップショットを取ることができます
-									       フレームとあなたが持っている効果を含めミラー、
-									       適用された。\n
-        							   \n
-        							       あなたは、表示するアクションバーにスナップボタンを使用することができます
-									       または画面からスナップショットボタンを非表示にします。スナップショットモード
-									       スナップボタンはで表示されたときに有効になります
-									       あなたの画面の右上隅を下げる。\n
-									   \n
-        							      スナップショットが作成されると、イメージがに保存され 
-							           ミラースナップショットは、あなたのデバイス上のフォルダ。簡単に印刷することができま 
-							           通常のギャラリーアプリで画像を見ることができます。スナップショット 
-								  	       モードは上のスナップボタンを選択して終了することができます 
-									       アクションバーまたはプリクラモードを入力することにより。\n
-        							   \n
-        							       使用中に問題が発生した場合は、お気軽にお問い合わせください
-                                       スナップショットモード。ありがとうございます！とお楽しみください！</string>
-        							    
-    <string name="dialog_snapshot_size_title">Snapshot Size</string>
-    <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
-    <string name="dialog_snapshot_size_small">Small  -  50%</string>
-    <string name="dialog_snapshot_size_medium">Medium -  75%</string>
-    <string name="dialog_snapshot_size_large">Large  - 100%</string>
-        							   
-    <string name="dialog_photobooth_title">プリクラモード</string>
-    <string name="dialog_photobooth_text">プリクラモードでは、4つのスナップショットを取ることができます
-								       これらはプリクラスタイルのストリップに結合されます。
-								       あなたは、各写真を撮ってプリクラボタンを使用することができます
-								       時間制限はありません。 :) \n
-        							   \n
-        							       表示または非表示にするにはアクションバー上のボタンを使用することができます
-							           画面からボタンをクリックします。プリクラモードです
-							           ボタンに表示されている場合に有効
-							           画面の左上隅を下げる。\n
-        							   \n
-        							       あなたは、アクションバーのボタンを選択してプリクラモードを終了することができます。 
-        							   4枚の絵を完了する前にプリクラモードを終了すると、画像が失われます。 \n
-        							   \n
-        							        あなたが持っているなら、私に知らせてください。
-        								プリクラモードの使用中に問題。ありがとうございます！とお楽しみください！</string>
-        							   
+        					   
     <string name="dialog_help_title">助ける</string>
-    <string name="dialog_help_text">あなたは問題がある場合は、私に連絡してください。
+    <string name="dialog_help_text">詳細についてはWebサイトを確認してください。www.wckd-dev.net
+                                                                                   あなたは問題がある場合は、私に連絡してください。
 									私はあなたの問題を解決する上で参考にするために高速に動作します。使用
-									 バグレポートボタンをクリックします。\n
-        					       \n
-        					       <b>フルスクリーンモード</b>\n
-        					       \n
-	        					       	あなたは内の任意の場所をタップしてフルスクリーンモードを使用することができます
-										ミラーのフレーム。フルスクリーンモードでは、使用することができます
-										フルスクリーン。フルスクリーンモードを終了すると、アクションバーが表示されます
-										これは、ミラーの機能や設定が含まれています。\n
-        					           \n
-        					       <b>スナップショットモード</b>\n
-        					       \n
-	        					                スナップショットモードでは、のスナップショットを取ることができます
-									       フレームとあなたが持っている効果を含めミラー、
-									       適用された。\n
-        							   \n
-        							       あなたは、表示するアクションバーにスナップボタンを使用することができます
-									       または画面からスナップショットボタンを非表示にします。スナップショットモード
-									       スナップボタンはで表示されたときに有効になります
-									       あなたの画面の右上隅を下げる。\n
-									   \n
-        							      スナップショットが作成されると、イメージがに保存され 
-							           ミラースナップショットは、あなたのデバイス上のフォルダ。簡単に印刷することができま 
-							           通常のギャラリーアプリで画像を見ることができます。スナップショット 
-								  	       モードは上のスナップボタンを選択して終了することができます 
-									       アクションバーまたはプリクラモードを入力することにより。\n
-       							   	   \n
-       							   <b>プリクラモード</b>\n
-       							   \n
-        						   	   プリクラモードでは、4つのスナップショットを取ることができます
-								       これらはプリクラスタイルのストリップに結合されます。
-								       あなたは、各写真を撮ってプリクラボタンを使用することができます
-								       時間制限はありません。 :) \n
-        							   \n
-        							       表示または非表示にするにはアクションバー上のボタンを使用することができます
-							           画面からボタンをクリックします。プリクラモードです
-							           ボタンに表示されている場合に有効
-							           画面の左上隅を下げる。\n
-        							   \n
-        							       あなたは、アクションバーのボタンを選択してプリクラモードを終了することができます。 
-        							   4枚の絵を完了する前にプリクラモードを終了すると、画像が失われます。 \n
-        							   \n</string>
+									 バグレポートボタンをクリックします。</string>
     
     <string name="dialog_theme_title">テーマを変更しますか？</string>
-    <string name="dialog_theme_dark_text">これは、暗いテーマにアプリの色を変更します。
-                                          アプリを再起動する必要があります。</string>
-    <string name="dialog_theme_light_text">これは、光をテーマにアプリの色を変更します。
-                                          アプリを再起動する必要があります。</string>
-    <string name="dialog_theme_custom_text">これは、ダークブルー/テーマにアプリの色を変更します。
-                                           アプリを再起動する必要があります。</string>
+    <string name="dialog_theme_text">これは、アプリのテーマを変更します。
+                                     ミラーは、再起動する必要があります。</string>
         								   
     <string name="dialog_no_front_camera_title">見つかりませんフロントカメラ</string>
     <string name="dialog_no_front_camera_text">フロントカメラは初期化できませんでした。 確認してください：\n
@@ -222,6 +124,7 @@
     <string name="dialog_exposure_title">露出レベルを選択し</string>
     <string name="dialog_zoom_title">ズームレベルを選択し</string>
     
+<!-- TOAST STRINGS -->
     <string name="toast_no_zoom">カメラはズーム設定をサポートしていません。</string>
     <string name="toast_no_exposure">カメラは、露出設定をサポートしていません。</string>
     <string name="toast_no_white_balance">カメラはホワイトバランスの設定をサポートしていません。</string>
@@ -235,16 +138,17 @@
     <string name="toast_photo_taken">撮影された写真</string>
     <string name="toast_photo_saved">写真は、保存された</string>
     
+<!-- FRAME STRINGS -->
     <string name="frame_no_frame">枠なしません</string>
     <string name="frame_low_light">低光</string>
     <string name="frame_soft_gold">ソフトゴールド</string>
     <string name="frame_brushed">ブラッシュドメタル</string>
     
+<!-- MISC STRINGS -->
     <string name="bug_report">あなたが持っている問題の簡単な説明を記載してください。: </string>
     <string name="bug_report_send">とメールを送ってください： </string>
     
     <string name="folder_name">ミラースナップ</string>
-    
     
     <string name="frame_descr">フレームオーバーレイ</string>
 

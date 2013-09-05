@@ -81,50 +81,17 @@
     <string name="dialog_frames_divider">Divider Image</string>
     <string name="dialog_frames_add_ons">Add More Frames</string>
     
-    
     <string name="dialog_app_info_title">App Info</string>
         					  				
     <string name="dialog_upgrade_title">Upgrade!</string>	  
     <string name="dialog_upgrade_text">This feature is only available in the premium or advertisement version of Mirror. Please 
         					           upgrade to support continued development of this app. Thanks!</string>
 
-        					             
     <string name="dialog_rate_title">Thanks for your support!</string>
     <string name="dialog_rate_text"><b>If you enjoy using Mirror, please take a moment to 
         					        rate it. And feel free to e-mail me with any questions, comments, or 
         					        suggestions.</b></string>
-        							    
-    <string name="dialog_snapshot_size_title">Snapshot Size</string>
-    <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
-    <string name="dialog_snapshot_size_small">Small  -  50%</string>
-    <string name="dialog_snapshot_size_medium">Medium -  75%</string>
-    <string name="dialog_snapshot_size_large">Large  - 100%</string>
-    
-        							   
-    <string name="dialog_photobooth_title">PhotoBooth Mode</string>
-    <string name="dialog_photobooth_text">PhotoBooth mode allows you to take four separate snapshots 
-        							      which will be combined into a photobooth style photostrip.
-        							      You can use the photobooth button to take each photo with 
-        							      no time limit so there is no rush to get into that perfect 
-        							      pose. :) \n
-        							      \n
-        							      You can use the button on the action bar to show or hide
-        							      the photobooth button from the screen. PhotoBooth mode is 
-        							      enabled when the photobooth button is displayed in the 
-        							      lower left corner of your screen.\n
-        							      \n
-        							      PhotoBooth mode can be exited by selecting the photobooth 
-        							      button on the action bar or by entering Snapshot mode.
-        							      Exiting PhotoBooth mode before completing a photo strip will 
-        							      result in the photos taken during PhotoBooth Mode to be lost
-        							      (Example: If you take three of the four photos needed to 
-        							      complete a photo strip and precede to exit PhotoBooth mode, 
-        							      those three pictures will be lost.) \n
-        							      \n
-        							      Please let me know if you experience 
-        							      any issues while using PhotoBooth mode. Thanks! and Enjoy!</string>
-
-    
+        						
     <string name="dialog_help_title">Help</string>
     <string name="dialog_help_text">Please check the website, www.wckd-dev.net, for information
                                     on using Mirror by wckd Dev. If you are have any problems, 
@@ -185,7 +152,7 @@
     <string name="bug_report_send">Send your email with: </string>
     
     <string name="folder_name">Mirror Snapshots</string>
-    
+    <string name="app_desc">Mirror</string>
     <string name="frame_descr">Frame Overlay</string>
     
 </resources>

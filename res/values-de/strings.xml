@@ -1,7 +1,6 @@
 <resources>
 
-    <string name="app_name">Spiegel (kostenlos)</string>
-    
+<!-- MENU STRINGS -->
     <string name="menu_pause">Pause</string>
     <string name="menu_frame">Stil des Bilderrahmens</string>
     
@@ -14,6 +13,10 @@
     	<string name="menu_options_mirror_mode">Spiegel-Modus</string>
     		<string name="menu_options_mirror_mode_on">Spiegel-Modus an</string>
     		<string name="menu_options_mirror_mode_off">Spiegel-Modus aus</string>
+    		
+    	<string name="menu_options_flip_mode">Flip-Modus</string>
+    		<string name="menu_options_flip_mode_on">Flip-Modus an</string>
+    		<string name="menu_options_flip_mode_off">Flip-Modus aus</string>
     		
     	<string name="menu_options_switch_camera">Kamera Wechseln</string>
     	
@@ -39,16 +42,21 @@
 		    <string name="menu_options_theme_purple">Lila Design</string>
 		    <string name="menu_options_theme_blue">Blau Design</string>
 		    
+    	<string name="menu_options_snapshot_size">Schnappschuss Größe</string>
+		    <string name="menu_options_snapshot_size_large">groß</string>
+		    <string name="menu_options_snapshot_size_medium">mittel</string>
+		    <string name="menu_options_snapshot_size_small">klein</string>
+		    
     	<string name="menu_options_app_info">Anwendung Info</string>
     	<string name="menu_options_help">Hilfe</string>
     	
     <string name="menu_exit">Beenden</string>
     
+<!-- BUTTON STRINGS -->
     <string name="button_ok">OK</string>
     <string name="button_try">Trotzdem versuchen</string>
     <string name="button_bug">Fehler melden</string>
     <string name="button_rate">App bewerten</string>
-    <string name="button_dont_ask">Nicht erneut fragen</string>
     <string name="button_cancel">Abbrechen</string>
     <string name="button_close">Beenden</string>
     <string name="button_upgrade_ads">Werbung</string>
@@ -58,7 +66,15 @@
     <string name="button_snapshot">Schnappschuss-Schaltfläche</string>
     <string name="button_photobooth">Fotoautomat-Schaltfläche</string>
     <string name="button_invisible">Tippen Sie, um die Aktionsleiste anzuzeigen bzw. auszublenden.</string>
-        					  
+        		
+<!-- DIALOG STRINGS -->
+    <string name="dialog_default_text">Sie sollten niemals diesen text sehen</string>
+    <string name="dialog_welcome_one_text">Tippen sie irgendwo zum anzeigen/ausblenden der aktionsleiste</string>
+    <string name="dialog_welcome_two_text">Pinch in/out zu erhöhen/verringern</string>
+    <string name="dialog_new_pause_text">Tippen sie auf dem bildschirm anzuhalten</string>
+    <string name="dialog_new_snapshot_text">Tippen Sie, um einen Schnappschuss zu machen</string>
+    <string name="dialog_new_photostrip_text">Tippen viermal einen photostrip erstellen</string>
+    	  
     <string name="dialog_frames_title">Wählen Sie einen Bilderrahmen:</string>
     <string name="dialog_frames_close">Beenden</string>
     <string name="dialog_frames_image">Bild des Bilderrahmens</string>
@@ -66,142 +82,24 @@
     <string name="dialog_frames_add_ons">Mehr Bilderrahmens hinzufügen</string>
     
     <string name="dialog_app_info_title">App-Info</string>
-    <string name="dialog_app_info_text">Vielen Dank für das Herunterladen Frontkamera-Spiegel. Diese Spiegel-App 
-        			          wurde speziell für das Nexus 7 geschrieben, aber wurde für alle Android 
-        			          4.0+ Geräte mit Frontkamera zur Verfügung gestellt.\n
-        			          \n 
-        					  Dies ist meine erste App und ich habe sie in den letzten Monaten Stück 
-        					  für Stück weiter entwickelt. Danke an Sebastian \'seb\' Häßelbarth für die 
-        					  Hilfe bei der Übersetzung.  Viel Spaß!\n
-        					  \n
-        					  <b>wckd Development</b>\n
-		        			  www.wckd-dev.net\n</string>
         					  
     <string name="dialog_upgrade_title">Upgrade!</string>
     <string name="dialog_upgrade_text">Diese Funktion ist nur in der Prämie Version oder Werbung Version 
                                        von Spiegel zur Verfügung. Bitte machen Sie ein Upgrade, um diese 
                                        Funktion zu nutzen.</string>
-        					  
-    <string name="dialog_welcome_title">Herzlich Willkommen!</string>
-    <string name="dialog_welcome_text"><b>Was ist neu?</b>\n
-        								 \n
-        								 -Pinch zu vergrößern\n
-        								 -Hochformat/Querformat-Modus\n
-        								 -Verwenden Sie vorne oder hinten Kamera\n
-        								 \n
-        								 <b>**Die Bilderrahmens, die zuvor mit Frontkamera-Spiegel wurden 
-        								 aufgenommen haben, um optionale Pakete, die Sie auf dem Android 
-        								 Play Store herunterladen können verschoben worden. Sie werden als 
-        								 Classic-Kollektionen beschriftet. Neuer Rahmen Kollektionen sind 
-        								 für einen kleinen Preis.**</b>\n
-        								 \n
-        								 Sie können in den Vollbildmodus wechseln oder ihn verlassen, indem 
-                                         Sie irgendwo innerhalb des Bilderrahmes tippen.\n
-                                         \n
-        					             Wenn Sie irgendwelche Probleme haben, kontaktieren Sie mich 
-        					             bitte über die Fehler-melden-Schaltfläche im 
-        					             Entwickler-Informationen-Menü. Ich werde schnell daran arbeiten, 
-        					             die Probleme zu beheben. Wenn Sie Frontkamera-Spiegel mögen, bewerten 
-        					             Sie es bitte. Vielen Dank für Ihre Unterstützung.</string>
-        					             
+      
     <string name="dialog_rate_title">Vielen Dank für Ihre Unterstützung!</string>
     <string name="dialog_rate_text"><b>Wenn Sie Frontkamera-Spiegel mögen, bewerten Sie es bitte.</b></string>
-        					        
-    <string name="dialog_pause_title">Pause</string>
-    <string name="dialog_pause_text">Sie können diese Taste zum Unterbrechen der Spiegel zu benutzen.</string>
-        					             
-    <string name="dialog_snapshot_title">Schnappschuss-Modus</string>
-    <string name="dialog_snapshot_text">Schnappschuss-Modus können Sie ein Bild von dem Spiegel. 
-        							   Es enthält keine Frames oder Effekt angewendet haben.\n
-        							   \n
-        							   Der Schnappschuss-Modus ist endlich da. Sie können diese Schaltfläche 
-                                       auf der Aktionsleiste verwenden, um die Schnappschuss-Schaltfläche 
-                                       auf dem dem Bildschirm ein- oder auszublenden. \n
-                                       \n
-        							   Sobald der Schnappschuss aufgenommen wurde, wird das Bild für das gespeicherte
-							           Spiegel Schnappschuss Ordner auf Ihrem Gerät. Sie können ganz einfach
-							           betrachten Sie die Bilder mit dem normalen Galerie-App. Schnappschuss
-									   Modus kann durch Auswahl des Snapshot-Taste auf der Fernbedienung verlassen werden
-									   Aktionsleiste oder durch Eingabe PhotoBooth Modus.\n
-        							   \n
-        							   Bitte lassen Sie mich wissen, wenn Sie irgendwelche Probleme 
-        							   mit dem Schnappschuss-Modus haben. Vielen Dank und viel Spaß!</string>
-        							    
-    <string name="dialog_snapshot_size_title">Snapshot Size</string>
-    <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
-    <string name="dialog_snapshot_size_small">Small  -  50%</string>
-    <string name="dialog_snapshot_size_medium">Medium -  75%</string>
-    <string name="dialog_snapshot_size_large">Large  - 100%</string>
-        							   
-    <string name="dialog_photobooth_title">Fotoautomat-Modus</string>
-    <string name="dialog_photobooth_text">Fotoautomat Modus können Sie vier Schnappschüsse
-							           welche in eine Fotofixautomatenbilder kombiniert werden.
-							           Sie können die Fotofixautomatenbilder Taste, um jedes Foto mit zu nehmen
-							           keine zeitliche Begrenzung. :) \n
-        							   \n
-        							   Sie können die Taste auf der Aktionsleiste verwenden, um ein-oder ausblenden
-							           Die Fotoautomat-Taste vom Bildschirm. Fotoautomat Modus
-							           aktiviert, wenn die Fotoautomat Schaltfläche in der angezeigt wird
-							           unteren linken Ecke Ihres Bildschirms.\n
-        							   \n
-        							   Sie können Fotoautomat Modus, indem Sie die Taste auf der Aktionsleiste 
-        							   verlassen. Verlassen Fotoautomat Modus vor Ablauf von vier Bilder werden, 
-        							   dass die Bilder verloren gehen.\n
-        							   \n
-        							   Bitte lassen Sie mich wissen, wenn Sie
-         							   Probleme bei der Verwendung Fotoautomat Modus. Vielen Dank! und genießen Sie!</string>
-        							   
+        					   
     <string name="dialog_help_title">Hilfe</string>
-    <string name="dialog_help_text">Wenn Sie Probleme haben, kontaktieren Sie mich bitte. Ich werde 
+    <string name="dialog_help_text">Bitte besuchen Sie die Website für weitere Informationen. www.wckd-dev.net
+                                   Wenn Sie Probleme haben, kontaktieren Sie mich bitte. Ich werde 
         						   schnell arbeiten zu helfen, Ihr Problem beheben. Verwenden Sie 
-        						   den Fehlerbericht Taste.\n
-        					       \n
-        					       <b>Vollbildmodus</b>\n
-        					       \n
-	        					        Sie können den Vollbildmodus, indem Sie irgendwo in verwenden
-										der Rahmen des Spiegels. Vollbild-Modus können Sie die
-										Vollbild. Beenden des Vollbildmodus zeigt die Aktionsleiste
-										die enthält die Funktionen und Einstellungen des Spiegel.\n
-        					           \n
-        					       <b>Schnappschuss-Modus</b>\n
-        					       \n
-	        					       Schnappschuss-Modus können Sie ein Bild von dem Spiegel. 
-        							   Es enthält keine Frames oder Effekt angewendet haben.\n
-        							   \n
-        							   Der Schnappschuss-Modus ist endlich da. Sie können diese Schaltfläche 
-                                       auf der Aktionsleiste verwenden, um die Schnappschuss-Schaltfläche 
-                                       auf dem dem Bildschirm ein- oder auszublenden. \n
-                                       \n
-        							   Sobald der Schnappschuss aufgenommen wurde, wird das Bild für das gespeicherte
-							           Spiegel Schnappschuss Ordner auf Ihrem Gerät. Sie können ganz einfach
-							           betrachten Sie die Bilder mit dem normalen Galerie-App. Schnappschuss
-									   Modus kann durch Auswahl des Snapshot-Taste auf der Fernbedienung verlassen werden
-									   Aktionsleiste oder durch Eingabe PhotoBooth Modus.\n
-       							   	   \n
-       							   <b>Fotoautomat-Modus</b>\n
-       							   \n
-        						   	   Fotoautomat Modus können Sie vier Schnappschüsse
-							           welche in eine Fotofixautomatenbilder kombiniert werden.
-							           Sie können die Fotofixautomatenbilder Taste, um jedes Foto mit zu nehmen
-							           keine zeitliche Begrenzung. :) \n
-        							   \n
-        							   Sie können die Taste auf der Aktionsleiste verwenden, um ein-oder ausblenden
-							           Die Fotoautomat-Taste vom Bildschirm. Fotoautomat Modus
-							           aktiviert, wenn die Fotoautomat Schaltfläche in der angezeigt wird
-							           unteren linken Ecke Ihres Bildschirms.\n
-        							   \n
-        							   Sie können Fotoautomat Modus, indem Sie die Taste auf der Aktionsleiste 
-        							   verlassen. Verlassen Fotoautomat Modus vor Ablauf von vier Bilder werden, 
-        							   dass die Bilder verloren gehen.\n
-        							   \n</string>
+        						   den Fehlerbericht Taste.</string>
         					  
     <string name="dialog_theme_title">Design ändern?</string>
-    <string name="dialog_theme_dark_text">Dies wird die Farben der App zum dunklen Design ändern.
-                                         Die App muss dafür neu gestartet werden.</string>
-    <string name="dialog_theme_light_text">Dies wird die Farben der App zum hellen Design ändern. 
-                                         Die App muss dafür neu gestartet werden.</string>
-    <string name="dialog_theme_custom_text">Dies wird die Farben der App zum blau/dunklen Design ändern. 
-                                         Die App muss dafür neu gestartet werden.</string>
+    <string name="dialog_theme_text">Dies wird sich ändern, das Thema der app
+                                     Spiegel muss neu gestartet werden.</string>
         								   
     <string name="dialog_no_front_camera_title">Front-Kamera nicht gefunden</string>
     <string name="dialog_no_front_camera_text">Die Frontkamera konnte initialisiert werden. Bitte überprüfen Sie folgenes:\n\n
@@ -229,6 +127,7 @@
     <string name="dialog_exposure_title">Wählen Sie die Belichtung:</string>
     <string name="dialog_zoom_title">Wählen Sie die Zoomstufe:</string>
     
+<!-- TOAST STRINGS -->
     <string name="toast_no_zoom">Ihre Kamera nicht unterstützt Zoom.</string>
     <string name="toast_no_exposure">Ihre Kamera nicht unterstützt Belichtung.</string>
     <string name="toast_no_white_balance">Ihre Kamera nicht unterstützt Weißabgleich.</string>
@@ -242,16 +141,17 @@
     <string name="toast_photo_taken">Foto genommen.</string>
     <string name="toast_photo_saved">Foto gespeichert.</string>
     
+<!-- FRAME STRINGS -->
     <string name="frame_no_frame">No Bilderrahmen</string>
     <string name="frame_low_light">Wenig Licht</string>
     <string name="frame_soft_gold">Soft Gold</string>
     <string name="frame_brushed">Gebürstet</string>
     
+<!-- MISC STRINGS -->
     <string name="bug_report">Bitte fügen Sie eine kurze Beschreibung des Problems sind Sie mit: </string>
     <string name="bug_report_send">Senden Sie Ihre E-Mail mit: </string>
     
     <string name="folder_name">Spiegel Schnappschuss</string>
-    
     
     <string name="frame_descr">Bilderrahmen-Overlay</string>
 

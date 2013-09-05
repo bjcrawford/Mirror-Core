@@ -1,19 +1,22 @@
 <resources>
 
-    <string name="app_name">Espejo Gratis</string>
-    
+<!-- MENU STRINGS -->
     <string name="menu_pause">Pausa</string>
     <string name="menu_frame">Estilo de Marco</string>
     
     <string name="menu_snapshot">Foto</string>
     	<string name="menu_snapshot_snapshot">Foto</string>
-    	<string name="menu_snapshot_photobooth">PhotoBooth</string>
+    	<string name="menu_snapshot_photobooth">Photostrip</string>
     	
     <string name="menu_options">Opciones</string>
     
-    	<string name="menu_options_mirror_mode">Estilo de Espejo</string>
+    	<string name="menu_options_mirror_mode">Espejo Inversa</string>
     		<string name="menu_options_mirror_mode_on">Espejo Normal</string>
-    		<string name="menu_options_mirror_mode_off">Espejo Reverso</string>
+    		<string name="menu_options_mirror_mode_off">Espejo Inversa</string>
+    		
+    	<string name="menu_options_flip_mode">Espejo del Tirón</string>
+    		<string name="menu_options_flip_mode_on">Espejo del Tirón</string>
+    		<string name="menu_options_flip_mode_off">Espejo Normal</string>
     		
     	<string name="menu_options_switch_camera">Cambiar la Cámara</string>
     	
@@ -39,16 +42,21 @@
 		    <string name="menu_options_theme_purple">Tema de Púrpura</string>
 		    <string name="menu_options_theme_blue">Tema de Azul</string>
 		    
+    	<string name="menu_options_snapshot_size">Foto Tamaño</string>
+		    <string name="menu_options_snapshot_size_large">Grande</string>
+		    <string name="menu_options_snapshot_size_medium">Mediano</string>
+		    <string name="menu_options_snapshot_size_small">Pequeño</string>
+		    
     	<string name="menu_options_app_info">Info sobre la App</string>
     	<string name="menu_options_help">Ayudar</string>
     	
     <string name="menu_exit">Salida</string>
     
+<!-- BUTTON STRINGS -->
     <string name="button_ok">Aceptar</string>
     <string name="button_try">Intentar</string>
     <string name="button_bug">Informe de Error</string>
     <string name="button_rate">Calificar</string>
-    <string name="button_dont_ask">No volver a preguntar</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_close">Salida</string>
     <string name="button_upgrade_ads">Anuncios</string>
@@ -58,7 +66,15 @@
     <string name="button_snapshot">Foto Botón</string>
     <string name="button_photobooth">PhotoBooth Botón</string>
     <string name="button_invisible">Botón Invisible</string>
-        					  
+    
+<!-- DIALOG STRINGS -->
+    <string name="dialog_default_text">Nunca se debe ver este cuadro de diálogo</string>
+    <string name="dialog_welcome_one_text">Toque en cualquier lugar para mostrar/ocultar la barra de acciones</string>
+    <string name="dialog_welcome_two_text">Una pizca de zoom in/out</string>
+    <string name="dialog_new_pause_text">Toque para pausar la pantalla</string>
+    <string name="dialog_new_snapshot_text">Toque para tomar una foto</string>
+    <string name="dialog_new_photostrip_text">Pulse cuatro veces para crear un photostrip</string>
+    
     <string name="dialog_frames_title">Elegir un marco:</string>
     <string name="dialog_frames_close">Salir Botón</string>
     <string name="dialog_frames_image">Marco de Imagen</string>
@@ -66,146 +82,25 @@
     <string name="dialog_frames_add_ons">Agregue más marcos</string>
     
     <string name="dialog_app_info_title">Info sobre la App</string>
-    <string name="dialog_app_info_text">Hola a todos! Por favor, disculpe mi traducción si hablo mal.
-		                              Espero que usted disfrute de la aplicación. Esta aplicación espejo fue 
-		                              desarrollado originalmente para el Nexus7, pero ahora se ha puesto a 
-		                              disposición de todos los Android 4.0+ con una cámara frontal.\n
-		        					  \n
-		        					  Actualizar a la versión de pago para ayudar a apoyar el desarrollo 
-		        					  futuro de la Cámara. :) \n
-		        					  \n
-		        					  <b>wckd Dev</b>\n
-		        					  www.wckd-dev.net\n</string>
         					  
     <string name="dialog_upgrade_title">Actualizar!</string>
     <string name="dialog_upgrade_text">Esta función sólo está disponible en la versión de pago o la versión anuncios de Espejo.
                                       Complacer actualizar a apoyar el desarrollo continuado 
                                       de esta aplicación. ¡Gracias!</string>
-        					  
-    <string name="dialog_welcome_title">¡Bienvenidos!</string>
-    <string name="dialog_welcome_text"><b>¿Qué hay de nuevo</b>\n
-        								 \n
-        								 -Una pizca de zoom\n
-        								 -Retrato/Paisaje Modo\n
-        								 -Utilice frontal o posterior de la cámara\n
-        								 \n
-        								 <b>**Los marcos que anteriormente se incluían con Espejo Frontal 
-        								 Cámara se han movido a los paquetes opcionales que se pueden 
-        								 descargar en la tienda de Android juego. Y se clasifican como 
-        								 colecciones clásicas. Las nuevas colecciones de marco están 
-        								 disponibles para un pequeño precio.**</b>\n
-        								 \n
-        					             Por favor, disculpe mi traducción si hablo mal. Usted puede 
-                                         entrar o salir la visualización completa, toque en cualquier 
-                                         lugar dentro del marco.  \n
-                                         \n
-        								 Si tiene algún problema por favor utilice el botón de informe 
-        								 de errores en el menú de ayuda para ponerse en contacto conmigo. 
-        								 Voy a trabajar con rapidez para solucionar su problema. Por favor 
-        								 califique esta aplicación espejo si te gusta. Gracias por tu apoyo!</string>
-        					             
+        			
     <string name="dialog_rate_title">Gracias por tu apoyo!</string>
     <string name="dialog_rate_text"><b>Por favor califique esta aplicación espejo si te gusta.</b></string>
-        					        
-    <string name="dialog_pause_title">Pausa</string>
-    <string name="dialog_pause_text">Puede usar este botón para pausar el espejo.</string>
-        					             
-    <string name="dialog_snapshot_title">Foto Mode</string>
-    <string name="dialog_snapshot_text">Modo de instantánea le permite tomar una imagen de espejo. 
-        							   Incluye cualquier trama o el efecto que ha aplicado.
-        							   \n
-        							   Puede utilizar el botón de instantánea en la barra de acciones para mostrar
-									   u ocultar el botón de instantánea de la pantalla. modo de instantánea
-									   se activa cuando el botón de disparo se muestra en el
-									   esquina inferior derecha de su pantalla. \n
-                                       \n
-        							   Cuando se toma la instantánea, la imagen se guarda en la
-							           Espejo Fotos carpeta en su dispositivo. Usted puede fácilmente
-							           ver las imágenes con la aplicación Galería normal. instantánea
-									   modo se puede salir seleccionando el botón de instantánea en la
-									   acción barra o entrando en el modo PhotoBooth.\n
-        							   \n
-        							   Por favor, hágamelo saber si usted tiene algún problema. 
-        							   Utilice el botón de informe de errores en contacto conmigo. 
-        							   ¡Gracias!</string>
-        							    
-    <string name="dialog_snapshot_size_title">Snapshot Size</string>
-    <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
-    <string name="dialog_snapshot_size_small">Small  -  50%</string>
-    <string name="dialog_snapshot_size_medium">Medium -  75%</string>
-    <string name="dialog_snapshot_size_large">Large  - 100%</string>
-        							   
-    <string name="dialog_photobooth_title">PhotoBooth Modo</string>
-    <string name="dialog_photobooth_text">PhotoBooth modo le permite tomar cuatro fotos
-								       que se combinan en un estilo Photostrip photobooth.
-								       Puede utilizar el botón photobooth tomar cada foto con
-								       sin límite de tiempo. :) \n
-        							   \n
-        							   Puede utilizar el botón de la barra de acciones para mostrar u ocultar
-							           el botón de cabina de fotos de la pantalla. modo de foto stand es
-							           activada cuando el botón cabina de fotos aparece en la
-							           esquina inferior izquierda de la pantalla.\n
-        							   \n
-        							   Puede salir del modo de cabina de fotos, seleccione el botón de la 
-        							   barra de acción. Salir del modo Photo Booth antes de completar cuatro 
-        							   imágenes hará que las imágenes que se pierden. \n
-        							   \n
-        							   Por favor, hágamelo saber si usted tiene
-         							   algún problema al utilizar el modo de cabina de fotos. ¡Gracias! y disfrute!</string>
-        							   
+        			   
     <string name="dialog_help_title">Ayudar</string>
-    <string name="dialog_help_text">Si usted está teniendo problemas, por favor póngase en contacto conmigo.
+    <string name="dialog_help_text">Por favor, consulte el sitio web para más información. www.wckd-dev.net 
+                                   Si usted está teniendo problemas, por favor póngase en contacto conmigo.
 								   Voy a trabajar con rapidez para ayudar a solucionar su problema. utilizar
-								   el botón de informe de error.\n
-        					       \n
-        					       <b>Modo de pantalla completa</b>\n
-        					       \n
-	        					        Usted puede utilizar el modo de pantalla completa tocando en cualquier lugar dentro
-										el marco del espejo. Modo de pantalla completa le permite usar el
-										pantalla completa. Salir del modo de pantalla completa se mostrará la barra de acción
-										que contiene las funciones y ajustes de espejo.\n
-        					           \n
-        					       <b>Foto Modo</b>\n
-        					       \n
-	        					       Modo de instantánea le permite tomar una imagen de espejo. 
-        							   Incluye cualquier trama o el efecto que ha aplicado.
-        							   \n
-        							   Puede utilizar el botón de instantánea en la barra de acciones para mostrar
-									   u ocultar el botón de instantánea de la pantalla. modo de instantánea
-									   se activa cuando el botón de disparo se muestra en el
-									   esquina inferior derecha de su pantalla. \n
-                                       \n
-        							   Cuando se toma la instantánea, la imagen se guarda en la
-							           Espejo Fotos carpeta en su dispositivo. Usted puede fácilmente
-							           ver las imágenes con la aplicación Galería normal. instantánea
-									   modo se puede salir seleccionando el botón de instantánea en la
-									   acción barra o entrando en el modo PhotoBooth.\n
-       							   	   \n
-       							   <b>PhotoBooth Modo</b>\n
-       							   \n
-        						   	   PhotoBooth modo le permite tomar cuatro fotos
-								       que se combinan en un estilo Photostrip photobooth.
-								       Puede utilizar el botón photobooth tomar cada foto con
-								       sin límite de tiempo. :) \n
-        							   \n
-        							   Puede utilizar el botón de la barra de acciones para mostrar u ocultar
-							           el botón de cabina de fotos de la pantalla. modo de foto stand es
-							           activada cuando el botón cabina de fotos aparece en la
-							           esquina inferior izquierda de la pantalla.\n
-        							   \n
-        							   Puede salir del modo de cabina de fotos, seleccione el botón de la 
-        							   barra de acción. Salir del modo Photo Booth antes de completar cuatro 
-        							   imágenes hará que las imágenes que se pierden. \n
-        							   \n</string>
+								   el botón de informe de error.</string>
         					  
     <string name="dialog_theme_title">Cambiar el Tema?</string>
-    <string name="dialog_theme_dark_text">Esto cambiará el color de la aplicación para el tema negro. 
-                                         La aplicación necesitará ser reiniciado.</string>
-    <string name="dialog_theme_light_text">Esto cambiará el color de la aplicación para el tema blanco. 
-                                         La aplicación necesitará ser reiniciado.</string>
-    <string name="dialog_theme_custom_text">Esto cambiará el color de la aplicación para el tema personalizado. 
-                                         La aplicación necesitará ser reiniciado.</string>
-        								   
+    <string name="dialog_theme_text">Esto va a cambiar el tema de la aplicación.
+                                     Tendrá que ser reiniciado Mirror.</string>
+
     <string name="dialog_no_front_camera_title">Ninguna Cámara Frontal Encontrada.</string>
     <string name="dialog_no_front_camera_text">La cámara frontal no pudo ser inicializado. Por favor, compruebe:\n\n
                                       -El dispositivo tiene una cámara frontal hacia\n
@@ -228,6 +123,7 @@
     <string name="dialog_exposure_title">Elija el nivel de exposición:</string>
     <string name="dialog_zoom_title">Elija el nivel de zoom:</string>
     
+<!-- TOAST STRINGS -->
     <string name="toast_no_zoom">La cámara no es compatible con los ajustes de zoom.</string>
     <string name="toast_no_exposure">La cámara no es compatible con los ajustes de exposición.</string>
     <string name="toast_no_white_balance">La cámara no es compatible con el balance de blancos.</string>
@@ -241,16 +137,17 @@
     <string name="toast_photo_taken">Foto tomada</string>
     <string name="toast_photo_saved">Foto guardado</string>
     
+<!-- FRAME STRINGS -->
     <string name="frame_no_frame">No Marco</string>
     <string name="frame_low_light">Con Poca Luz</string>
     <string name="frame_soft_gold">Suave Oro</string>
     <string name="frame_brushed">Cepillado</string>
     
+<!-- MISC STRINGS -->
     <string name="bug_report">Por favor, incluya una breve descripción del problema que tiene: </string>
     <string name="bug_report_send">Enviar un e-mail con: </string>
     
     <string name="folder_name">Espejo Fotos</string>
-    
     
     <string name="frame_descr">Superpuesta</string>
 
