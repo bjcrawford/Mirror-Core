@@ -339,8 +339,12 @@
     
     <string name="frame_descr">Frame Overlay</string>
     
+    <string name="dialog_default_text">You should never see this dialog</string>
     <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar</string>
-    <string name="dialog_welcome_two_text_top">Settings</string>
-    <string name="dialog_welcome_two_text_center">Pinch to zoom in/out</string>
+    <string name="dialog_welcome_two_text">Pinch to zoom in/out</string>
+    <string name="dialog_new_pause_text">Tap to pause the screen</string>
+    <string name="dialog_new_snapshot_text">Tap to take a snapshot</string>
+    <string name="dialog_new_photostrip_text">Tap four times to create a photostrip</string>
+    
 
 </resources>

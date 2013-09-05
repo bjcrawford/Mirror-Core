@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout
+		xmlns:android="http://schemas.android.com/apk/res/android"
+    	android:id="@+id/dialog_new_pause"
+		android:layout_width="wrap_content"
+    	android:layout_height="wrap_content">
+
+		<TextView
+     		android:id="@+id/dialog_new_pause_text" 
+     		android:text="@string/dialog_new_pause_text"
+     		android:textSize="25sp"
+     		android:textStyle="bold"
+     		android:textColor="@android:color/white"
+     		android:layout_width="wrap_content" 
+     		android:layout_height="wrap_content"
+     		android:drawableBottom="@drawable/img_straight_arrow_down" />
+	
+</RelativeLayout>

@@ -106,7 +106,7 @@ public class DialogManager {
 	    		break;
 	
 	    /* Photobooth */
-	    	case MirrorActivity.PHOTOBOOTH_DIALOG:
+	    	case MirrorActivity.PHOTOSTRIP_DIALOG:
 	    		
 	    		builder
 	    		.setMessage(R.string.dialog_photobooth_text)	
@@ -439,4 +439,59 @@ public class DialogManager {
         
         return result;
 	}
+	
+	public static boolean buildCustomDialog(final MirrorActivity mirrorActivity, int id) {
+		boolean result = true;
+		
+		mirrorActivity.dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+		
+		switch(id) {   
+		
+	    /* WelcomeOne */
+	    	case MirrorActivity.WELCOME_ONE_DIALOG:
+
+	    		mirrorActivity.dialog.setContentView(R.layout.welcome_one);
+	    		break;
+	    		
+	    /* WelcomeTwo */
+	    	case MirrorActivity.WELCOME_TWO_DIALOG:
+
+	    		mirrorActivity.dialog.setContentView(R.layout.welcome_two);
+	    		break;
+	    		
+	    /* Pause */
+	    	case MirrorActivity.PAUSE_DIALOG:
+
+	    		mirrorActivity.dialog.setContentView(R.layout.pause);
+	    		break;
+	    		
+	    /* Snapshot */
+	    	case MirrorActivity.SNAPSHOT_DIALOG:
+
+	    		mirrorActivity.dialog.setContentView(R.layout.snapshot);
+	    		break;
+	    		
+	    /* Photostrip */
+	    	case MirrorActivity.PHOTOSTRIP_DIALOG:
+
+	    		mirrorActivity.dialog.setContentView(R.layout.photostrip);
+	    		break;
+	    	
+	    	default:  
+
+	    		mirrorActivity.dialog.setContentView(R.layout.generic);       
+	    }	
+		
+		mirrorActivity.dialog.show();
+     	Window window = mirrorActivity.dialog.getWindow();
+     	window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+        WindowManager.LayoutParams wlp = window.getAttributes();
+
+ 		wlp.gravity = Gravity.CENTER;
+ 		wlp.dimAmount = 0.5f;
+ 		window.setAttributes(wlp);
+        
+        return result;
+	}
+	
 }

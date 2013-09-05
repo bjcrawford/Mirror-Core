@@ -60,7 +60,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final int WELCOME_DIALOG         =  1;
     protected static final int SNAPSHOT_DIALOG        =  2;
     protected static final int SNAPSHOT_SIZE          =  3;
-    protected static final int PHOTOBOOTH_DIALOG      =  4;
+    protected static final int PHOTOSTRIP_DIALOG      =  4;
     protected static final int FRAME_STYLE_DIALOG     =  5;
     protected static final int ZOOM_DIALOG            =  6;
     protected static final int EXPOSURE_DIALOG        =  7;
@@ -72,6 +72,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final int UPGRADE                = 13;
     protected static final int RATE                   = 14;
     protected static final int PAUSE_DIALOG           = 15;
+    protected static final int WELCOME_ONE_DIALOG     = 16;
+    protected static final int WELCOME_TWO_DIALOG     = 17;
+    
     
     /** Change between 1 and 2 to display one time messages to users after upgrades */
     private final int INFO_DIALOGS = 1; // v2.3 set to 1 for release
@@ -670,21 +673,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         /* Help */
         else if(id == R.id.menu_options_help) {
         	//displayDialog(HELP_DIALOG);
-        	
-        	
-        	Dialog dialog = new Dialog(this);
-    		dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-    		dialog.setContentView(R.layout.welcome);
-    		dialog.show();
-        	Window window = dialog.getWindow();
-        	window.setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-            WindowManager.LayoutParams wlp = window.getAttributes();
-
-    		wlp.gravity = Gravity.CENTER;
-    		wlp.dimAmount = 0.5f;
-    		window.setAttributes(wlp);
-        	
-      
+        	displayCustomDialog(WELCOME_TWO_DIALOG);
         	result = true;
         }
         /* Exit */
@@ -1187,7 +1176,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     		Editor editor = appSettings.edit();
     		editor.putString(APP_PREFERENCES_INITIAL_LOAD, Integer.toString(initialLoadPref));
     		editor.commit();
-    		displayDialog(WELCOME_DIALOG);	
+    		//displayDialog(WELCOME_DIALOG);
+    		displayCustomDialog(WELCOME_ONE_DIALOG);
     	}
     }
     
@@ -1198,7 +1188,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     		Editor editor = appSettings.edit();
     		editor.putString(APP_PREFERENCES_INITIAL_SNAPSHOT, Integer.toString(initialSnapshotPref));
     		editor.commit();
-    		displayDialog(SNAPSHOT_DIALOG);	
+    		displayCustomDialog(SNAPSHOT_DIALOG);	
     	}
     }
     
@@ -1209,7 +1199,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     		Editor editor = appSettings.edit();
     		editor.putString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, Integer.toString(initialPhotoBoothPref));
     		editor.commit();
-    		displayDialog(PHOTOBOOTH_DIALOG);	
+    		displayCustomDialog(PHOTOSTRIP_DIALOG);	
     	}
     }
     
@@ -1220,7 +1210,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     		Editor editor = appSettings.edit();
     		editor.putString(APP_PREFERENCES_INITIAL_PAUSE, Integer.toString(initialPausePref));
     		editor.commit();
-    		displayDialog(PAUSE_DIALOG);	
+    		displayCustomDialog(PAUSE_DIALOG);	
     	}
     }
     
@@ -1277,6 +1267,11 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	  .setDividerColor(themeColor);
         DialogManager.buildDialog(this, id, builder);
     }
+     
+     private void displayCustomDialog(int id) {
+     	dialog = new Dialog(this);
+     	DialogManager.buildCustomDialog(this, id);
+     }
      
     protected void sendBugReport(String subject) {
     	Intent emailIntent = new Intent(android.content.Intent.ACTION_VIEW); 
