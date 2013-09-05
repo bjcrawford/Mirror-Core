@@ -672,8 +672,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         }
         /* Help */
         else if(id == R.id.menu_options_help) {
-        	//displayDialog(HELP_DIALOG);
-        	displayCustomDialog(WELCOME_TWO_DIALOG);
+        	displayDialog(HELP_DIALOG);
         	result = true;
         }
         /* Exit */
