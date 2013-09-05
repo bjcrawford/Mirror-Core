@@ -51,6 +51,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	private                String intentMessage;
 	private                String store;
 	protected              String version;
+	protected              String dialogAppInfoText;
 	
 	/* Constants for Calling Dialogs */
 	
@@ -694,6 +695,8 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         upgradePaidLink = message.next();
         upgradePaidLink = message.next();
         frameLink = message.next();
+        message.useDelimiter("&");
+        dialogAppInfoText = message.next();
     }
     
     private void initPrefs() {

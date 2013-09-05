@@ -161,7 +161,7 @@ public class DialogManager {
 	    		}
 	    		
 	    		builder
-	    		.setMessage(R.string.dialog_app_info_text)	
+	    		.setMessage(mirrorActivity.dialogAppInfoText)	
 	    		.setTitle(mirrorActivity.getString(R.string.dialog_app_info_title))
 	    		.setNeutralButton(R.string.button_frames, new DialogInterface.OnClickListener() {
 	    			public void onClick(DialogInterface dialog, int whichButton) {
