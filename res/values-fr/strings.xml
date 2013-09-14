@@ -14,7 +14,7 @@
     		<string name="menu_options_mirror_mode_on">Normal Miroir</string>
     		<string name="menu_options_mirror_mode_off">Inverser Mirror</string>
     		
-    	<string name="menu_options_flip_mode">Flip Mode</string>
+    	<string name="menu_options_flip_mode">Mode Flip</string>
     		<string name="menu_options_flip_mode_on">Retournez Mirror</string>
     		<string name="menu_options_flip_mode_off">Normal Miroir</string>
     		
