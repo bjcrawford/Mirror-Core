@@ -25,7 +25,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
 import android.util.FloatMath;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -318,7 +317,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         	else {
     	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
         	}
-        	Log.d(TAG, "onCreateOptionsMenu: snapshotSizePref: " + snapshotSizePref);
     	}
     	else {
 
@@ -356,7 +354,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	else {
 	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
     	}
-    	Log.d(TAG, "onPrepareOptionsMenu: snapshotSizePref: " + snapshotSizePref);
     	
         return super.onPrepareOptionsMenu(menu);
     }
@@ -646,19 +643,16 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         else if(id == R.id.menu_options_snapshot_size_large) {
         	snapshotSizePref = 0;
 	    	item.setChecked(true);
-        	Log.d(TAG, "Large Selected");
         }
 	    /* Snapshot Size Medium */
         else if(id == R.id.menu_options_snapshot_size_medium) {
         	snapshotSizePref = 1;
 	    	item.setChecked(true);
-        	Log.d(TAG, "Medium Selected");
         }
 	    /* Snapshot Size Small */
         else if(id == R.id.menu_options_snapshot_size_small) {
         	snapshotSizePref = 2;
 	    	item.setChecked(true);
-        	Log.d(TAG, "Small Selected");
         }
         /* App Info */
         else if(id == R.id.menu_options_app_info) {
