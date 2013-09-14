@@ -64,7 +64,7 @@
     <string name="button_frames">더 많은 프레임</string>
     <string name="button_pause">일시 정지 버튼</string>
     <string name="button_snapshot">스냅 샷 버튼</string>
-    <string name="button_photobooth">사진 부스 단추</string>
+    <string name="button_photobooth">사진 버튼의 스트립</string>
     <string name="button_invisible">작업 표시 줄을 숨기거나 표시하려면 누르세요</string>
         					  
 <!-- DIALOG STRINGS -->

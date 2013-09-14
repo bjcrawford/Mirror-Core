@@ -6,7 +6,7 @@
     
     <string name="menu_snapshot">Snapshot</string>
     	<string name="menu_snapshot_snapshot">Snapshot</string>
-    	<string name="menu_snapshot_photobooth">PhotoBooth</string>
+    	<string name="menu_snapshot_photobooth">PhotoStrip</string>
     	
     <string name="menu_options">Options</string>
     
@@ -64,7 +64,7 @@
     <string name="button_frames">Add-On Frames</string>
     <string name="button_pause">Pause Button</string>
     <string name="button_snapshot">Snapshot Button</string>
-    <string name="button_photobooth">PhotoBooth Button</string>
+    <string name="button_photobooth">PhotoStrip Button</string>
     <string name="button_invisible">Tap to display or hide the action bar</string>
     
 <!-- DIALOG STRINGS -->
@@ -73,7 +73,7 @@
     <string name="dialog_welcome_two_text">Pinch to zoom in/out</string>
     <string name="dialog_new_pause_text">Tap to pause the screen</string>
     <string name="dialog_new_snapshot_text">Tap to take a snapshot</string>
-    <string name="dialog_new_photostrip_text">Tap four times to create a photostrip</string>
+    <string name="dialog_new_photostrip_text">Tap four times to create a PhotoStrip</string>
     
     <string name="dialog_frames_title">Choose a frame:</string>
     <string name="dialog_frames_close">Close Button</string>
@@ -136,7 +136,7 @@
     <string name="toast_photo_two">Photo Two Taken</string>
     <string name="toast_photo_three">Photo Three Taken</string>
     <string name="toast_photo_four">Photo Four Taken</string>
-    <string name="toast_strip_complete">Photo Strip Completed and Saved</string>
+    <string name="toast_strip_complete">PhotoStrip Completed and Saved</string>
     
     <string name="toast_photo_taken">Photo Taken</string>
     <string name="toast_photo_saved">Photo Saved</string>

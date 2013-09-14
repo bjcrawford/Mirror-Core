@@ -6,7 +6,7 @@
     
     <string name="menu_snapshot">Instantané</string>
     	<string name="menu_snapshot_snapshot">Instantané</string>
-    	<string name="menu_snapshot_photobooth">Photostrip</string>
+    	<string name="menu_snapshot_photobooth">PhotoStrip</string>
     	
     <string name="menu_options">Options</string>
     
@@ -64,7 +64,7 @@
     <string name="button_frames">Plus Encadrement</string>
     <string name="button_pause">Bouton d\'Pause</string>
     <string name="button_snapshot">Bouton d\'Instantané</string>
-    <string name="button_photobooth">Bouton d\'Photomaton</string>
+    <string name="button_photobooth">Bouton d\'PhotoStrip</string>
     <string name="button_invisible">Tapez pour afficher ou masquer la barre d\'action</string>
         				
 <!-- DIALOG STRINGS -->	  
@@ -73,7 +73,7 @@
     <string name="dialog_welcome_two_text">Pincez pour zoomer avant/arrière</string>
     <string name="dialog_new_pause_text">Touchez pour interrompre l\'écran</string>
     <string name="dialog_new_snapshot_text">Touchez pour prendre un instantané</string>
-    <string name="dialog_new_photostrip_text">Appuyez quatre fois pour créer un photostrip</string>
+    <string name="dialog_new_photostrip_text">Appuyez quatre fois pour créer un PhotoStrip</string>
     
     <string name="dialog_frames_title">Choisissez un cadre:</string>
     <string name="dialog_frames_close">Bouton de sortie</string>
@@ -138,7 +138,7 @@
     <string name="toast_photo_two">Deuxième photo prise</string>
     <string name="toast_photo_three">Troisième photo prise</string>
     <string name="toast_photo_four">Quatrième photo prise</string>
-    <string name="toast_strip_complete">Photo bande rempli et sauvegardé</string>
+    <string name="toast_strip_complete">Photostrip rempli et sauvegardé</string>
     
     <string name="toast_photo_taken">Photo prise</string>
     <string name="toast_photo_saved">Photo enregistrée</string>

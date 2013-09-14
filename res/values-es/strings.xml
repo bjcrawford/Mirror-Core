@@ -6,7 +6,7 @@
     
     <string name="menu_snapshot">Foto</string>
     	<string name="menu_snapshot_snapshot">Foto</string>
-    	<string name="menu_snapshot_photobooth">Photostrip</string>
+    	<string name="menu_snapshot_photobooth">PhotoStrip</string>
     	
     <string name="menu_options">Opciones</string>
     
@@ -64,7 +64,7 @@
     <string name="button_frames">Más Marcos</string>
     <string name="button_pause">Pausa Botón</string>
     <string name="button_snapshot">Foto Botón</string>
-    <string name="button_photobooth">PhotoBooth Botón</string>
+    <string name="button_photobooth">PhotoStrip Botón</string>
     <string name="button_invisible">Botón Invisible</string>
     
 <!-- DIALOG STRINGS -->
@@ -73,7 +73,7 @@
     <string name="dialog_welcome_two_text">Una pizca de zoom in/out</string>
     <string name="dialog_new_pause_text">Toque para pausar la pantalla</string>
     <string name="dialog_new_snapshot_text">Toque para tomar una foto</string>
-    <string name="dialog_new_photostrip_text">Pulse cuatro veces para crear un photostrip</string>
+    <string name="dialog_new_photostrip_text">Pulse cuatro veces para crear un PhotoStrip</string>
     
     <string name="dialog_frames_title">Elegir un marco:</string>
     <string name="dialog_frames_close">Salir Botón</string>
@@ -132,7 +132,7 @@
     <string name="toast_photo_two">Segunda foto tomada</string>
     <string name="toast_photo_three">Tercera foto tomada</string>
     <string name="toast_photo_four">Cuarta foto tomada</string>
-    <string name="toast_strip_complete">Foto tira terminado y guardado</string>
+    <string name="toast_strip_complete">Photostrip completado y guardado</string>
     
     <string name="toast_photo_taken">Foto tomada</string>
     <string name="toast_photo_saved">Foto guardado</string>

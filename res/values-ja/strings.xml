@@ -64,7 +64,7 @@
     <string name="button_frames">より多くのフレーム</string>
     <string name="button_pause">一時停止ボタン</string>
     <string name="button_snapshot">スナップショットボタン</string>
-    <string name="button_photobooth">プリクラ ボタン</string>
+    <string name="button_photobooth">写真ボタンのストリップ</string>
     <string name="button_invisible">アクションバーを表示または非表示にする]をタップ</string>
         				
 <!-- DIALOG STRINGS -->	  
@@ -133,7 +133,7 @@
     <string name="toast_photo_two">撮影した2枚目の写真</string>
     <string name="toast_photo_three">撮影した第三の写真</string>
     <string name="toast_photo_four">撮影した第四の写真</string>
-    <string name="toast_strip_complete">写真ストリップが完了し、保存</string>
+    <string name="toast_strip_complete">写真のストリップは完了し、保存された</string>
     
     <string name="toast_photo_taken">撮影された写真</string>
     <string name="toast_photo_saved">写真は、保存された</string>

@@ -6,7 +6,7 @@
     
     <string name="menu_snapshot">Schnappschuss</string>
     	<string name="menu_snapshot_snapshot">Schnappschuss</string>
-    	<string name="menu_snapshot_photobooth">Fotoautomat</string>
+    	<string name="menu_snapshot_photobooth">Fotostreifen</string>
     	
     <string name="menu_options">Optionen</string>
     
@@ -64,7 +64,7 @@
     <string name="button_frames">Zusätzlich Bilderrahmens</string>
     <string name="button_pause">Pause-Schaltfläche</string>
     <string name="button_snapshot">Schnappschuss-Schaltfläche</string>
-    <string name="button_photobooth">Fotoautomat-Schaltfläche</string>
+    <string name="button_photobooth">Fotostreifen-Schaltfläche</string>
     <string name="button_invisible">Tippen Sie, um die Aktionsleiste anzuzeigen bzw. auszublenden.</string>
         		
 <!-- DIALOG STRINGS -->
@@ -73,7 +73,7 @@
     <string name="dialog_welcome_two_text">Pinch in/out zu erhöhen/verringern</string>
     <string name="dialog_new_pause_text">Tippen sie auf dem bildschirm anzuhalten</string>
     <string name="dialog_new_snapshot_text">Tippen Sie, um einen Schnappschuss zu machen</string>
-    <string name="dialog_new_photostrip_text">Tippen viermal einen photostrip erstellen</string>
+    <string name="dialog_new_photostrip_text">Tippen viermal einen Fotostreifen erstellen</string>
     	  
     <string name="dialog_frames_title">Wählen Sie einen Bilderrahmen:</string>
     <string name="dialog_frames_close">Beenden</string>
@@ -136,7 +136,7 @@
     <string name="toast_photo_two">Zweites Foto genommen.</string>
     <string name="toast_photo_three">Drittes Foto gemacht.</string>
     <string name="toast_photo_four">Vierte Foto gemacht.</string>
-    <string name="toast_strip_complete">Photo Streifen abgeschlossen und gespeichert.</string>
+    <string name="toast_strip_complete">Fotostreifen abgeschlossen und gespeichert.</string>
     
     <string name="toast_photo_taken">Foto genommen.</string>
     <string name="toast_photo_saved">Foto gespeichert.</string>
