@@ -42,7 +42,7 @@ import android.widget.Toast;
 
 public class MirrorActivity extends Activity implements OnTouchListener {
 
-	private final String TAG = "wckd";
+	//private final String TAG = "wckd";
 	
 	/* Intent variables */
 	
