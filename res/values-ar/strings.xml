@@ -1,0 +1,158 @@
+<resources>
+    
+<!-- MENU STRINGS -->
+    <string name="menu_pause">Pause</string>
+    <string name="menu_frame">Frame Style</string>
+    
+    <string name="menu_snapshot">Snapshot</string>
+    	<string name="menu_snapshot_snapshot">Snapshot</string>
+    	<string name="menu_snapshot_photobooth">PhotoStrip</string>
+    	
+    <string name="menu_options">Options</string>
+    
+    	<string name="menu_options_mirror_mode">Mirror Mode</string>
+    		<string name="menu_options_mirror_mode_on">Mirror Mode On</string>
+    		<string name="menu_options_mirror_mode_off">Mirror Mode Off</string>
+    		
+    	<string name="menu_options_flip_mode">Flip Mode</string>
+    		<string name="menu_options_flip_mode_on">Flip Mode On</string>
+    		<string name="menu_options_flip_mode_off">Flip Mode Off</string>
+    		
+    	<string name="menu_options_switch_camera">Switch Camera</string>
+    	
+    	<string name="menu_options_screen_rotation">Screen Rotation</string>
+    		<string name="menu_options_screen_rotation_portrait">Portrait</string>
+    		<string name="menu_options_screen_rotation_landscape">Landscape</string>
+    		
+    	<string name="menu_options_zoom">Zoom</string>
+    	<string name="menu_options_exposure">Exposure</string>
+    	
+    	<string name="menu_options_white_balance">White Balance</string>
+		    <string name="menu_options_white_balance_auto">Auto</string>
+		    <string name="menu_options_white_balance_daylight">Daylight</string>
+		    <string name="menu_options_white_balance_incandescent">Incandescent</string>
+		    <string name="menu_options_white_balance_fluorescent">Fluorescent</string>
+		    
+    	<string name="menu_options_themes">Themes</string>
+		    <string name="menu_options_theme_dark">Dark Theme</string>
+		    <string name="menu_options_theme_light">Light Theme</string>
+		    <string name="menu_options_theme_red">Red Theme</string>
+		    <string name="menu_options_theme_orange">Orange Theme</string>
+		    <string name="menu_options_theme_green">Green Theme</string>
+		    <string name="menu_options_theme_purple">Purple Theme</string>
+		    <string name="menu_options_theme_blue">Blue Theme</string>
+		    
+    	<string name="menu_options_snapshot_size">Snapshot Size</string>
+		    <string name="menu_options_snapshot_size_large">Large</string>
+		    <string name="menu_options_snapshot_size_medium">Medium</string>
+		    <string name="menu_options_snapshot_size_small">Small</string>
+		    
+    	<string name="menu_options_app_info">App Info</string>
+    	<string name="menu_options_help">Help</string>
+    	
+    <string name="menu_exit">Exit</string>
+    
+<!-- BUTTON STRINGS -->
+    <string name="button_ok">OK</string>
+    <string name="button_try">Try it anyway</string>
+    <string name="button_bug">Send Bug Report</string>
+    <string name="button_rate">Rate This App</string>
+    <string name="button_cancel">Cancel</string>
+    <string name="button_close">Exit</string>
+    <string name="button_upgrade_ads">Ads Version</string>
+    <string name="button_upgrade_paid">Premium Version</string>
+    <string name="button_frames">Add-On Frames</string>
+    <string name="button_pause">Pause Button</string>
+    <string name="button_snapshot">Snapshot Button</string>
+    <string name="button_photobooth">PhotoStrip Button</string>
+    <string name="button_invisible">Tap to display or hide the action bar</string>
+    
+<!-- DIALOG STRINGS -->
+    <string name="dialog_default_text">You should never see this dialog</string>
+    <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar</string>
+    <string name="dialog_welcome_two_text">Pinch to zoom in/out</string>
+    <string name="dialog_new_pause_text">Tap to pause the screen</string>
+    <string name="dialog_new_snapshot_text">Tap to take a snapshot</string>
+    <string name="dialog_new_photostrip_text">Tap four times to create a PhotoStrip</string>
+    
+    <string name="dialog_frames_title">Choose a frame:</string>
+    <string name="dialog_frames_close">Close Button</string>
+    <string name="dialog_frames_image">Frame Image</string>
+    <string name="dialog_frames_divider">Divider Image</string>
+    <string name="dialog_frames_add_ons">Add More Frames</string>
+    
+    <string name="dialog_app_info_title">App Info</string>
+        					  				
+    <string name="dialog_upgrade_title">Upgrade!</string>	  
+    <string name="dialog_upgrade_text">This feature is only available in the premium or advertisement version of Mirror. Please 
+        					           upgrade to support continued development of this app. Thanks!</string>
+
+    <string name="dialog_rate_title">Thanks for your support!</string>
+    <string name="dialog_rate_text"><b>If you enjoy using Mirror, please take a moment to 
+        					        rate it. And feel free to e-mail me with any questions, comments, or 
+        					        suggestions.</b></string>
+        						
+    <string name="dialog_help_title">Help</string>
+    <string name="dialog_help_text">Please check the website, www.wckd-dev.net, for information
+                                    on using Mirror by wckd Dev. If you are have any problems, 
+                                    please don\'t hesitate to contact me using the bug report 
+                                    option at the bottom.</string>
+        					  
+    <string name="dialog_theme_title">Change Theme?</string>
+    <string name="dialog_theme_text">This will change the theme of the app.
+        						     Mirror will need to be restarted.</string>
+        								   
+    <string name="dialog_no_front_camera_title">No Front Camera Found</string>
+    <string name="dialog_no_front_camera_text">The front camera was unable to be initialized. Please check:\n
+        									   \n
+                                               -That your device has a front facing camera\n
+                                      		   -The camera is not currently being used by another app\n
+                                      		   -Try restarting the app\n
+                                      		   \n
+                                               If nothing works, use the bug report option and
+                                               I will promptly respond. If you wish to continue using the 
+                                               app with the back facing camera, press the \'Try it 
+                                               anyway\' button. </string>
+        								   
+    <string name="dialog_no_camera_title">No Camera Found</string>
+    <string name="dialog_no_camera_text">The camera was unable to be initialized. Please check:\n\n
+                                         -That your device has a camera\n
+                                         -The camera is not currently being used by another app\n
+                                         -Try restarting the app\n\n
+                                         If nothing works, use the bug report option and
+                                         I will promptly respond. I\'ve added a \'Try it 
+                                         anyway\' button in case you are receiving
+                                         this message in error.</string>
+    
+    <string name="dialog_exposure_title">Choose the exposure level:</string>
+    <string name="dialog_zoom_title">Choose the zoom level:</string>
+    
+<!-- TOAST STRINGS -->
+    <string name="toast_no_zoom">Your camera does not support zoom settings.</string>
+    <string name="toast_no_exposure">Your camera does not support exposure settings.</string>
+    <string name="toast_no_white_balance">Your camera does not support white balance settings.</string>
+    
+    <string name="toast_photo_one">Photo One Taken</string>
+    <string name="toast_photo_two">Photo Two Taken</string>
+    <string name="toast_photo_three">Photo Three Taken</string>
+    <string name="toast_photo_four">Photo Four Taken</string>
+    <string name="toast_strip_complete">PhotoStrip Completed and Saved</string>
+    
+    <string name="toast_photo_taken">Photo Taken</string>
+    <string name="toast_photo_saved">Photo Saved</string>
+    
+<!-- FRAME STRINGS -->
+    <string name="frame_no_frame">No Frame</string>
+    <string name="frame_low_light">Low-Light</string>
+    <string name="frame_soft_gold">Soft Gold</string>
+    <string name="frame_brushed">Brushed</string>
+    
+<!-- MISC STRINGS -->
+    <string name="bug_report">Please include a short description of any problems you are having: </string>
+    <string name="bug_report_send">Send your email with: </string>
+    
+    <string name="folder_name">Mirror Snapshots</string>
+    <string name="app_desc">Mirror</string>
+    <string name="frame_descr">Frame Overlay</string>
+    
+</resources>
