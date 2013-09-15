@@ -45,13 +45,19 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
     /** layoutSize dimensions represent the layout size, after adjustment, for the image on screen */
     private Size layoutSize;
     
-    /** cropSize dimensions represent the overhang of the preview on the device screen, used to center preview */
+    /** cropSize dimensions represent the overhang of the preview on the device screen, used to center preview.
+     *  cropSizes will always be negative values. */
     private Size cropSize;
     
     /* Flags */
     
     public boolean isFullscreen;
     public boolean isPortrait;
+    
+    /* Scale Values */
+    
+    private float xScaleValue = 1.0f;
+    private float yScaleValue = 1.0f;
     
     /* Objects */
     
@@ -88,7 +94,7 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
     protected void onLayout(boolean changed, int l, int t, int r, int b) {
     	if (changed && getChildCount() > 0 && camera != null) {
     		int left, top, right, bottom;
-			initSizes();
+			initDimensions();
     		final View child0 = getChildAt(0);
     		
     		if(isFullscreen == true) {
@@ -113,7 +119,7 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
         
         camera = theCamera;
         if (camera != null) {
-        	initSizes();
+        	initDimensions();
             cameraParameters = camera.getParameters();
             if(isPortrait)
             	cameraParameters.setPreviewSize(previewSize.height, previewSize.width);
@@ -128,7 +134,7 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
         }
     }
     
-    private void initSizes() { 
+    private void initDimensions() { 
     	initDeviceDimensions();
     	// Log.d(TAG, "screenSize - w: " + screenSize.width + " h: " + screenSize.height);
         initPreviewDimensions();
@@ -156,46 +162,49 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
     public void initPreviewDimensions() {
     	cameraParameters = camera.getParameters();
         
-        int prevWidth = 0, prevHeight = 0, largestRes = 0;
+        int previewWidth = 0, previewHeight = 0, largestResolution = 0;
         
-        // Find and list the supported preview sizes
         supportedPreviewSizes = cameraParameters.getSupportedPreviewSizes();
-        for (Size size : supportedPreviewSizes) {
+        for (Size previewSize : supportedPreviewSizes) {
           
           // Find the highest resolution to use for the camera preview
-          if((size.width * size.height) > largestRes) {
-        	  largestRes = size.width * size.height;
-        	  prevWidth = size.height;
-        	  prevHeight = size.width;
+          if((previewSize.width * previewSize.height) > largestResolution) {
+        	  largestResolution = previewSize.width * previewSize.height;
+        	  previewWidth = previewSize.height;
+        	  previewHeight = previewSize.width;
           }
         }
         if(isPortrait)
-        	previewSize = camera.new Size(prevWidth, prevHeight);
+        	previewSize = camera.new Size(previewWidth, previewHeight);
         else
-        	previewSize = camera.new Size(prevHeight, prevWidth);
+        	previewSize = camera.new Size(previewHeight, previewWidth);
     }
     
     private void initLayoutDimensions() {
     	
-    	/* ADJUSTMENT 1 - Attempt to adjust using widths */
-        float multiplier = (float) screenSize.width / (float) previewSize.width;
-        int adjHeight = (int) (previewSize.height * multiplier);
+    	float scaleRatio;
+    	int scaledHeight, scaledWidth;
+    	
+    	/* ADJUSTMENT 1 - Attempt to size preview to screen using widths */
+        scaleRatio = (float) screenSize.width / (float) previewSize.width;
+        scaledHeight = (int) (previewSize.height * scaleRatio);
         	
         // If the adjusted preview height will fill the screen, use the adjusted preview height
-        if(adjHeight >= screenSize.height) {
-        	layoutSize = camera.new Size(screenSize.width , adjHeight);
+        if(scaledHeight >= screenSize.height) {
+        	layoutSize = camera.new Size(screenSize.width , scaledHeight);
         }
         	
-        /* ADJUSTMENT 2 - If the adjusted preview height is to small to fill the screen, adjust preview based on height */
+        /* ADJUSTMENT 2 - The adjusted preview height based on widths is to small to fill the screen, adjust 
+         * preview based on height */
         else {
-        	multiplier = (float) screenSize.height / (float) previewSize.height;
-            int adjWidth = (int) (previewSize.width * multiplier);
+        	scaleRatio = (float) screenSize.height / (float) previewSize.height;
+            scaledWidth = (int) (previewSize.width * scaleRatio);
             
-            if(adjWidth >= screenSize.width) {
-                layoutSize = camera.new Size(adjWidth, screenSize.height);
+            if(scaledWidth >= screenSize.width) {
+                layoutSize = camera.new Size(scaledWidth, screenSize.height);
             }
             
-        /* ADJUSTMENT 3 - If both adj 1 and adj 2 fail (unpossible?), the unadjusted preview size is used */
+        /* ADJUSTMENT 3 - If both adj 1 and adj 2 fail, the unadjusted preview size is used */
             else {
                 layoutSize = camera.new Size(previewSize.width, previewSize.height);
             }
@@ -206,7 +215,28 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
         cropSize = camera.new Size(screenSize.width - layoutSize.width, screenSize.height - layoutSize.height);
     }
     
-    protected Bitmap grabMirrorImage(Snapshot.ImageSize size) { 
+    public String getDisplayInfo() {
+    	String info;
+    	if(camera != null) {
+	    	info =  "Screen Size: " + screenSize.width + " x " + screenSize.height +
+	    		  "\nPreview Size: " + previewSize.width + " x " + previewSize.height +
+	    		  "\nLayout Size: " + layoutSize.width + " x " + layoutSize.height +
+	    		  "\nCrop Size: " + cropSize.width + " x " + cropSize.height;
+    	}
+    	else
+    		info = "No Camera Found";
+    	return info;
+    }
+    
+    public int[] getExposureRange() {
+    	int[] range = new int[2];
+    	cameraParameters = camera.getParameters();
+    	range[0] = cameraParameters.getMinExposureCompensation();
+    	range[1] = cameraParameters.getMaxExposureCompensation();
+    	return range;
+    }
+    
+    protected Bitmap getMirrorImage(Snapshot.ImageSize size) { 
     	
     	int x, y, width, height;
     	Bitmap result;
@@ -220,17 +250,26 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
 		// Log.d(TAG, "bitmap - x: " + x + " y: " + y + " w: " + width + " b: " + height);
     	result = Bitmap.createBitmap(textureView.getBitmap(), x, y, width, height);
 		switch(size) {
-		case SMALL:
-			result = Bitmap.createScaledBitmap(result, (int) (width * 0.5f), (int) (height * 0.5f), false);
-			break;
-		case MEDIUM:
-			result = Bitmap.createScaledBitmap(result, (int) (width * 0.75f), (int) (height * 0.75f), false);
-			break;
-		case LARGE:
-			break;
+			case SMALL:
+				result = Bitmap.createScaledBitmap(result, (int) (width * 0.5f), (int) (height * 0.5f), false);
+				break;
+			case MEDIUM:
+				result = Bitmap.createScaledBitmap(result, (int) (width * 0.75f), (int) (height * 0.75f), false);
+				break;
+			case LARGE:
+				break;
 		}
     	
     	return result;
+    }
+    
+    public int getScreenHeight() { return screenSize.height; }
+    
+    public int getScreenWidth() { return screenSize.width; }
+    
+    public int getZoomMax() {
+    	cameraParameters = camera.getParameters();
+    	return cameraParameters.getMaxZoom();
     }
     
     public void zoom(int value) {
@@ -245,11 +284,6 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
             catch(RuntimeException e) {
             } 
         }
-    }
-    
-    public int getZoomMax() {
-    	cameraParameters = camera.getParameters();
-    	return cameraParameters.getMaxZoom();
     }
     
     public void exposure(int value) throws RuntimeException {
@@ -271,14 +305,6 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
 	            }
             }
         }
-    }
-    
-    public int[] getExposureRange() {
-    	int[] range = new int[2];
-    	cameraParameters = camera.getParameters();
-    	range[0] = cameraParameters.getMinExposureCompensation();
-    	range[1] = cameraParameters.getMaxExposureCompensation();
-    	return range;
     }
     
     public void whiteBalance(int value) throws RuntimeException {
@@ -312,32 +338,32 @@ public class MirrorView extends ViewGroup implements TextureView.SurfaceTextureL
     public void mirrorMode(boolean mode) {
     	if(mode) {
     		Matrix flip = new Matrix();
-    		flip.setScale(1.0f, 1.0f, (float) (screenSize.width/2), (float) (screenSize.height/2));
+    		xScaleValue = 1.0f;
+    		flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2));
 	        textureView.setTransform(flip);
     	}
     	else {
 	    	Matrix flip = new Matrix();
-	    	flip.setScale(-1.0f, 1.0f, (float) (screenSize.width/2), (float) (screenSize.height/2));
+	    	xScaleValue = -1.0f;
+	    	flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2));
 		    textureView.setTransform(flip);
     	}
     }
     
-    public String getDisplayInfo() {
-    	String info;
-    	if(camera != null) {
-	    	info =  "Screen Size: " + screenSize.width + " x " + screenSize.height +
-	    		      "\nPreview Size: " + previewSize.width + " x " + previewSize.height +
-	    		      "\nLayout Size: " + layoutSize.width + " x " + layoutSize.height +
-	    		      "\nCrop Size: " + cropSize.width + " x " + cropSize.height;
+    public void flipMode(boolean mode) {
+    	if(mode) {
+    		Matrix flip = new Matrix();
+    		yScaleValue = -1.0f;
+    		flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2 - cropSize.height));
+	        textureView.setTransform(flip);
     	}
-    	else
-    		info = "No Camera Found";
-    	return info;
+    	else {
+	    	Matrix flip = new Matrix();
+	    	yScaleValue = 1.0f;
+	    	flip.setScale(xScaleValue, yScaleValue, (float) (screenSize.width/2), (float) (screenSize.height/2 - cropSize.height));
+		    textureView.setTransform(flip);
+    	}
     }
-    
-    public int getScreenHeight() { return screenSize.height; }
-    
-    public int getScreenWidth() { return screenSize.width; }
     
     public void startPreview() {
         try {

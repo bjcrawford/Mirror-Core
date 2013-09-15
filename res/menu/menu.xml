@@ -109,10 +109,27 @@
     	    </item>
     	    
     	    <item
-    	        android:id="@+id/menu_options_switch_camera"
-    	        android:title="@string/menu_options_switch_camera"
-			    android:icon="?attr/switchCameraIcon"
-			    android:enabled="false"  />
+    	        android:id="@+id/menu_options_flip_mode"
+    	        android:title="@string/menu_options_flip_mode"
+			    android:icon="?attr/flipIcon" >
+    	        
+    	        <menu>
+    	            
+		            <group 
+		                android:id="@+id/menu_options_flip_mode_group"
+		                android:checkableBehavior="single" >
+		                
+		                <item 
+		                    android:id="@+id/menu_options_flip_mode_on"
+		                    android:title="@string/menu_options_flip_mode_on"  />
+		                <item 
+		                    android:id="@+id/menu_options_flip_mode_off"
+		                    android:title="@string/menu_options_flip_mode_off" />
+		                
+		            </group>
+		        </menu>
+    	        
+    	    </item>
     	    
     	    <item
     	        android:id="@+id/menu_options_screen_rotation"
@@ -131,10 +148,19 @@
 		                <item 
 		                    android:id="@+id/menu_options_screen_rotation_landscape"
 		                    android:title="@string/menu_options_screen_rotation_landscape" />
+		                
 		            </group>
+		            
 		        </menu>
     	        
     	    </item>
+    	    
+    	    <item
+    	        android:id="@+id/menu_options_switch_camera"
+    	        android:title="@string/menu_options_switch_camera"
+			    android:icon="?attr/switchCameraIcon"
+			    android:visible="false"
+			    android:enabled="false"  />
     	    
     	    <item
     	        android:id="@+id/menu_options_themes"
@@ -182,6 +208,35 @@
 		    	
 		    </item>
 		    
+    	    <item
+    	        android:id="@+id/menu_options_snapshot_size"
+    	        android:title="@string/menu_options_snapshot_size"
+			    android:icon="?attr/snapshotSizeIcon"  >
+    	        
+    	        <menu>
+    	            
+    	            <group 
+		                android:id="@+id/menu_options_snapshot_size_group"
+		                android:checkableBehavior="single" >
+    	            
+			    	    <item 
+				    	    android:id="@+id/menu_options_snapshot_size_large"
+				    	    android:title="@string/menu_options_snapshot_size_large" />
+				    	    
+				    	<item 
+				    	    android:id="@+id/menu_options_snapshot_size_medium"
+				    	    android:title="@string/menu_options_snapshot_size_medium" />
+				    	    
+				    	<item
+				    	    android:id="@+id/menu_options_snapshot_size_small"
+				    	    android:title="@string/menu_options_snapshot_size_small" />
+				    
+				    </group>
+		    	    
+		    	</menu>
+		    	
+		    </item>
+    	    
     	    <item 
         		android:id="@+id/menu_options_app_info"
         		android:title="@string/menu_options_app_info"

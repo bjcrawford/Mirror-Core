@@ -1,0 +1,13 @@
+# application files
+*.apk
+*.ap_
+
+# dex VM files
+*.dex
+
+# java class files
+*.class
+
+# generated files
+bin/
+gen/

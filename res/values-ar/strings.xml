@@ -1,0 +1,145 @@
+<resources>
+    
+<!-- MENU STRINGS -->
+    <string name="menu_pause">وقفة</string>
+    <string name="menu_frame">إطار الصورة</string>
+    
+    <string name="menu_snapshot">لقطة</string>
+    	<string name="menu_snapshot_snapshot">لقطة</string>
+    	<string name="menu_snapshot_photobooth">شريط الصور</string>
+    	
+    <string name="menu_options">خيارات</string>
+    
+    	<string name="menu_options_mirror_mode">وضع مرآة</string>
+    		<string name="menu_options_mirror_mode_on">وضع مرآة على</string>
+    		<string name="menu_options_mirror_mode_off">وضع مرآة معطلة</string>
+    		
+    	<string name="menu_options_flip_mode">فليب الوضع</string>
+    		<string name="menu_options_flip_mode_on">فليب الوضع في</string>
+    		<string name="menu_options_flip_mode_off">فليب الوضع معطلة</string>
+    		
+    	<string name="menu_options_switch_camera">التبديل كاميرا</string>
+    	
+    	<string name="menu_options_screen_rotation">اتجاه الشاشة</string>
+    		<string name="menu_options_screen_rotation_portrait">صورة</string>
+    		<string name="menu_options_screen_rotation_landscape">صور الطبيعة</string>
+    		
+    	<string name="menu_options_zoom">زوم</string>
+    	<string name="menu_options_exposure">تعرض</string>
+    	
+    	<string name="menu_options_white_balance">توازن اللون الأبيض</string>
+		    <string name="menu_options_white_balance_auto">أوتوماتيكي</string>
+		    <string name="menu_options_white_balance_daylight">ضوء النهار</string>
+		    <string name="menu_options_white_balance_incandescent">وهاج</string>
+		    <string name="menu_options_white_balance_fluorescent">فلوري</string>
+		    
+    	<string name="menu_options_themes">المواضيع</string>
+		    <string name="menu_options_theme_dark">موضوع الظلام</string>
+		    <string name="menu_options_theme_light">موضوع ضوء</string>
+		    <string name="menu_options_theme_red">موضوع الأحمر</string>
+		    <string name="menu_options_theme_orange">موضوع البرتقالي</string>
+		    <string name="menu_options_theme_green">الموضوع الخضراء</string>
+		    <string name="menu_options_theme_purple">الموضوع الأرجواني</string>
+		    <string name="menu_options_theme_blue">الأزرق الموضوع</string>
+		    
+    	<string name="menu_options_snapshot_size">لقطة الحجم</string>
+		    <string name="menu_options_snapshot_size_large">كبير</string>
+		    <string name="menu_options_snapshot_size_medium">متوسط</string>
+		    <string name="menu_options_snapshot_size_small">صغير</string>
+		    
+    	<string name="menu_options_app_info">التطبيق معلومات</string>
+    	<string name="menu_options_help">مساعدة</string>
+    	
+    <string name="menu_exit">خروج</string>
+    
+<!-- BUTTON STRINGS -->
+    <string name="button_ok">حسنا</string>
+    <string name="button_try">جربه</string>
+    <string name="button_bug">أرسل علة</string>
+    <string name="button_rate">معدل هذا التطبيق</string>
+    <string name="button_cancel">إلغاء</string>
+    <string name="button_close">خروج</string>
+    <string name="button_upgrade_ads">الإعلانات النسخة</string>
+    <string name="button_upgrade_paid">علاوة الإصدار</string>
+    <string name="button_frames">إضافة على صورة أطر</string>
+    <string name="button_pause">زر الإيقاف المؤقت</string>
+    <string name="button_snapshot">زر لقطة</string>
+    <string name="button_photobooth">عرض الصور زر</string>
+    <string name="button_invisible">انقر لعرض أو إخفاء شريط الإجراءات</string>
+    
+<!-- DIALOG STRINGS -->
+    <string name="dialog_default_text">يجب أن لا نرى هذا الحوار</string>
+    <string name="dialog_welcome_one_text">اضغط في أي مكان لإظهار / إخفاء شريط العمل</string>
+    <string name="dialog_welcome_two_text">قرصة للتكبير / التصغير</string>
+    <string name="dialog_new_pause_text">اضغط لإيقاف الشاشة</string>
+    <string name="dialog_new_snapshot_text">انقر لأخذ لقطة</string>
+    <string name="dialog_new_photostrip_text">الاستفادة من أربع مرات لإنشاء عرض الصور</string>
+    
+    <string name="dialog_frames_title">اختيار الإطار:</string>
+    <string name="dialog_frames_close">إغلاق زر</string>
+    <string name="dialog_frames_image">إطار صورة</string>
+    <string name="dialog_frames_divider">المفرق صورة</string>
+    <string name="dialog_frames_add_ons">إضافة المزيد من الإطارات</string>
+    
+    <string name="dialog_app_info_title">التطبيق معلومات</string>
+        					  				
+    <string name="dialog_upgrade_title">الترقية!</string>	  
+    <string name="dialog_upgrade_text">تتوفر هذه الميزة فقط في النسخة قسط أو إعلان من مرآة. الرجاء الترقية إلى دعم التطوير المستمر لهذا التطبيق. شكرا!</string>
+
+    <string name="dialog_rate_title">شكرا لدعمكم!</string>
+    <string name="dialog_rate_text"><b>إذا كنت تتمتع باستخدام مرآة، يرجى ان نتوقف لحظة لمعدل. وتتردد في مراسلتي عبر البريد الإلكتروني مع أي أسئلة أو تعليقات، أو اقتراحات.</b></string>
+        						
+    <string name="dialog_help_title">مساعدة</string>
+    <string name="dialog_help_text">يرجى مراجعة الموقع الإلكتروني، www.wckd-dev.net، للحصول على معلومات حول استخدام مرآة بواسطة wckdDev. إذا كنت لديك أي مشاكل، لا تترددوا في الاتصال بي باستخدام الخيار تقارير الأخطاء في الجزء السفلي.</string>
+        					  
+    <string name="dialog_theme_title">تغيير الموضوع؟</string>
+    <string name="dialog_theme_text">سيؤدي ذلك إلى تغيير موضوع التطبيق. سوف تحتاج المرآة إلى إعادة التشغيل.</string>
+        								   
+    <string name="dialog_no_front_camera_title">لا كاميرا أمامية وجدت</string>
+    <string name="dialog_no_front_camera_text">وكان غير قادر على تهيئة الكاميرا الأمامية. يرجى مراجعة:\n
+        									   \n
+                                               - أن الجهاز يحتوي على كاميرا أمامية\n
+                                      		   - لا يتم استخدام الكاميرا حاليا من قبل تطبيق آخر\n
+                                      		   - حاول إعادة تشغيل التطبيق\n
+                                      		   \n
+                                               إذا لا شيء يعمل، استخدم خيار تقرير علة وأنا سوف تستجيب فورا. إذا كنت ترغب في مواصلة استخدام التطبيق مع الكاميرا التي تواجه الخلفي، اضغط على زر جربه.</string>
+        								   
+    <string name="dialog_no_camera_title">لا كاميرا وجدت</string>
+    <string name="dialog_no_camera_text">وكان غير قادر على تهيئة الكاميرا. يرجى مراجعة:\n\n
+                                         - أن الجهاز يحتوي على كاميرا\n
+                                         - لا يتم استخدام الكاميرا حاليا من قبل تطبيق آخر\n
+                                         - حاول إعادة تشغيل التطبيق\n\n
+                                         إذا لا شيء يعمل، استخدم خيار تقرير علة وأنا سوف تستجيب فورا. واضاف لقد لذلك حاول الزر في حال كنت تتلقى هذه الرسالة عن طريق الخطأ.</string>
+    
+    <string name="dialog_exposure_title">اختر مستوى التعرض:</string>
+    <string name="dialog_zoom_title">اختيار مستوى التكبير:</string>
+    
+<!-- TOAST STRINGS -->
+    <string name="toast_no_zoom">لا يدعم الكاميرا إعدادات التكبير.</string>
+    <string name="toast_no_exposure">لا يدعم الكاميرا إعدادات التعرض.</string>
+    <string name="toast_no_white_balance">لا يدعم الكاميرا إعدادات توازن اللون الأبيض.</string>
+    
+    <string name="toast_photo_one">لقطة واحدة التقاط</string>
+    <string name="toast_photo_two">اللقطة لالتقاط</string>
+    <string name="toast_photo_three">لقطة التقاط ثلاثة</string>
+    <string name="toast_photo_four">لقطة أربعة التقاط</string>
+    <string name="toast_strip_complete">عرض الصور المنجزة والتي تم حفظها</string>
+    
+    <string name="toast_photo_taken">لقطة تؤخذ</string>
+    <string name="toast_photo_saved">تم الحفظ لقطة</string>
+    
+<!-- FRAME STRINGS -->
+    <string name="frame_no_frame">لا يوجد اطار</string>
+    <string name="frame_low_light">الإضاءة المنخفضة</string>
+    <string name="frame_soft_gold">الذهب لينة</string>
+    <string name="frame_brushed">نحى</string>
+    
+<!-- MISC STRINGS -->
+    <string name="bug_report">يرجى تشمل وصفا موجزا لأية مشاكل التي تواجهها:</string>
+    <string name="bug_report_send">أرسل بريدا إلكترونيا مع:</string>
+    
+    <string name="folder_name">لقطات مرآة</string>
+    <string name="app_desc">مرآة</string>
+    <string name="frame_descr">الإطار تراكب</string>
+    
+</resources>

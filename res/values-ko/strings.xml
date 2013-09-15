@@ -1,19 +1,22 @@
 <resources>
-
-    <string name="app_name">거울 무료로</string>
     
+<!-- MENU STRINGS -->
     <string name="menu_pause">중지</string>
     <string name="menu_frame">프레임 스타일</string>
     
     <string name="menu_snapshot">스냅 사진</string>
     	<string name="menu_snapshot_snapshot">스냅 사진</string>
-    	<string name="menu_snapshot_photobooth">사진 부스</string>
+    	<string name="menu_snapshot_photobooth">사진 스트립</string>
     	
     <string name="menu_options">옵션</string>
     
-    	<string name="menu_options_mirror_mode">미러 모드</string>
-    		<string name="menu_options_mirror_mode_on">미러 모드를 활성화합니다</string>
-    		<string name="menu_options_mirror_mode_off">미러 모드를 비활성화</string>
+    	<string name="menu_options_mirror_mode">거울 역</string>
+    		<string name="menu_options_mirror_mode_on">일반 거울</string>
+    		<string name="menu_options_mirror_mode_off">거울 역</string>
+    		
+    	<string name="menu_options_flip_mode">거울 플립</string>
+    		<string name="menu_options_flip_mode_on">거울 플립</string>
+    		<string name="menu_options_flip_mode_off">일반 거울</string>
     		
     	<string name="menu_options_switch_camera">카메라 변경</string>
     	
@@ -39,16 +42,21 @@
 		    <string name="menu_options_theme_purple">퍼플 테마</string>
 		    <string name="menu_options_theme_blue">블루 테마</string>
 		    
+    	<string name="menu_options_snapshot_size">스냅 샷 크기</string>
+		    <string name="menu_options_snapshot_size_large">큰</string>
+		    <string name="menu_options_snapshot_size_medium">중간</string>
+		    <string name="menu_options_snapshot_size_small">작은</string>
+		    
     	<string name="menu_options_app_info">응용 프로그램 정보</string>
     	<string name="menu_options_help">도움</string>
     	
     <string name="menu_exit">출구</string>
     
+<!-- BUTTON STRINGS -->
     <string name="button_ok">확인을</string>
     <string name="button_try">시도하려는</string>
     <string name="button_bug">버그 보고서를 보내</string>
     <string name="button_rate">평가합니다</string>
-    <string name="button_dont_ask">다시 묻지 않음</string>
     <string name="button_cancel">취소</string>
     <string name="button_close">출구</string>
     <string name="button_upgrade_ads">광고</string>
@@ -56,9 +64,17 @@
     <string name="button_frames">더 많은 프레임</string>
     <string name="button_pause">일시 정지 버튼</string>
     <string name="button_snapshot">스냅 샷 버튼</string>
-    <string name="button_photobooth">사진 부스 단추</string>
+    <string name="button_photobooth">사진 버튼의 스트립</string>
     <string name="button_invisible">작업 표시 줄을 숨기거나 표시하려면 누르세요</string>
         					  
+<!-- DIALOG STRINGS -->
+    <string name="dialog_default_text">이 대화 상자를 볼 수 없을 것</string>
+    <string name="dialog_welcome_one_text">작업 표시 줄을 표시 / 숨기기 위해 아무 곳이나 눌러</string>
+    <string name="dialog_welcome_two_text">확대 / 축소하는 핀치</string>
+    <string name="dialog_new_pause_text">정지 화면에게로 눌러</string>
+    <string name="dialog_new_snapshot_text">스냅 샷을 누릅니다</string>
+    <string name="dialog_new_photostrip_text">사진의 스트립을 만들 수 네 번을 누르</string>
+    
     <string name="dialog_frames_title">프레임 선택 :</string>
     <string name="dialog_frames_close">출구</string>
     <string name="dialog_frames_image">프레임 이미지</string>
@@ -66,141 +82,24 @@
     <string name="dialog_frames_add_ons">더 많은 프레임을 추가</string>
     
     <string name="dialog_app_info_title">응용 프로그램 정보</string>
-    <string name="dialog_app_info_text">안녕하세요! 내 번역을 드려 죄송합니다. 난 당신이을 거두고 계시 리라 믿습니다
-                               응용 프로그램입니다. 미러는 넥서스 7 지어졌지만 지금은 많은에서 작동되었습니다
-                               전면 카메라 장치.\n
-        					  \n 
-        					   이 거울은 내가 한 첫 번째 응용 프로그램입니다. 즐기십시오! :)\n
-        					  \n
-        					  <b>wckd Development</b>\n
-		        			  www.wckd-dev.net\n</string>
         					  
     <string name="dialog_upgrade_title">거울를 구입</string>
     <string name="dialog_upgrade_text">이 기능은 프리미엄 버전 또는 거울의 광고 버전에서만 사용할 수 있습니다. 하시기 바랍니다
                                       이 응용 프로그램의 지속적인 개발을 지원하기 위해 업그레이드 할 수 있습니다.</string>
-        					  
-    <string name="dialog_welcome_title">오신 것을 환영합니다!</string>
-    <string name="dialog_welcome_text"><b>어떤 새로운</b>\n
-        								 \n
-        								 -확대 꼬집어\n
-        								 -인물 / 풍경 모드\n
-        								 -앞 또는 뒤로 카메라를 사용하여\n
-        								 \n
-        								 <b>**이전에 전면 카메라 미러에 포함 된 사진 프레임은 여러분이 안드로이드 Play 스토어에서 다운로드 할 수 있습니다 옵션 패키지에 이동되었습니다.
-        								 그들은 클래식 컬렉션으로 표시됩니다. 새로운 프레임 컬렉션은 작은 가격에 사용할 수 있습니다.**</b>\n
-        								 \n
-        					                  어떤 곳 작업 표시 줄을 숨기거나 표시하려면 누르세요.\n
-        								 \n
-        								 당신은 거울 무료 좋아하는 경우,
-                                         평가합니다. 귀하의 지원에 대한 감사합니다!\n
-        					             \n
-        		    			             당신은 문제가 있다면, 연락 주시기 바랍니다
-                                         나 개발자 정보 메뉴에서 보내기 버그보고 버튼을 사용합니다. 그럴 게요
-                                         문제를 해결하기 위해 신속하게 작동합니다.
-										  당신은 거울 무료 좋아하는 경우,
-                                         평가합니다. 귀하의 지원에 대한 감사합니다!</string>
-        					             
+        			             
     <string name="dialog_rate_title">귀하의 지원에 대한 감사합니다!</string>
     <string name="dialog_rate_text"><b>당신은 거울 무료 좋아하는 경우,
                                          평가합니다.</b></string>
-        					        
-    <string name="dialog_pause_title">중지</string>
-    <string name="dialog_pause_text">일시 정지 미러에이 버튼을 사용합니다.</string>
-        					  
-    <string name="dialog_snapshot_title">스냅 샷 모드</string>
-    <string name="dialog_snapshot_text">스냅 샷 모드는의 스냅 샷을 찍을 수 있도록합니다
-									    프레임과 당신이 가진 모든 효과를 포함 거울,
-									    적용.\n
-        							   \n
-        							    당신은 표시 할 작업 표시 줄에있는 스냅 샷 버튼을 사용할 수 있습니다
-									    또는 화면에서 스냅 샷 버튼을 숨길 수 있습니다. 스냅 샷 모드
-									    스냅 샷 버튼에 표시 될 때 사용할 수 있습니다
-									    화면의 오른쪽 모서리를 낮추십시오.\n
-									   \n
-        							    스냅 샷을 촬영하면 이미지가에 저장됩니다
-							           미러 스냅 샷이 장치에 폴더에 저장됩니다. 당신은 쉽게 할 수 있습니다
-							           일반 갤러리 앱으로 이미지를 볼 수 있습니다. 스냅 사진
-									    모드는에있는 스냅 샷 버튼을 선택하여 종료 할 수 있습니다
-									    작업 표시 줄이나 사진 부스 모드를 입력하여.\n
-        							   \n
-        							   사용하는 동안 문제가 있으면 알려 주시기 바랍니다
-                                      스냅 샷 모드. 감사합니다! 하고 즐기십시오!</string>
-        							    
-    <string name="dialog_snapshot_size_title">Snapshot Size</string>
-    <string name="dialog_snapshot_size_text">Please choose a size for the snapshot:</string>
-    <string name="dialog_snapshot_size_small">Small  -  50%</string>
-    <string name="dialog_snapshot_size_medium">Medium -  75%</string>
-    <string name="dialog_snapshot_size_large">Large  - 100%</string>
-        							   
-    <string name="dialog_photobooth_title">사진 부스 모드</string>
-    <string name="dialog_photobooth_text">사진 부스 모드는 네 개의 스냅 샷을 찍을 수 있도록합니다
-								       어떤 님이 사진 부스 스타일의 스트립로 결합됩니다.
-								       당신은 각 사진을 취할 사진 부스 버튼을 사용할 수 있습니다
-								       시간 제한 없습니다. :) \n
-        							   \n
-        							    당신은 숨기거나 표시 할 작업 표시 줄에있는 버튼을 사용할 수 있습니다
-							           화면에서 사진 부스 버튼을 클릭합니다. 사진 부스 모드입니다
-							           사진 부스 버튼에 표시 될 때 활성화
-							           화면의 왼쪽 모서리를 낮 춥니 다.\n
-        							   \n
-        							    당신은 작업 표시 줄에있는 버튼을 선택하여 사진 부스 모드를 종료 할 수 있습니다. 
-        							    네 사진을 완료하기 전에 사진 부스 모드를 종료하면 사진이 사라집니다. \n
-        							   \n
-        							   당신이이 있으면 알려주십시오
-         							   사진 부스 모드를 사용하는 동안 문제. 감사합니다! 하고 즐기십시오!</string>
-        							   
+        				 		   
     <string name="dialog_help_title">도움</string>
-    <string name="dialog_help_text">이 문제가 발생하는 경우, 저에게 연락 주시기 바랍니다.
+    <string name="dialog_help_text">자세한 내용은 웹 사이트를 확인하십시오. www.wckd-dev.net
+                                                 이 문제가 발생하는 경우, 저에게 연락 주시기 바랍니다.
 								    난 당신의 문제를 해결하기 위해 빠른 작동합니다. 사용
-								   버그 보고서 버튼을 클릭합니다.\n
-        					       \n
-        					       <b>전체 화면 모드</b>\n
-        					       \n
-	        					           당신은 내부 아무 곳이나 클릭하여 전체 화면 모드를 사용할 수 있습니다
-										거울의 프레임. 전체 화면 모드에서 사용 할 수있는
-										전체 화면. 전체 화면 모드를 종료하면 작업 표시 줄이 표시됩니다
-										이는 거울의 기능과 설정이 포함되어 있습니다.\n
-        					           \n
-        					       <b>스냅 샷 모드</b>\n
-        					       \n
-	        					          스냅 샷 모드는의 스냅 샷을 찍을 수 있도록합니다
-									    프레임과 당신이 가진 모든 효과를 포함 거울,
-									    적용.\n
-        							   \n
-        							    당신은 표시 할 작업 표시 줄에있는 스냅 샷 버튼을 사용할 수 있습니다
-									    또는 화면에서 스냅 샷 버튼을 숨길 수 있습니다. 스냅 샷 모드
-									    스냅 샷 버튼에 표시 될 때 사용할 수 있습니다
-									    화면의 오른쪽 모서리를 낮추십시오.\n
-									   \n
-        							    스냅 샷을 촬영하면 이미지가에 저장됩니다
-							           미러 스냅 샷이 장치에 폴더에 저장됩니다. 당신은 쉽게 할 수 있습니다
-							           일반 갤러리 앱으로 이미지를 볼 수 있습니다. 스냅 사진
-									    모드는에있는 스냅 샷 버튼을 선택하여 종료 할 수 있습니다
-									    작업 표시 줄이나 사진 부스 모드를 입력하여.\n
-       							   	   \n
-       							   <b>사진 부스 모드</b>\n
-       							   \n
-        						   	   사진 부스 모드는 네 개의 스냅 샷을 찍을 수 있도록합니다
-								       어떤 님이 사진 부스 스타일의 스트립로 결합됩니다.
-								       당신은 각 사진을 취할 사진 부스 버튼을 사용할 수 있습니다
-								       시간 제한 없습니다. :) \n
-        							   \n
-        							    당신은 숨기거나 표시 할 작업 표시 줄에있는 버튼을 사용할 수 있습니다
-							           화면에서 사진 부스 버튼을 클릭합니다. 사진 부스 모드입니다
-							           사진 부스 버튼에 표시 될 때 활성화
-							           화면의 왼쪽 모서리를 낮 춥니 다.\n
-        							   \n
-        							    당신은 작업 표시 줄에있는 버튼을 선택하여 사진 부스 모드를 종료 할 수 있습니다. 
-        							    네 사진을 완료하기 전에 사진 부스 모드를 종료하면 사진이 사라집니다. \n
-        							   \n</string>
+								   버그 보고서 버튼을 클릭합니다.</string>
     
     <string name="dialog_theme_title">테마를 변경 하시겠습니까?</string>
-    <string name="dialog_theme_dark_text">이 어두운 주제 응용 프로그램의 색상을 변경할 수 있습니다.
-                                         그것은 다시 시작해야합니다.</string>
-    <string name="dialog_theme_light_text">이 빛 주제 응용 프로그램의 색상을 변경할 수 있습니다.
-                                          그것은 다시 시작해야합니다.</string>
-    <string name="dialog_theme_custom_text">이 어둠 / 파란색 테마 응용 프로그램의 색상을 변경할 수 있습니다.
-                                           그것은 다시 시작해야합니다.</string>
+    <string name="dialog_theme_text">이 응용 프로그램의 테마를 변경합니다.
+                                     미러를 다시 시작해야합니다.</string>
         								   
     <string name="dialog_no_front_camera_title">찾을 수 없음 전면 카메라 없음</string>
     <string name="dialog_no_front_camera_text">전면 카메라는 초기화 할 수 없습니다. 확인하십시오 :\n
@@ -227,6 +126,7 @@
     <string name="dialog_exposure_title">노출 수준을 선택 :</string>
     <string name="dialog_zoom_title">줌 레벨을 선택합니다 :</string>
     
+<!-- TOAST STRINGS -->
     <string name="toast_no_zoom">카메라가 줌 설정을 지원하지 않습니다</string>
     <string name="toast_no_exposure">카메라 노출 설정을 지원하지 않습니다</string>
     <string name="toast_no_white_balance">카메라는 화이트 밸런스 설정을 지원하지 않습니다</string>
@@ -240,16 +140,17 @@
     <string name="toast_photo_taken">촬영 사진</string>
     <string name="toast_photo_saved">사진 저장</string>
     
+<!-- FRAME STRINGS -->
     <string name="frame_no_frame">어떤 프레임 없음</string>
     <string name="frame_low_light">낮은 조명</string>
     <string name="frame_soft_gold">소프트 골드</string>
     <string name="frame_brushed">닦았 금속</string>
     
+<!-- MISC STRINGS -->
     <string name="bug_report">당신이 발생하는 문제에 대한 짧은 설명을 포함하세요 :</string>
     <string name="bug_report_send">로 이메일 보내기 :</string>
     
     <string name="folder_name">미러 스냅 샷</string>
-    
     
     <string name="frame_descr">프레임 오버레이</string>
 

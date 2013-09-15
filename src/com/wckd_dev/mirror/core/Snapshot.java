@@ -47,7 +47,7 @@ public class Snapshot {
 	
 	public void takePhoto(ImageSize size) {
 		
-		Bitmap rawPhoto = Bitmap.createBitmap(mirror.grabMirrorImage(size));
+		Bitmap rawPhoto = Bitmap.createBitmap(mirror.getMirrorImage(size));
 		Toast.makeText(context, R.string.toast_photo_taken, Toast.LENGTH_SHORT).show();
 		
 		frameView.setDrawingCacheEnabled(true);

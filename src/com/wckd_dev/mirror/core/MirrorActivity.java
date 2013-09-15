@@ -21,6 +21,7 @@ import android.graphics.Matrix;
 import android.graphics.PointF;
 import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
+import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
 import android.util.FloatMath;
@@ -41,21 +42,22 @@ import android.widget.Toast;
 
 public class MirrorActivity extends Activity implements OnTouchListener {
 
-	// private final String TAG = "wckd";
+	//private final String TAG = "wckd";
 	
 	/* Intent variables */
 	
 	protected final static String MIRROR_MESSAGE = "com.wckd_dev.mirror.core.MESSAGE";
-	private String intentMessage;
-	private String store;
-	protected String version;
+	private                String intentMessage;
+	private                String store;
+	protected              String version;
+	protected              String dialogAppInfoText;
 	
 	/* Constants for Calling Dialogs */
 	
     protected static final int WELCOME_DIALOG         =  1;
     protected static final int SNAPSHOT_DIALOG        =  2;
     protected static final int SNAPSHOT_SIZE          =  3;
-    protected static final int PHOTOBOOTH_DIALOG      =  4;
+    protected static final int PHOTOSTRIP_DIALOG      =  4;
     protected static final int FRAME_STYLE_DIALOG     =  5;
     protected static final int ZOOM_DIALOG            =  6;
     protected static final int EXPOSURE_DIALOG        =  7;
@@ -67,6 +69,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final int UPGRADE                = 13;
     protected static final int RATE                   = 14;
     protected static final int PAUSE_DIALOG           = 15;
+    protected static final int WELCOME_ONE_DIALOG     = 16;
+    protected static final int WELCOME_TWO_DIALOG     = 17;
+    
     
     /** Change between 1 and 2 to display one time messages to users after upgrades */
     private final int INFO_DIALOGS = 1; // v2.3 set to 1 for release
@@ -76,9 +81,11 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	protected static final String APP_PREFERENCES                    = "AppPrefs";
 	protected static final String APP_PREFERENCES_ORIENTATION        = "Orientation";
 	protected static final String APP_PREFERENCES_REVERSE            = "Reverse";
+	protected static final String APP_PREFERENCES_FLIP               = "Flip";
     protected static final String APP_PREFERENCES_FRAME              = "Frame";
     protected static final String APP_PREFERENCES_FRAME_CHANGED      = "FrameChanged";
-    protected static final String APP_PREFERENCES_INITIAL_LOAD       = "InitialLoad";
+    protected static final String APP_PREFERENCES_INITIAL_LOAD_ONE   = "InitialLoadOne";
+    protected static final String APP_PREFERENCES_INITIAL_LOAD_TWO   = "InitialLoadTwo";
     protected static final String APP_PREFERENCES_INITIAL_PAUSE      = "InitialPause";
     protected static final String APP_PREFERENCES_INITIAL_SNAPSHOT   = "InitialSnapshot";
     protected static final String APP_PREFERENCES_INITIAL_PHOTOBOOTH = "InitialPhotoBooth";
@@ -88,24 +95,28 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final String APP_PREFERENCES_ZOOM               = "Zoom";
     protected static final String APP_PREFERENCES_HAS_RATED          = "HasRated";
     protected static final String APP_PREFERENCES_USE_COUNT          = "UseCount";
+    protected static final String APP_PREFERENCES_SNAPSHOT_SIZE      = "SnapshotSize";
     
     /* Preferences */
     
-    private int    reversePref;
-	private int    orientationPref;
-    private int    frameModePref;
-	private int    framePacksPref;
- 	private int    initialLoadPref;
-	private int    initialPausePref;
-	private int    initialSnapshotPref;
-	private int    initialPhotoBoothPref;
-	protected int  themePref;
-	private String themeColor;
-	private int    exposurePref;
-	private int    whiteBalancePref;
-    private float  zoomPrefF;
-	protected int  hasRatedPref;
-	private int    useCountPref;
+    private   int    reversePref;
+    private   int    flipPref;
+	private   int    orientationPref;
+    private   int    frameModePref;
+	private   int    framePacksPref;
+ 	private   int    initialLoadOnePref;
+ 	private   int    initialLoadTwoPref;
+	private   int    initialPausePref;
+	private   int    initialSnapshotPref;
+	private   int    initialPhotoBoothPref;
+	protected int    themePref;
+	private   String themeColor;
+	private   int    exposurePref;
+	private   int    whiteBalancePref;
+    private   float  zoomPrefF;
+	protected int    hasRatedPref;
+	private   int    useCountPref;
+	private   int    snapshotSizePref;
 	
 	/* Camera */
 	
@@ -117,36 +128,38 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	
 	/* Flags */
 
-	private boolean   isPaused = false;
-	private boolean   isPreviewStopped = false;
-	private boolean   isBackCameraFound = false;
-    private boolean   isFrontCameraFound = false;
-    private boolean   isUsingFrontCamera = false;
-    protected boolean isZoomSupported = false;
-    protected boolean isExposureSupported = false;
-    private boolean   isWhiteBalanceSupported = false;
-    private boolean   isFullscreen = true;
-    private boolean   isMirrorMode = true;
-    private boolean   isPortrait;
-    private boolean   isPauseButtonVisible = false;
-    private boolean   isSnapshotButtonVisible = false;
-    private boolean   isPhotoBoothButtonVisible = false;
+	private   boolean   isPaused                  = false;
+	private   boolean   isPreviewStopped          = false;
+	private   boolean   isBackCameraFound         = false;
+    private   boolean   isFrontCameraFound        = false;
+    private   boolean   isUsingFrontCamera        = false;
+    protected boolean   isZoomSupported           = false;
+    protected boolean   isExposureSupported       = false;
+    private   boolean   isWhiteBalanceSupported   = false;
+    private   boolean   isFullscreen              = true;
+    private   boolean   isMirrorMode              = true;
+    private   boolean   isPortrait;
+    private   boolean   isPauseButtonVisible      = false;
+    private   boolean   isSnapshotButtonVisible   = false;
+    private   boolean   isPhotoBoothButtonVisible = false;
     
     /* Objects */
     
-    private Camera                camera = null;
-    private MirrorView            mirrorView;
-    protected SharedPreferences   appSettings;
-    protected Dialog              dialog;
-    private MenuItem              menuItemWB, menuItemMMt, menuItemMMf;
-    private Animation             slideUp, slideDown;
-    private Animation             rightSlideIn, rightSlideOut;
-    private Animation             leftSlideIn, leftSlideOut;
-    private ImageButton           pause, takeSnapshot, takePhotoBooth;
-    protected FrameManager        frameMgr;
-    private Snapshot              snapshot;   // Paid/Ads Only
-    protected Snapshot.ImageSize  imageSize = Snapshot.ImageSize.LARGE;  // Paid/Ads Only
-    private PhotoBooth            booth;      // Paid/Ads Only
+    private   Camera                camera = null;
+    private   MirrorView            mirrorView;
+    protected SharedPreferences     appSettings;
+    protected Dialog                dialog;
+    private   MenuItem              menuItemWhiteBalance;
+    private   MenuItem              menuItemMirrorModeOn;
+    private   MenuItem              menuItemMirrorModeOff;
+    private   Animation             slideUp, slideDown;
+    private   Animation             rightSlideIn, rightSlideOut;
+    private   Animation             leftSlideIn, leftSlideOut;
+    private   ImageButton           pause, takeSnapshot, takePhotoBooth;
+    protected FrameManager          frameMgr;
+    private   Snapshot              snapshot;   // Paid/Ads Only
+    protected Snapshot.ImageSize    imageSize = Snapshot.ImageSize.LARGE;  // Paid/Ads Only
+    private   PhotoBooth            booth;      // Paid/Ads Only
     
     /* Touch */
     
@@ -160,12 +173,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     private int touchState = NONE;
     
-    private PointF start = new PointF();
-    private PointF mid = new PointF();
+    private PointF start     = new PointF();
+    private PointF mid       = new PointF();
     private float  startDist = 1f;
-    private float  lastDist = 0f;
-    private float  minDist = 10f;
-    private float  zoomRate = 0f;
+    private float  lastDist  = 0f;
+    private float  minDist   = 10f;
+    private float  zoomRate  = 0f;
     
     /* Store Links */
     
@@ -190,6 +203,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         initSnapshotButton();
         initPhotoBoothButton();
         initOnTouchListener();
+	    showWelcomeOneDialog();
     }
     
     @Override
@@ -211,6 +225,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         // Save preferences
         Editor editor = appSettings.edit();
         editor.putString(APP_PREFERENCES_REVERSE, Integer.toString(reversePref));
+        editor.putString(APP_PREFERENCES_FLIP, Integer.toString(flipPref));
         editor.putString(APP_PREFERENCES_ORIENTATION, Integer.toString(orientationPref));
 		editor.putString(APP_PREFERENCES_FRAME, Integer.toString(frameModePref));
 		editor.putString(APP_PREFERENCES_FRAME_CHANGED, Integer.toString(framePacksPref));
@@ -219,6 +234,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 		editor.putString(APP_PREFERENCES_ZOOM, Integer.toString(Math.round(zoomPrefF)));
 		editor.putString(APP_PREFERENCES_HAS_RATED, Integer.toString(hasRatedPref));
 		editor.putString(APP_PREFERENCES_USE_COUNT, Integer.toString(useCountPref));
+		editor.putString(APP_PREFERENCES_SNAPSHOT_SIZE, Integer.toString(snapshotSizePref));
 		editor.commit();
     }
     
@@ -253,6 +269,14 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     		isMirrorMode = false;
     	}
     	
+    	if(flipPref == 0) {
+    		(menu.findItem(R.id.menu_options_flip_mode_off)).setChecked(true);
+    	}
+    	else {
+    		(menu.findItem(R.id.menu_options_flip_mode_on)).setChecked(true);
+    		mirrorView.flipMode(true);
+    	}
+    	
     	if(Math.round(zoomPrefF) > 0)
         	setZoom(Math.round(zoomPrefF)); // Set the zoom preference
         
@@ -265,12 +289,14 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         	}
         }
 
-        menuItemWB = menu.findItem(R.id.menu_options_white_balance);
+        menuItemWhiteBalance = menu.findItem(R.id.menu_options_white_balance);
         if(whiteBalancePref != 0)
         	setWhiteBalance(whiteBalancePref); // Set the white balance preference
         
-        if(numberOfCameras > 1) 
+        if(numberOfCameras > 1) {
         	(menu.findItem(R.id.menu_options_switch_camera)).setEnabled(true);
+        	(menu.findItem(R.id.menu_options_switch_camera)).setVisible(true);
+        }
 
     	if(isPortrait) {
 	    	(menu.findItem(R.id.menu_options_screen_rotation_portrait)).setChecked(true);
@@ -278,19 +304,57 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         else {
 	    	(menu.findItem(R.id.menu_options_screen_rotation_landscape)).setChecked(true);
         }
+    	
+
+    	if(version.compareTo("free") != 0) {
+
+        	if(snapshotSizePref == 2) {
+    	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
+        	}
+        	else if(snapshotSizePref == 1) {
+    	    	(menu.findItem(R.id.menu_options_snapshot_size_medium)).setChecked(true);
+        	}
+        	else {
+    	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
+        	}
+    	}
+    	else {
+
+        	(menu.findItem(R.id.menu_options_snapshot_size)).setEnabled(false);
+        	(menu.findItem(R.id.menu_options_snapshot_size)).setVisible(false);
+    	}
+    	
+    	
+    	
         return true;
     }
     
     @Override
     public boolean onPrepareOptionsMenu(Menu menu) {
     	
-    	menuItemWB = menu.findItem(R.id.menu_options_white_balance);
-    	menuItemMMt = menu.findItem(R.id.menu_options_mirror_mode_on);
-    	menuItemMMf = menu.findItem(R.id.menu_options_mirror_mode_off);
+    	menuItemWhiteBalance = menu.findItem(R.id.menu_options_white_balance);
+    	menuItemMirrorModeOn = menu.findItem(R.id.menu_options_mirror_mode_on);
+    	menuItemMirrorModeOff = menu.findItem(R.id.menu_options_mirror_mode_off);
+    	//menuItemFlipModeOn = menu.findItem(R.id.menu_options_flip_mode_on);
+    	//menuItemFlipModeOff = menu.findItem(R.id.menu_options_flip_mode_off);
     	
     	if(reversePref == 0) {
-    		menuItemMMf.setChecked(true);
+    		menuItemMirrorModeOff.setChecked(true);
     	}
+    	//if(flipPref == 0) {
+    	//	menuItemFlipModeOff.setChecked(true);
+    	//}
+    	
+    	if(snapshotSizePref == 2) {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_small)).setChecked(true);
+    	}
+    	else if(snapshotSizePref == 1) {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_medium)).setChecked(true);
+    	}
+    	else {
+	    	(menu.findItem(R.id.menu_options_snapshot_size_large)).setChecked(true);
+    	}
+    	
         return super.onPrepareOptionsMenu(menu);
     }
 
@@ -322,8 +386,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	        		takeSnapshot.startAnimation(rightSlideIn);
 	                takeSnapshot.setVisibility(View.VISIBLE);
 	        		isSnapshotButtonVisible = true;
-	        		if(version.compareTo("free") != 0)
-	        			displayDialog(SNAPSHOT_SIZE);
 	        		showSnapshotDialog();
 	        	}
 	        	result = true;
@@ -454,6 +516,18 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         	}
         	result = true;
         }
+	    /* Flip Mode On */
+        else if(id == R.id.menu_options_flip_mode_on) {
+        	flipPref = 1;
+        	item.setChecked(true);
+            mirrorView.flipMode(true);
+        }
+	    /* Flip Mode Off */
+        else if(id == R.id.menu_options_flip_mode_off) {
+        	flipPref = 0;
+        	item.setChecked(true);
+            mirrorView.flipMode(false);
+        }
         /* Switch Camera */
         else if(id == R. id.menu_options_switch_camera) {
     		unloadCamera();
@@ -474,7 +548,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     			isMirrorMode = true;
     			reversePref = 1;
                 mirrorView.mirrorMode(true);
-    			menuItemMMt.setChecked(true);
+    			menuItemMirrorModeOn.setChecked(true);
     			
     			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 	        	mirrorView.isPortrait = isPortrait = true;
@@ -491,7 +565,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     			isMirrorMode = true;
     			reversePref = 1;
                 mirrorView.mirrorMode(true);
-    			menuItemMMt.setChecked(true);
+    			menuItemMirrorModeOn.setChecked(true);
     			
         		setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 	        	mirrorView.isPortrait = isPortrait = false;
@@ -503,9 +577,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
             result = true;
         }	
 
-	    // TODO - Custom theme should bring up dialog asking for theme color choices.
-	    // Allow users to seperately choose action bar and text/accent colors from android colors
-	    
         /* Dark Theme */
         else if(id == R.id.menu_options_theme_dark) {
         	themePref = 1;
@@ -568,6 +639,21 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         		displayDialog(UPGRADE);
         	result = true;
         }
+	    /* Snapshot Size Large */
+        else if(id == R.id.menu_options_snapshot_size_large) {
+        	snapshotSizePref = 0;
+	    	item.setChecked(true);
+        }
+	    /* Snapshot Size Medium */
+        else if(id == R.id.menu_options_snapshot_size_medium) {
+        	snapshotSizePref = 1;
+	    	item.setChecked(true);
+        }
+	    /* Snapshot Size Small */
+        else if(id == R.id.menu_options_snapshot_size_small) {
+        	snapshotSizePref = 2;
+	    	item.setChecked(true);
+        }
         /* App Info */
         else if(id == R.id.menu_options_app_info) {
         	displayDialog(APP_INFO_DIALOG);
@@ -603,15 +689,19 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         upgradePaidLink = message.next();
         upgradePaidLink = message.next();
         frameLink = message.next();
+        message.useDelimiter("&");
+        dialogAppInfoText = message.next();
     }
     
     private void initPrefs() {
         appSettings = getSharedPreferences(APP_PREFERENCES, Context.MODE_PRIVATE);
         reversePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_REVERSE, "1"));
+        flipPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FLIP, "0"));
         orientationPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_ORIENTATION, "0"));
         frameModePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FRAME, "0"));
         framePacksPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_FRAME_CHANGED, "0"));
-        initialLoadPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_LOAD, "0"));
+        initialLoadOnePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_LOAD_ONE, "0"));
+        initialLoadTwoPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_LOAD_TWO, "0"));
         initialPausePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_PAUSE, "0"));
         initialSnapshotPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_SNAPSHOT, "0"));
         initialPhotoBoothPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, "0"));
@@ -621,6 +711,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         zoomPrefF = Integer.parseInt(appSettings.getString(APP_PREFERENCES_ZOOM, "0"));
         hasRatedPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_HAS_RATED, "0"));
         useCountPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_USE_COUNT, "0"));
+        snapshotSizePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_SNAPSHOT_SIZE, "0"));
     }
     
     private void initTheme() {
@@ -809,61 +900,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         }
     }
     
-    private void loadCamera() {
-    	if(camera == null) {
-        	
-		    try {
-		        camera = Camera.open(currentCameraId);
-			    if(isPortrait)
-			    	camera.setDisplayOrientation(90);
-			    else
-			    	camera.setDisplayOrientation(0);
-		    	mirrorView.setCamera(camera); //
-		    	Camera.Parameters parameters = camera.getParameters();
-		    	isZoomSupported = parameters.isZoomSupported();
-		    	if(parameters.getMinExposureCompensation() != 0 || parameters.getMaxExposureCompensation() != 0 ) 
-		    		isExposureSupported = true;
-		    	if(parameters.getWhiteBalance() != null)
-		    		isWhiteBalanceSupported = true;
-		    } 
-	        catch(RuntimeException e) {
-	        		displayDialog(CAMERA_NOT_FOUND);
-	        		e.printStackTrace();
-	        }
-		    
-		    if(isPreviewStopped) {
-		    	mirrorView.startPreview();
-		    	isPreviewStopped = false;
-		    }
-        }
-    }
-    
-    private void unloadCamera() {
-    	if (camera != null) {
-            
-            try { 
-            	mirrorView.setCamera(null);
-            }
-            catch(RuntimeException e) {
-	        	Toast.makeText(this, "Error Unloading Camera", Toast.LENGTH_SHORT).show();
-	        }
-            
-            camera.stopPreview();
-            isPreviewStopped = true;
-            camera.release();
-            camera = null;
-        }
-    }
-    
-    private void initOnTouchListener() {
-	    // Initialize onTouchListener
-	    ImageView view = (ImageView) findViewById(R.id.invis_button);
-	    view.setOnTouchListener(this);
-	    
-	    matrix = new Matrix();
-	    savedMatrix = new Matrix();
-    }
-    
     private void initPauseButton() {
     	// Prepare pause button
         pause = (ImageButton) findViewById(R.id.pause_button);
@@ -902,6 +938,17 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         		else {
         		
 	        		snapshot = new Snapshot(mirrorView, findViewById(R.id.frame_overlay), getApplicationContext());
+	        		
+	        		if(snapshotSizePref == 2) {
+	        			imageSize = Snapshot.ImageSize.SMALL;
+	        		}
+	        		else if(snapshotSizePref == 1) {
+	        			imageSize = Snapshot.ImageSize.MEDIUM;
+	        		}
+	        		else {
+	        			imageSize = Snapshot.ImageSize.LARGE;
+	        		}
+	        		
 	        		snapshot.takePhoto(imageSize);
 	        		try {
 	    	    		ContentValues values = snapshot.savePhoto();
@@ -970,51 +1017,54 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         });
     }
     
-    private void showWelcomeDialog() {
-    	// If first load, display instruction dialog
-    	if(initialLoadPref != INFO_DIALOGS) {
-    		initialLoadPref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_LOAD, Integer.toString(initialLoadPref));
-    		editor.commit();
-    		displayDialog(WELCOME_DIALOG);	
-    	}
-    }
-    
-    private void showSnapshotDialog() {
-    	// If first button press, display instruction dialog
-    	if(initialSnapshotPref != INFO_DIALOGS) {
-    		initialSnapshotPref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_SNAPSHOT, Integer.toString(initialSnapshotPref));
-    		editor.commit();
-    		displayDialog(SNAPSHOT_DIALOG);	
-    	}
-    }
-    
-    private void showPhotoBoothDialog() {
-    	// If first button press, display instruction dialog
-    	if(initialPhotoBoothPref != INFO_DIALOGS) {
-    		initialPhotoBoothPref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, Integer.toString(initialPhotoBoothPref));
-    		editor.commit();
-    		displayDialog(PHOTOBOOTH_DIALOG);	
-    	}
-    }
-    
-    private void showPauseDialog() {
-    	// If first button press, display instruction dialog
-    	if(initialPausePref != INFO_DIALOGS) {
-    		initialPausePref = INFO_DIALOGS; // Set app preferences initial load to false
-    		Editor editor = appSettings.edit();
-    		editor.putString(APP_PREFERENCES_INITIAL_PAUSE, Integer.toString(initialPausePref));
-    		editor.commit();
-    		displayDialog(PAUSE_DIALOG);	
-    	}
+    private void initOnTouchListener() {
+	    // Initialize onTouchListener
+	    ImageView view = (ImageView) findViewById(R.id.invis_button);
+	    view.setOnTouchListener(this);
+	    
+	    matrix = new Matrix();
+	    savedMatrix = new Matrix();
     }
     
     protected void initExpSeekBar(SeekBar expSeek) {
+    	
+    	switch(themePref) {
+	        case 1:
+	        	setTheme(R.style.HoloDark);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_dark));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_dark));
+	        	break;
+	        case 2:
+	        	setTheme(R.style.HoloLight);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_light));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_light));
+	        	break;
+	        case 3:
+	        	setTheme(R.style.HoloRed);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_red));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_red));
+	        	break;
+	        case 4:
+	        	setTheme(R.style.HoloOrange);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_orange));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_orange));
+	        	break;
+	        case 5:
+	        	setTheme(R.style.HoloGreen);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_green));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_green));
+	        	break;
+	        case 6:
+	        	setTheme(R.style.HoloPurple);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_purple));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_purple));
+	        	break;
+	        case 7:
+	        	setTheme(R.style.HoloBlue);
+	        	expSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_blue));
+	        	expSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_blue));
+	        	break;
+    	}
     	
     	int[] range = mirrorView.getExposureRange();
 		expSeek.setMax(range[1] - range[0]);
@@ -1048,6 +1098,44 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     protected void initZoomSeekBar(SeekBar zoomSeek) {
     	
+    	switch(themePref) {
+	        case 1:
+	        	setTheme(R.style.HoloDark);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_dark));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_dark));
+	        	break;
+	        case 2:
+	        	setTheme(R.style.HoloLight);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_light));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_light));
+	        	break;
+	        case 3:
+	        	setTheme(R.style.HoloRed);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_red));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_red));
+	        	break;
+	        case 4:
+	        	setTheme(R.style.HoloOrange);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_orange));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_orange));
+	        	break;
+	        case 5:
+	        	setTheme(R.style.HoloGreen);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_green));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_green));
+	        	break;
+	        case 6:
+	        	setTheme(R.style.HoloPurple);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_purple));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_purple));
+	        	break;
+	        case 7:
+	        	setTheme(R.style.HoloBlue);
+	        	zoomSeek.setProgressDrawable(getResources().getDrawable(R.drawable.seekbar_progress_blue));
+	        	zoomSeek.setThumb(getResources().getDrawable(R.drawable.seekbar_thumb_blue));
+	        	break;
+    	}
+    	
     	zoomSeek.setMax(mirrorView.getZoomMax());
 		zoomSeek.setProgress(Math.round(zoomPrefF) == -1 ? 0 : Math.round(zoomPrefF));
 		zoomSeek.setPadding(50, 20, 50, 20);
@@ -1057,15 +1145,245 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 				zoomPrefF = seekBar.getProgress();
 				setZoom(Math.round(zoomPrefF));
             }
+			
             public void onStartTrackingTouch(SeekBar seekBar) {
                 
             }
+            
             public void onStopTrackingTouch(SeekBar seekBar) {
             	zoomPrefF = seekBar.getProgress();
 				setZoom(Math.round(zoomPrefF));
             }
 		});
-		
+    }
+    
+    // TODO - These show<action>Dialog methods could be condensed into one method
+    // or they could be removed in favor of something else
+    
+    private void showWelcomeOneDialog() {
+    	// If first load, first click, display instruction dialog
+    	if(initialLoadOnePref != INFO_DIALOGS) {
+    		initialLoadOnePref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_LOAD_ONE, Integer.toString(initialLoadOnePref));
+    		editor.commit();
+    		displayCustomDialog(WELCOME_ONE_DIALOG);
+    	}
+    }
+    
+    private void showWelcomeTwoDialog() {
+    	// If first load, second click, display instruction dialog
+    	if(initialLoadOnePref == INFO_DIALOGS && initialLoadTwoPref != INFO_DIALOGS) {
+    		initialLoadTwoPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_LOAD_TWO, Integer.toString(initialLoadTwoPref));
+    		editor.commit();
+    		displayCustomDialog(WELCOME_TWO_DIALOG);
+    	}
+    }
+    
+    private void showSnapshotDialog() {
+    	// If first button press, display instruction dialog
+    	if(initialSnapshotPref != INFO_DIALOGS) {
+    		initialSnapshotPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_SNAPSHOT, Integer.toString(initialSnapshotPref));
+    		editor.commit();
+    		displayCustomDialog(SNAPSHOT_DIALOG);	
+    	}
+    }
+    
+    private void showPhotoBoothDialog() {
+    	// If first button press, display instruction dialog
+    	if(initialPhotoBoothPref != INFO_DIALOGS) {
+    		initialPhotoBoothPref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_PHOTOBOOTH, Integer.toString(initialPhotoBoothPref));
+    		editor.commit();
+    		displayCustomDialog(PHOTOSTRIP_DIALOG);	
+    	}
+    }
+    
+    private void showPauseDialog() {
+    	// If first button press, display instruction dialog
+    	if(initialPausePref != INFO_DIALOGS) {
+    		initialPausePref = INFO_DIALOGS; // Set app preferences initial load to false
+    		Editor editor = appSettings.edit();
+    		editor.putString(APP_PREFERENCES_INITIAL_PAUSE, Integer.toString(initialPausePref));
+    		editor.commit();
+    		displayCustomDialog(PAUSE_DIALOG);	
+    	}
+    }
+    
+    private void loadCamera() {
+    	if(camera == null) {
+        	
+		    try {
+		        camera = Camera.open(currentCameraId);
+			    if(isPortrait)
+			    	camera.setDisplayOrientation(90);
+			    else
+			    	camera.setDisplayOrientation(0);
+		    	mirrorView.setCamera(camera); //
+		    	Camera.Parameters parameters = camera.getParameters();
+		    	isZoomSupported = parameters.isZoomSupported();
+		    	if(parameters.getMinExposureCompensation() != 0 || parameters.getMaxExposureCompensation() != 0 ) 
+		    		isExposureSupported = true;
+		    	if(parameters.getWhiteBalance() != null)
+		    		isWhiteBalanceSupported = true;
+		    } 
+	        catch(RuntimeException e) {
+	        		displayDialog(CAMERA_NOT_FOUND);
+	        		e.printStackTrace();
+	        }
+		    
+		    if(isPreviewStopped) {
+		    	mirrorView.startPreview();
+		    	isPreviewStopped = false;
+		    }
+        }
+    }
+    
+    private void unloadCamera() {
+    	if (camera != null) {
+            
+            try { 
+            	mirrorView.setCamera(null);
+            }
+            catch(RuntimeException e) {
+	        	Toast.makeText(this, "Error Unloading Camera", Toast.LENGTH_SHORT).show();
+	        }
+            
+            camera.stopPreview();
+            isPreviewStopped = true;
+            camera.release();
+            camera = null;
+        }
+    }
+    
+     private void displayDialog(int id) {     
+    	QustomDialogBuilder builder = new QustomDialogBuilder(this);
+    	builder
+    	  .setTitleColor(themeColor)
+    	  .setDividerColor(themeColor);
+        DialogManager.buildQustomDialog(this, id, builder);
+    }
+     
+     private void displayCustomDialog(int id) {
+     	dialog = new Dialog(this);
+     	DialogManager.buildDialog(this, id);
+     }
+     
+    protected void sendBugReport(String subject) {
+    	Intent emailIntent = new Intent(android.content.Intent.ACTION_VIEW); 
+    	emailIntent.setData(Uri.parse("mailto:wckd.dev@gmail.com"));
+		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);  
+		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "" +
+				getResources().getString(R.string.bug_report) +
+				"\n\nStore: " + store +
+				"\nVersion: " + version +
+				"\nBrand: " + android.os.Build.BRAND +
+				"\nManufacturer: " + android.os.Build.MANUFACTURER +
+				"\nModel: " + android.os.Build.MODEL + 
+				"\nDevice: " + android.os.Build.DEVICE +
+				"\nCameras: " + numberOfCameras +
+				"\nBack ID: " + backCameraId +
+				"\nFront ID: " + frontCameraId +
+				"\nCurrent ID: " + currentCameraId +
+				"\n" + mirrorView.getDisplayInfo());   
+		startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.bug_report_send))); 
+		MirrorActivity.this.finish();
+    }
+
+    protected void setFrame(int position) {
+    	
+    	ImageView frame = (ImageView) findViewById(R.id.frame_overlay);
+    	frame.setImageDrawable(frameMgr.getFrameResId(position));
+    	frameModePref = position;
+    }
+    
+    private void setZoom(int level){ 
+    	
+	    if(isZoomSupported) {
+	    	mirrorView.zoom(level);
+		}
+		else {
+    		Toast.makeText(getApplicationContext(), R.string.toast_no_zoom, Toast.LENGTH_SHORT).show();
+		}
+    }
+    
+    private void setExposure(int level) throws RuntimeException { 
+    	
+    	try {
+			mirrorView.exposure(level);
+	    	exposurePref = level;
+    	}
+    	catch(RuntimeException e) {
+    		exposurePref = -999;
+    		throw e;
+    	}
+    }
+    
+    private void setWhiteBalance(int level) { 
+    	
+    	try {
+	    	mirrorView.whiteBalance(level);
+	    	whiteBalancePref = level;
+	    	
+	    	// TODO - Why won't this work? App crashes during menu load after icon change
+	    	// Requesting resource failed because it is too complex
+	    	
+	    	/* switch(level) {
+	    	
+			    case 0:
+					menuItemWB.setIcon(R.attr.wbAutoIcon); // drawable.menu_options_white_balance_auto_holo_dark);
+					break;
+
+				case 1:
+					menuItemWB.setIcon(R.attr.wbDaylightIcon); // drawable.menu_options_white_balance_daylight_holo_dark);
+					break;
+
+				case 2:
+					menuItemWB.setIcon(R.attr.wbIncanIcon); // drawable.menu_options_white_balance_incandescent_holo_dark);
+					break;
+
+				case 3:
+					menuItemWB.setIcon(R.attr.wbFluorIcon); // drawable.menu_options_white_balance_fluorescent_holo_dark);
+					break;
+	    	} */
+	    	
+	    	switch(level) {
+			    case 0:
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_auto_holo_light);
+					else
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_auto_holo_dark);
+					break;
+				case 1:
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7)  
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_daylight_holo_light);
+					else
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_daylight_holo_dark);
+					break;
+				case 2:
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7)  
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_light);
+					else
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_dark);
+					break;
+				case 3:
+					if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7)  
+			        	menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_light);
+					else
+				        menuItemWhiteBalance.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_dark);
+					break;
+	    	}
+	    	
+    	}
+		catch(RuntimeException e) {
+			Toast.makeText(getApplicationContext(), R.string.toast_no_white_balance, Toast.LENGTH_SHORT).show();
+			whiteBalancePref = 0;
+		}
     }
     
     @Override
@@ -1130,24 +1448,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	return true;
     }
     
-    private void zoomIn() {
-    	if(zoomRate == 0f) 
-    		zoomRate = mirrorView.getZoomMax() * 0.02f;
-    	if(zoomPrefF < (mirrorView.getZoomMax() - zoomRate)) {
-    		zoomPrefF += zoomRate;
-    		setZoom(Math.round(zoomPrefF));
-    	}
-    }
-    
-    private void zoomOut() {
-    	if(zoomRate == 0f) 
-    		zoomRate = mirrorView.getZoomMax() * 0.02f;
-    	if(zoomPrefF > (0 + zoomRate)) {
-    		zoomPrefF -= zoomRate;
-    		setZoom(Math.round(zoomPrefF));
-    	}
-    }
-    
     /** Determine the space between a finger and a saved point */
     @SuppressLint("FloatMath")
 	private float spacing(MotionEvent event, PointF point) {
@@ -1170,149 +1470,47 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         float y = event.getY(0) + event.getY(1);
         point.set(x / 2, y / 2);
      }
-    
-     private void displayDialog(int id) {     
-    	QustomDialogBuilder builder = new QustomDialogBuilder(this);
-    	builder
-    	  .setTitleColor(themeColor)
-    	  .setDividerColor(themeColor);
-        DialogManager.buildDialog(this, id, builder);
-    }
      
-    protected void sendBugReport(String subject) {
-    	Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);  
-		String aEmailList[] = { "wckd.dev@gmail.com" };
-		emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, aEmailList); 
-		emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);  
-		emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, "" +
-				getResources().getString(R.string.bug_report) +
-				"\n\nStore: " + store +
-				"\nVersion: " + version +
-				"\nBrand: " + android.os.Build.BRAND +
-				"\nManufacturer: " + android.os.Build.MANUFACTURER +
-				"\nModel: " + android.os.Build.MODEL + 
-				"\nDevice: " + android.os.Build.DEVICE +
-				"\nCameras: " + numberOfCameras +
-				"\nBack ID: " + backCameraId +
-				"\nFront ID: " + frontCameraId +
-				"\nCurrent ID: " + currentCameraId +
-				"\n" + mirrorView.getDisplayInfo());   
-		startActivity(Intent.createChooser(emailIntent, getResources().getString(R.string.bug_report_send))); 
-		MirrorActivity.this.finish();
-    }
-    
-    private void fullScreenClick() {
-		
-		// Exit fullscreen mode
-		if(isFullscreen) {
-			
-	        showWelcomeDialog();
-			
-			// Show navigation and notification bar
-			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE); 
-			getActionBar().show(); // Show action bar
-			isFullscreen = false;
-			mirrorView.isFullscreen = false;
-		}
-		// Enter fullscreen mode
-		else {
-			// Hide notification bar and set navigation bar to low profile
-			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LOW_PROFILE);
-			getActionBar().hide(); // Hide action bar
-			isFullscreen = true;
-			mirrorView.isFullscreen = true;
-		}
-    }
+     private void fullScreenClick() {
 
-    protected void setFrame(int position) {
-    	
-    	ImageView frame = (ImageView) findViewById(R.id.frame_overlay);
-    	frame.setImageDrawable(frameMgr.getFrameResId(position));
-    	frameModePref = position;
-    }
-    
-    private void setZoom(int level){ 
-    	
-	    if(isZoomSupported) {
-	    	mirrorView.zoom(level);
-		}
-		else {
-    		Toast.makeText(getApplicationContext(), R.string.toast_no_zoom, Toast.LENGTH_SHORT).show();
-		}
-    }
-    
-    private void setExposure(int level) throws RuntimeException { 
-    	
-    	try {
-			mirrorView.exposure(level);
-	    	exposurePref = level;
-    	}
-    	catch(RuntimeException e) {
-    		exposurePref = -999;
-    		throw e;
-    	}
-    }
-    
-    private void setWhiteBalance(int level) { 
-    	
-    	try {
-	    	mirrorView.whiteBalance(level);
-	    	whiteBalancePref = level;
-	    	
-	    	// TODO - Why won't this work? App crashes during menu load after icon change
-	    	// Requesting resource failed because it is too complex
-	    	
-	    	/* switch(level) {
-	    	
-			    case 0:
-					menuItemWB.setIcon(R.attr.wbAutoIcon); // drawable.menu_options_white_balance_auto_holo_dark);
-					break;
+	    showWelcomeTwoDialog();
+	        
+ 		// Exit fullscreen mode
+ 		if(isFullscreen) {
 
-				case 1:
-					menuItemWB.setIcon(R.attr.wbDaylightIcon); // drawable.menu_options_white_balance_daylight_holo_dark);
-					break;
-
-				case 2:
-					menuItemWB.setIcon(R.attr.wbIncanIcon); // drawable.menu_options_white_balance_incandescent_holo_dark);
-					break;
-
-				case 3:
-					menuItemWB.setIcon(R.attr.wbFluorIcon); // drawable.menu_options_white_balance_fluorescent_holo_dark);
-					break;
-	    	} */
-	    	
-	    	switch(level) {
-			    case 0:
-					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_auto_holo_light);
-					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_auto_holo_dark);
-					break;
-				case 1:
-					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_daylight_holo_light);
-					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_daylight_holo_dark);
-					break;
-				case 2:
-					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_light);
-					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_incandescent_holo_dark);
-					break;
-				case 3:
-					if(themePref == 2) 
-			        	menuItemWB.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_light);
-					else
-				        menuItemWB.setIcon(R.drawable.menu_options_white_balance_fluorescent_holo_dark);
-					break;
-	    	}
-	    	
-    	}
-		catch(RuntimeException e) {
-			Toast.makeText(getApplicationContext(), R.string.toast_no_white_balance, Toast.LENGTH_SHORT).show();
-			whiteBalancePref = 0;
-		}
-    }  
+ 			// Show navigation and notification bar
+ 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_VISIBLE); 
+ 			getActionBar().show(); // Show action bar
+ 			isFullscreen = false;
+ 			mirrorView.isFullscreen = false;
+ 		}
+ 		// Enter fullscreen mode
+ 		else {
+ 			// Hide notification bar and set navigation bar to low profile
+ 			getWindow().getDecorView().setSystemUiVisibility(View.SYSTEM_UI_FLAG_FULLSCREEN | View.SYSTEM_UI_FLAG_LOW_PROFILE);
+ 			getActionBar().hide(); // Hide action bar
+ 			isFullscreen = true;
+ 			mirrorView.isFullscreen = true;
+ 		}
+     }
+     
+     private void zoomIn() {
+     	if(zoomRate == 0f) 
+     		zoomRate = mirrorView.getZoomMax() * 0.02f;
+     	if(zoomPrefF < (mirrorView.getZoomMax() - zoomRate)) {
+     		zoomPrefF += zoomRate;
+     		setZoom(Math.round(zoomPrefF));
+     	}
+     }
+     
+     private void zoomOut() {
+     	if(zoomRate == 0f) 
+     		zoomRate = mirrorView.getZoomMax() * 0.02f;
+     	if(zoomPrefF > (0 + zoomRate)) {
+     		zoomPrefF -= zoomRate;
+     		setZoom(Math.round(zoomPrefF));
+     	}
+     }
+    
     
 }

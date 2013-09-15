@@ -21,6 +21,7 @@
         <item name="wbIncanIcon" >@drawable/menu_options_white_balance_incandescent_holo_dark</item>
         <item name="wbFluorIcon" >@drawable/menu_options_white_balance_fluorescent_holo_dark</item>
         <item name="mirrorIcon" >@drawable/menu_options_mirror_holo_dark</item>
+        <item name="flipIcon" >@drawable/menu_options_flip_holo_dark</item>
         <item name="switchCameraIcon" >@drawable/menu_options_switch_camera_holo_dark</item>
         <item name="screenRotationIcon" >@drawable/menu_options_screen_rotation_holo_dark</item>
         <item name="themesIcon" >@drawable/menu_options_themes_holo_dark</item>
@@ -31,9 +32,22 @@
         <item name="greenThemeIcon" >@drawable/menu_options_theme_green</item>
         <item name="purpleThemeIcon" >@drawable/menu_options_theme_purple</item>
         <item name="blueThemeIcon" >@drawable/menu_options_theme_blue</item>
+        <item name="snapshotSizeIcon" >@drawable/menu_options_snapshot_size_dark</item>
         <item name="infoIcon" >@drawable/menu_options_app_info_holo_dark</item>
         <item name="helpIcon" >@drawable/menu_options_help_holo_dark</item>
         <item name="exitIcon" >@drawable/menu_exit_holo_dark</item>
+        
+        <item name="dialogColor" >@android:color/holo_blue_dark</item> 
+        
+        <!-- 
+        <item name="scrubberTrack" >@drawable/scrubber_track_holo_dark</item>
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_dark</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_dark</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_dark</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_dark</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_dark</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_dark</item>
+         -->
         
     </style>
     
@@ -58,6 +72,7 @@
         <item name="wbIncanIcon" >@drawable/menu_options_white_balance_incandescent_holo_light</item>
         <item name="wbFluorIcon" >@drawable/menu_options_white_balance_fluorescent_holo_light</item>
         <item name="mirrorIcon" >@drawable/menu_options_mirror_holo_light</item>
+        <item name="flipIcon" >@drawable/menu_options_flip_holo_light</item>
         <item name="switchCameraIcon" >@drawable/menu_options_switch_camera_holo_light</item>
         <item name="screenRotationIcon" >@drawable/menu_options_screen_rotation_holo_light</item>
         <item name="themesIcon" >@drawable/menu_options_themes_holo_light</item>
@@ -68,9 +83,22 @@
         <item name="greenThemeIcon" >@drawable/menu_options_theme_green</item>
         <item name="purpleThemeIcon" >@drawable/menu_options_theme_purple</item>
         <item name="blueThemeIcon" >@drawable/menu_options_theme_blue</item>
+        <item name="snapshotSizeIcon" >@drawable/menu_options_snapshot_size_light</item>
         <item name="infoIcon" >@drawable/menu_options_app_info_holo_light</item>
         <item name="helpIcon" >@drawable/menu_options_help_holo_light</item>
         <item name="exitIcon" >@drawable/menu_exit_holo_light</item>
+        
+        <item name="dialogColor" >@android:color/holo_blue_light</item>
+        
+        <!-- 
+        <item name="scrubberTrack" >@drawable/scrubber_track_holo_light</item>
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_light</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_light</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_light</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_light</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_light</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_light</item>
+         -->
         
     </style>
 	
@@ -78,20 +106,21 @@
         name="HoloRed" 
         parent="HoloDark">
 
-  		<item name="android:actionBarStyle">@style/HoloRed.ActionBar</item>
+  		<item name="android:actionBarStyle">@style/actionBarRed</item>
         <item name="dialogColor" >@android:color/holo_red_dark</item>
   		<!--  <item name="android:itemBackground">@android:color/holo_red_dark</item> -->
   		<item name="android:actionMenuTextColor">@android:color/holo_red_dark</item>
+  		
+        <!-- 
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_red</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_red</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_red</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_red</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_red</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_red</item>
+         -->
         
  	</style>
- 	
-    <style 
-        name="HoloRed.ActionBar" 
-        parent="android:style/Widget.Holo.ActionBar">
-  
-  		<item name="android:background">@android:color/holo_red_dark</item>
-
-	</style>
 	
     <style 
         name="HoloOrange" 
@@ -99,6 +128,15 @@
 
   		<item name="android:actionBarStyle">@style/actionBarOrange</item>
         <item name="dialogColor" >@android:color/holo_orange_dark</item>
+        
+        <!-- 
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_orange</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_orange</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_orange</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_orange</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_orange</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_orange</item>
+         -->
         
  	</style>
 	
@@ -109,14 +147,32 @@
   		<item name="android:actionBarStyle">@style/actionBarGreen</item>
         <item name="dialogColor" >@android:color/holo_green_dark</item>
         
+        <!-- 
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_green</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_green</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_green</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_green</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_green</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_green</item>
+         -->
+        
  	</style>
 	
     <style 
         name="HoloPurple" 
-        parent="HoloLight">
+        parent="HoloDark">
 
   		<item name="android:actionBarStyle">@style/actionBarPurple</item>
         <item name="dialogColor" >@android:color/holo_purple</item>
+        
+        <!-- 
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_purple</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_purple</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_purple</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_purple</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_purple</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_purple</item>
+         -->
         
  	</style>
 	
@@ -127,7 +183,24 @@
   		<item name="android:actionBarStyle">@style/actionBarBlue</item>
         <item name="dialogColor" >@android:color/holo_blue_dark</item>
         
+        <!-- 
+        <item name="scrubberPrimary" >@drawable/scrubber_primary_holo_blue</item>
+        <item name="scrubberSecondary" >@drawable/scrubber_secondary_holo_blue</item>
+        <item name="scrubberControlDisabled" >@drawable/scrubber_control_disabled_holo_blue</item>
+        <item name="scrubberControlPressed" >@drawable/scrubber_control_pressed_holo_blue</item>
+        <item name="scrubberControlFocused" >@drawable/scrubber_control_focused_holo_blue</item>
+        <item name="scrubberControlNormal" >@drawable/scrubber_control_normal_holo_blue</item>
+         -->
+        
  	</style>
+ 	
+    <style 
+        name="actionBarRed" 
+        parent="android:style/Widget.Holo.ActionBar">
+  
+  		<item name="android:background">@android:color/holo_red_dark</item>
+
+	</style>
  	
  	
     <style 
