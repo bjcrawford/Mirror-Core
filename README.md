@@ -1,6 +1,16 @@
 Mirror-Core
 ===========
 
+![Mirror](http://www.wckd-dev.net/mirror_res/mirrorFree.png)
+
+Description
+-----------
+
+Mirror is a Android application that I have personally designed, developed, and marketed since August of 2013. It 
+is available on the [Google Play Store](https://play.google.com/store/apps/details?id=com.wckd_dev.mirror) 
+and the [Amazon AppStore](http://www.amazon.com/gp/mas/dl/android?p=com.wckd_dev.mirror). I have included the source
+code for this project's core library (which the different flavors of Mirror; Google, Amazon, free, and paid; 
+all have as a dependancy). This has made it much easier to manage the 4+ different APKs that I have been working on.
 
 License
 -------
