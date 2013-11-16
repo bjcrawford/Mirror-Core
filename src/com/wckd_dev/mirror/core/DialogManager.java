@@ -271,14 +271,6 @@ public class DialogManager {
 	    				// On click, no action. Dialog closed
 	    			}
 	    		})
-	    		.setNeutralButton(R.string.button_upgrade_ads, new DialogInterface.OnClickListener() {
-	    			public void onClick(DialogInterface dialog, int whichButton) {
-	    				Uri uriUrl = Uri.parse(MirrorActivity.upgradeAdsLink);
-	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
-	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to wckd_dev apps
-	    		        mirrorActivity.finish();
-	    			}
-	    		})
 	    		.setNegativeButton(R.string.button_upgrade_paid, new DialogInterface.OnClickListener() {
 	    			public void onClick(DialogInterface dialog, int whichButton) {
 	    				Uri uriUrl = Uri.parse(MirrorActivity.upgradePaidLink);
@@ -299,6 +291,14 @@ public class DialogManager {
 	    		.setPositiveButton(R.string.button_close, new DialogInterface.OnClickListener() {
 	    			public void onClick(DialogInterface dialog, int whichButton) {
 	    				mirrorActivity.finish();
+	    			}
+	    		})
+	    		.setNeutralButton(R.string.button_upgrade_paid, new DialogInterface.OnClickListener() {
+	    			public void onClick(DialogInterface dialog, int whichButton) {
+	    				Uri uriUrl = Uri.parse(MirrorActivity.upgradePaidLink);
+	    		        Intent launchBrowser = new Intent(Intent.ACTION_VIEW, uriUrl);
+	    		        mirrorActivity.startActivity(launchBrowser); // On click, Send user to wckd_dev apps
+	    		        mirrorActivity.finish();
 	    			}
 	    		})
 	    		.setNegativeButton(R.string.button_rate, new DialogInterface.OnClickListener() {
