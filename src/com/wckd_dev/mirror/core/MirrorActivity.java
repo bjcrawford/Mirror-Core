@@ -250,11 +250,13 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     @Override
 	public void onBackPressed() {
-    	if(hasRatedPref == 0 && useCountPref > 6) 
-    		displayDialog(RATE);
-    	else {
-    		useCountPref++;
-    		MirrorActivity.this.finish();
+    	if(version.compareTo("paid") != 0) {
+	    	if(hasRatedPref == 0 && useCountPref > 6) 
+	    		displayDialog(RATE);
+	    	else {
+	    		useCountPref++;
+	    		MirrorActivity.this.finish();
+	    	}
     	}
     }
 
