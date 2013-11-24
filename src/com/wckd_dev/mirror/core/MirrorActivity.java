@@ -668,12 +668,14 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         }
         /* Exit */
         else if(id == R.id.menu_exit) {
-        	if(hasRatedPref == 0 && useCountPref > 6) 
-    			displayDialog(RATE);
-    		else {
-    			useCountPref++;
-    			MirrorActivity.this.finish();
-    		}
+        	if(version.compareTo("paid") != 0) {
+	        	if(hasRatedPref == 0 && useCountPref > 6) 
+	    			displayDialog(RATE);
+	    		else {
+	    			useCountPref++;
+	    			MirrorActivity.this.finish();
+	    		}
+        	}
 	    }
         else 
         	result = super.onOptionsItemSelected(item);
