@@ -7,6 +7,8 @@ package com.wckd_dev.mirror.core;
 
 import java.util.Scanner;
 
+import com.jeremyfeinstein.slidingmenu.lib.SlidingMenu;
+
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
@@ -160,6 +162,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private   Snapshot              snapshot;   // Paid/Ads Only
     protected Snapshot.ImageSize    imageSize = Snapshot.ImageSize.LARGE;  // Paid/Ads Only
     private   PhotoBooth            booth;      // Paid/Ads Only
+    private   SlidingMenu           slidingMenu;
     
     /* Touch */
     
@@ -215,6 +218,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected void onResume() {
         super.onResume();
         loadCamera();
+        if(slidingMenu == null) {
+            initSlidingMenu();
+        }
     }
     
     @Override
@@ -766,6 +772,16 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     private void initContentView() {
         setContentView(R.layout.main);
+    }
+    
+    private void initSlidingMenu() {
+    	slidingMenu = new SlidingMenu(this);
+    	slidingMenu.setMode(SlidingMenu.RIGHT);
+    	slidingMenu.setTouchModeAbove(SlidingMenu.TOUCHMODE_FULLSCREEN);
+    	slidingMenu.setFadeDegree(0.35f);
+    	slidingMenu.setBehindWidth((int) (mirrorView.getScreenWidth() * .75));
+    	slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
+    	slidingMenu.setMenu(R.layout.menu_frame);
     }
     
     private void initMirrorView() {
