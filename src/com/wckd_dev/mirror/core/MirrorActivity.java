@@ -781,7 +781,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	slidingMenu.setFadeDegree(0.35f);
     	slidingMenu.setBehindWidth((int) (mirrorView.getScreenWidth() * .75));
     	slidingMenu.attachToActivity(this, SlidingMenu.SLIDING_CONTENT);
-    	slidingMenu.setMenu(R.layout.menu_frame);
+    	slidingMenu.setMenu(R.layout.slidingmenu);
     }
     
     private void initMirrorView() {
