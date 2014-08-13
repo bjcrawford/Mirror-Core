@@ -13,6 +13,7 @@
     <attr name="optionsIcon" format="reference" />
     <attr name="frameIcon" format="reference" />
     <attr name="zoomIcon" format="reference" />
+    <attr name="brightnessIcon" format="reference" />
     <attr name="exposureIcon" format="reference" />
     <attr name="whiteBalanceIcon" format="reference" />
     <attr name="wbAutoIcon" format="reference" />

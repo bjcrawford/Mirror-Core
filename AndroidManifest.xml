@@ -11,6 +11,9 @@
         android:name="android.permission.CAMERA"
         android:required="false" />
     
+    <uses-permission 
+        android:name="android.permission.WRITE_SETTINGS" />
+    
     <uses-feature 
         android:name="android.hardware.camera"
         android:required="false" />

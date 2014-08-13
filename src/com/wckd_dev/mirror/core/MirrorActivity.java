@@ -10,6 +10,7 @@ import java.util.Scanner;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
@@ -24,7 +25,10 @@ import android.hardware.Camera.CameraInfo;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore.Images;
+import android.provider.Settings;
+import android.provider.Settings.SettingNotFoundException;
 import android.util.FloatMath;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -42,7 +46,7 @@ import android.widget.Toast;
 
 public class MirrorActivity extends Activity implements OnTouchListener {
 
-	//private final String TAG = "wckd";
+	private final String TAG = "wckd";
 	
 	/* Intent variables */
 	
@@ -96,6 +100,11 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected static final String APP_PREFERENCES_HAS_RATED          = "HasRated";
     protected static final String APP_PREFERENCES_USE_COUNT          = "UseCount";
     protected static final String APP_PREFERENCES_SNAPSHOT_SIZE      = "SnapshotSize";
+    protected static final String APP_PREFERENCES_BRIGHTNESS 	     = "Brightness";
+    protected static final String APP_PREFERENCES_BRIGHTNESS_MODE    = "BrightnessMode";
+    protected static final String APP_PREFERENCES_BRIGHTNESS_LEVEL 	 = "BrightnessLevel";
+    
+    
     
     /* Preferences */
     
@@ -117,6 +126,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	protected int    hasRatedPref;
 	private   int    useCountPref;
 	private   int    snapshotSizePref;
+	private   int    brightnessPref;
+	private   int    brightnessModePref;
+	private   int    brightnessLevelPref;
 	
 	/* Camera */
 	
@@ -142,6 +154,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private   boolean   isPauseButtonVisible      = false;
     private   boolean   isSnapshotButtonVisible   = false;
     private   boolean   isPhotoBoothButtonVisible = false;
+    private   boolean   isBrightness              = false;
     
     /* Objects */
     
@@ -180,6 +193,11 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private float  minDist   = 10f;
     private float  zoomRate  = 0f;
     
+    /* Brightness */
+    
+    private ContentResolver conRes;
+    
+    
     /* Store Links */
     
     protected static String rateLink;
@@ -203,6 +221,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         initSnapshotButton();
         initPhotoBoothButton();
         initOnTouchListener();
+        initBrightnessSettings();
 	    showWelcomeOneDialog();
     }
     
@@ -221,6 +240,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     protected void onPause() {
         super.onPause();
         unloadCamera();
+        restoreBrightnessSettings(false);
         
         // Save preferences
         Editor editor = appSettings.edit();
@@ -235,6 +255,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 		editor.putString(APP_PREFERENCES_HAS_RATED, Integer.toString(hasRatedPref));
 		editor.putString(APP_PREFERENCES_USE_COUNT, Integer.toString(useCountPref));
 		editor.putString(APP_PREFERENCES_SNAPSHOT_SIZE, Integer.toString(snapshotSizePref));
+		editor.putString(APP_PREFERENCES_BRIGHTNESS, Integer.toString(brightnessPref));
+		editor.putString(APP_PREFERENCES_BRIGHTNESS_MODE, Integer.toString(brightnessModePref));
+		editor.putString(APP_PREFERENCES_BRIGHTNESS_LEVEL, Integer.toString(brightnessLevelPref));
 		editor.commit();
     }
     
@@ -279,6 +302,13 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     	
     	if(Math.round(zoomPrefF) > 0)
         	setZoom(Math.round(zoomPrefF)); // Set the zoom preference
+    	
+    	if(brightnessPref == 0) {
+    		(menu.findItem(R.id.menu_options_brightness_off)).setChecked(true);
+    	}
+    	else {
+    		(menu.findItem(R.id.menu_options_brightness_on)).setChecked(true);
+    	}
         
         if(exposurePref != -999) { // If exposure pref is valid
         	try {
@@ -458,6 +488,26 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         else if(id == R.id.menu_options_zoom) {
         	displayDialog(ZOOM_DIALOG);
             result = true;
+        }
+        /* Brightness On */
+        else if(id == R.id.menu_options_brightness_on) {
+        	if(!isBrightness) {
+        		isBrightness = true;
+        		brightnessPref = 1;
+        		item.setChecked(true);
+        		initBrightnessSettings();
+        	}
+        	result = true;
+        }
+        /* Brightness Off */
+        else if(id == R.id.menu_options_brightness_off) {
+        	if(isBrightness) {
+        		isBrightness = false;
+        		brightnessPref = 0;
+        		item.setChecked(true);
+        		restoreBrightnessSettings(true);
+        	}
+        	result = true;
         }
         /* Exposure */
         else if(id == R.id.menu_options_exposure) {
@@ -712,6 +762,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         hasRatedPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_HAS_RATED, "0"));
         useCountPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_USE_COUNT, "0"));
         snapshotSizePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_SNAPSHOT_SIZE, "0"));
+        brightnessPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_BRIGHTNESS, "0"));
+        brightnessModePref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_BRIGHTNESS_MODE, "1"));
+        brightnessLevelPref = Integer.parseInt(appSettings.getString(APP_PREFERENCES_BRIGHTNESS_LEVEL, "255"));
     }
     
     private void initTheme() {
@@ -756,6 +809,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 		else {
 			setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_LANDSCAPE);
 			isPortrait = false;
+		}
+		if(brightnessPref == 0) {
+			isBrightness = false;
+		}
+		else {
+			isBrightness = true;
 		}
         getWindow().requestFeature(Window.FEATURE_ACTION_BAR);
         getActionBar().hide();
@@ -1024,6 +1083,38 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    
 	    matrix = new Matrix();
 	    savedMatrix = new Matrix();
+    }
+    
+    private void initBrightnessSettings() {
+		conRes = getContentResolver();
+    	if(isBrightness) {
+        	
+        	try {
+        		brightnessModePref = Settings.System.getInt(conRes, Settings.System.SCREEN_BRIGHTNESS_MODE);
+        		if(brightnessModePref == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+        			Settings.System.putInt(conRes, Settings.System.SCREEN_BRIGHTNESS_MODE, Settings.System.SCREEN_BRIGHTNESS_MODE_MANUAL);
+        		}
+        		else {
+        			brightnessLevelPref = Settings.System.getInt(conRes, Settings.System.SCREEN_BRIGHTNESS);
+        		}
+        		Settings.System.putInt(conRes, Settings.System.SCREEN_BRIGHTNESS, 255);
+        	}
+        	catch(SettingNotFoundException e) {
+        		Log.e(TAG, "Cannot access system brightness settings.");
+        		e.printStackTrace();
+        	}
+    	}
+    }
+    
+    private void restoreBrightnessSettings(boolean force) {
+    	if(isBrightness || force) {
+    		if(brightnessModePref == Settings.System.SCREEN_BRIGHTNESS_MODE_AUTOMATIC) {
+        		Settings.System.putInt(conRes, Settings.System.SCREEN_BRIGHTNESS_MODE, brightnessModePref);
+        	}
+        	else {
+        		Settings.System.putInt(conRes, Settings.System.SCREEN_BRIGHTNESS, brightnessLevelPref);
+        	}
+    	}
     }
     
     protected void initExpSeekBar(SeekBar expSeek) {

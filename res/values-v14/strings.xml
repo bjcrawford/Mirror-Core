@@ -25,6 +25,11 @@
     		<string name="menu_options_screen_rotation_landscape">Landscape</string>
     		
     	<string name="menu_options_zoom">Zoom</string>
+    	
+    	<string name="menu_options_brightness">Max Brightness</string>
+    		<string name="menu_options_brightness_on">Max Brightness On</string>
+    		<string name="menu_options_brightness_off">Max Brightness Off</string>
+    	
     	<string name="menu_options_exposure">Exposure</string>
     	
     	<string name="menu_options_white_balance">White Balance</string>

@@ -50,6 +50,28 @@
 			    android:icon="?attr/zoomIcon"  />
     	    
     	    <item
+    	        android:id="@+id/menu_options_brightness"
+    	        android:title="@string/menu_options_brightness"
+			    android:icon="?attr/brightnessIcon" >
+    	        
+    	        <menu>
+    	            
+		            <group 
+		                android:id="@+id/menu_options_brightness_group"
+		                android:checkableBehavior="single" >
+		                
+		                <item 
+		                    android:id="@+id/menu_options_brightness_on"
+		                    android:title="@string/menu_options_brightness_on" />
+		                <item 
+		                    android:id="@+id/menu_options_brightness_off"
+		                    android:title="@string/menu_options_brightness_off" />
+		            </group>
+		        </menu>
+    	        
+    	    </item>
+    	    
+    	    <item
     	        android:id="@+id/menu_options_exposure"
     	        android:title="@string/menu_options_exposure"
 			    android:icon="?attr/exposureIcon"  />
