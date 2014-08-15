@@ -25,6 +25,11 @@
     		<string name="menu_options_screen_rotation_landscape">صور الطبيعة</string>
     		
     	<string name="menu_options_zoom">زوم</string>
+    	
+    	<string name="menu_options_brightness">أقصى السطوع</string>
+    		<string name="menu_options_brightness_on">أقصى السطوع في</string>
+    		<string name="menu_options_brightness_off">أقصى السطوع معطلة</string>
+    	
     	<string name="menu_options_exposure">تعرض</string>
     	
     	<string name="menu_options_white_balance">توازن اللون الأبيض</string>

@@ -25,6 +25,11 @@
     		<string name="menu_options_screen_rotation_landscape">横</string>
     		
     	<string name="menu_options_zoom">ズーム</string>
+    	
+    	<string name="menu_options_brightness">最大光度</string>
+    		<string name="menu_options_brightness_on">最大輝度に</string>
+    		<string name="menu_options_brightness_off">最大輝度オフ</string>
+    	
     	<string name="menu_options_exposure">カメラの露出</string>
     	
     	<string name="menu_options_white_balance">ホワイトバランス</string>

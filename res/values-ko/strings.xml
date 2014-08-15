@@ -25,6 +25,11 @@
     		<string name="menu_options_screen_rotation_landscape">가로</string>
     		
     	<string name="menu_options_zoom">줌</string>
+    	
+    	<string name="menu_options_brightness">최대 밝기</string>
+    		<string name="menu_options_brightness_on">최대 밝기에서</string>
+    		<string name="menu_options_brightness_off">최대 밝기 꺼짐</string>
+    	
     	<string name="menu_options_exposure">카메라의 노출</string>
     	
     	<string name="menu_options_white_balance">카메라 화이트 밸런스</string>

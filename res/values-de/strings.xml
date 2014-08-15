@@ -25,6 +25,11 @@
     		<string name="menu_options_screen_rotation_landscape">Querformat</string>
     		
     	<string name="menu_options_zoom">Zoomen</string>
+    	
+    	<string name="menu_options_brightness">Maximale Helligkeit</string>
+    		<string name="menu_options_brightness_on">Maximale Helligkeit an</string>
+    		<string name="menu_options_brightness_off">Maximale Helligkeit aus</string>
+    	
     	<string name="menu_options_exposure">Belichtung</string>
     	
     	<string name="menu_options_white_balance">Weißabgleich</string>
