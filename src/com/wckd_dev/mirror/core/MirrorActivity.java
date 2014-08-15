@@ -971,10 +971,18 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         		if(isPaused) {
         			mirrorView.startPreview();
         			isPaused = false;
+        			if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
+        				pause.setImageResource(R.drawable.button_pause_holo_light);
+        			else
+        				pause.setImageResource(R.drawable.button_pause_holo_dark);
         		}
         		else {
         			mirrorView.stopPreview();
         			isPaused = true;
+        			if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
+        				pause.setImageResource(R.drawable.button_play_holo_light);
+        			else
+        				pause.setImageResource(R.drawable.button_play_holo_dark);
         		}
         	}
         });
