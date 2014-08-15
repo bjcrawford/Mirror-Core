@@ -736,7 +736,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         store = message.next();
         version = message.next();
         rateLink = message.next();
-        message.next(); // TODO: Remove ads link completely on next version
         upgradePaidLink = message.next();
         frameLink = message.next();
         message.useDelimiter("&");
