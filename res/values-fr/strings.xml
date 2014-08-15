@@ -64,7 +64,6 @@
     <string name="button_rate">Noter Cette</string>
     <string name="button_cancel">Annuler</string>
     <string name="button_close">Sortir</string>
-    <string name="button_upgrade_ads">Annonces</string>
     <string name="button_upgrade_paid">Prime</string>
     <string name="button_frames">Plus Encadrement</string>
     <string name="button_pause">Bouton d\'Pause</string>
@@ -89,8 +88,8 @@
     <string name="dialog_app_info_title">Info App</string>
         					  
     <string name="dialog_upgrade_title">Améliorer!</string>
-    <string name="dialog_upgrade_text">Cette fonction n\'est disponible que dans la version prime ou la version 
-                                      annonces de Miroir. S\'il vous plaît mise à niveau pour 
+    <string name="dialog_upgrade_text">Cette fonction n\'est disponible que dans la version prime 
+                                      de Miroir. S\'il vous plaît mise à niveau pour 
                                       soutenir le développement continu de cette application. 
                                       Merci!</string>
         					  

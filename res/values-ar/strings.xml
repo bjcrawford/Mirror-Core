@@ -64,7 +64,6 @@
     <string name="button_rate">معدل هذا التطبيق</string>
     <string name="button_cancel">إلغاء</string>
     <string name="button_close">خروج</string>
-    <string name="button_upgrade_ads">الإعلانات النسخة</string>
     <string name="button_upgrade_paid">علاوة الإصدار</string>
     <string name="button_frames">إضافة على صورة أطر</string>
     <string name="button_pause">زر الإيقاف المؤقت</string>
@@ -89,7 +88,7 @@
     <string name="dialog_app_info_title">التطبيق معلومات</string>
         					  				
     <string name="dialog_upgrade_title">الترقية!</string>	  
-    <string name="dialog_upgrade_text">تتوفر هذه الميزة فقط في النسخة قسط أو إعلان من مرآة. الرجاء الترقية إلى دعم التطوير المستمر لهذا التطبيق. شكرا!</string>
+    <string name="dialog_upgrade_text">هذه الميزة متوفرة فقط في النسخة قسط من مرآة. الرجاء الترقية لدعم التطوير المستمر لهذا التطبيق. شكرا!</string>
 
     <string name="dialog_rate_title">شكرا لدعمكم!</string>
     <string name="dialog_rate_text"><b>إذا كنت تتمتع باستخدام مرآة، يرجى ان نتوقف لحظة لمعدل. وتتردد في مراسلتي عبر البريد الإلكتروني مع أي أسئلة أو تعليقات، أو اقتراحات.</b></string>

@@ -64,7 +64,6 @@
     <string name="button_rate">Rate This App</string>
     <string name="button_cancel">Cancel</string>
     <string name="button_close">Exit</string>
-    <string name="button_upgrade_ads">Ads Version</string>
     <string name="button_upgrade_paid">Premium Version</string>
     <string name="button_frames">Add-On Frames</string>
     <string name="button_pause">Pause Button</string>
@@ -89,7 +88,7 @@
     <string name="dialog_app_info_title">App Info</string>
         					  				
     <string name="dialog_upgrade_title">Upgrade!</string>	  
-    <string name="dialog_upgrade_text">This feature is only available in the premium or advertisement version of Mirror. Please 
+    <string name="dialog_upgrade_text">This feature is only available in the premium version of Mirror. Please 
         					           upgrade to support continued development of this app. Thanks!</string>
 
     <string name="dialog_rate_title">Thanks for your support!</string>
@@ -98,7 +97,7 @@
         					        suggestions.</b></string>
         						
     <string name="dialog_help_title">Help</string>
-    <string name="dialog_help_text">Please check the website, www.wckd-dev.net, for information
+    <string name="dialog_help_text">Please check the website, www.wckd-dev.com, for information
                                     on using Mirror by wckd Dev. If you are have any problems, 
                                     please don\'t hesitate to contact me using the bug report 
                                     option at the bottom.</string>

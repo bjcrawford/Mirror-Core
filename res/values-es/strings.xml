@@ -64,7 +64,6 @@
     <string name="button_rate">Calificar</string>
     <string name="button_cancel">Cancelar</string>
     <string name="button_close">Salida</string>
-    <string name="button_upgrade_ads">Anuncios</string>
     <string name="button_upgrade_paid">Pago</string>
     <string name="button_frames">Más Marcos</string>
     <string name="button_pause">Pausa Botón</string>
@@ -89,7 +88,7 @@
     <string name="dialog_app_info_title">Info sobre la App</string>
         					  
     <string name="dialog_upgrade_title">Actualizar!</string>
-    <string name="dialog_upgrade_text">Esta función sólo está disponible en la versión de pago o la versión anuncios de Espejo.
+    <string name="dialog_upgrade_text">Esta función sólo está disponible en la versión de pago de Espejo.
                                       Complacer actualizar a apoyar el desarrollo continuado 
                                       de esta aplicación. ¡Gracias!</string>
         			

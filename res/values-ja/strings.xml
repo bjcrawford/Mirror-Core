@@ -64,7 +64,6 @@
     <string name="button_rate">評価する</string>
     <string name="button_cancel">キャンセル</string>
     <string name="button_close">終了する</string>
-    <string name="button_upgrade_ads">広告</string>
     <string name="button_upgrade_paid">プレミアム</string>
     <string name="button_frames">より多くのフレーム</string>
     <string name="button_pause">一時停止ボタン</string>
@@ -89,8 +88,9 @@
     <string name="dialog_app_info_title">アプリ情報</string>
         					  
     <string name="dialog_upgrade_title">購入！</string>
-    <string name="dialog_upgrade_text">この関数は、プレミアムバージョンまたはミラーの広告バージョンでのみ使用可能です。してください
-                                      このアプリの継続的な開発をサポートするためにアップグレードします。</string>
+    <string name="dialog_upgrade_text">이 기능은 미러의 프리미엄 버전에서만 사용할 수 있습니다. 
+                                       이 응용 프로그램의 지속적인 개발을 지원하기 위해 업그레이드하십시오. 
+                                       감사합니다!</string>
         				         
     <string name="dialog_rate_title">ご支援いただきありがとうございます！</string>
     <string name="dialog_rate_text"><b>ミラーを使用して楽しむ場合は、それを評価してください。</b></string>
