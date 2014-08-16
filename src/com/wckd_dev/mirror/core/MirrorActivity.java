@@ -172,9 +172,9 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private   Animation             leftSlideIn, leftSlideOut;
     private   ImageButton           pause, takeSnapshot, takePhotoBooth;
     protected FrameManager          frameMgr;
-    private   Snapshot              snapshot;   // Paid/Ads Only
-    protected Snapshot.ImageSize    imageSize = Snapshot.ImageSize.LARGE;  // Paid/Ads Only
-    private   PhotoBooth            booth;      // Paid/Ads Only
+    private   Snapshot              snapshot;   // Paid Only
+    protected Snapshot.ImageSize    imageSize = Snapshot.ImageSize.LARGE;  // Paid Only
+    private   PhotoBooth            booth;      // Paid Only
     
     /* Touch */
     
@@ -209,7 +209,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     /* Store Links */
     
     protected static String rateLink;
-    protected static String upgradeAdsLink;
     protected static String upgradePaidLink;
     protected static String frameLink;
     
@@ -889,24 +888,6 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 					          res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_brushed", null, null)),
 					          res);
     		
-    	}
-    	else if(version.compareTo("ads") == 0) {
-	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame_thumb0", null, null),
-	    					  res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame0", null, null),
-	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror_ads:string/frame_no_frame", null, null)),
-	    					   res);
-	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame_thumb1", null, null),
-	    					  res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame1", null, null),
-	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror_ads:string/frame_low_light", null, null)),
-	    					  res);
-	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame_thumb2", null, null),
-	    					  res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame2", null, null),
-	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror_ads:string/frame_soft_gold", null, null)),
-	    					  res);
-	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame_thumb3", null, null),
-	    					  res.getIdentifier("com.wckd_dev.mirror_ads:drawable/frame3", null, null),
-	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror_ads:string/frame_brushed", null, null)),
-	    					  res);
     	}
 
     	if(frameMgr.hasCFP1())
