@@ -150,7 +150,9 @@
     
 <!-- FRAME STRINGS -->
     <string name="frame_no_frame">Pas de Cadre</string>
-    <string name="frame_low_light">Faible Luminosité</string>
+    <string name="frame_low_light_thin">Faible lumière - mince</string>
+    <string name="frame_low_light_medium">Faible lumière - moyen</string>
+    <string name="frame_low_light_thick">Faible lumière - épaisseur</string>
     <string name="frame_soft_gold">Doux Or</string>
     <string name="frame_brushed">Métal brossé</string>
     

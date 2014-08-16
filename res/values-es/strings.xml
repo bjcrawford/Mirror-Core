@@ -144,7 +144,9 @@
     
 <!-- FRAME STRINGS -->
     <string name="frame_no_frame">No Marco</string>
-    <string name="frame_low_light">Con Poca Luz</string>
+    <string name="frame_low_light_thin">Poca luz - fina</string>
+    <string name="frame_low_light_medium">Poca luz - medio</string>
+    <string name="frame_low_light_thick">Poca luz - gruesa</string>
     <string name="frame_soft_gold">Suave Oro</string>
     <string name="frame_brushed">Cepillado</string>
     

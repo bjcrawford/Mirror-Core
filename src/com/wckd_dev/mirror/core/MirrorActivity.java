@@ -857,10 +857,18 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 	    					  res.getIdentifier("com.wckd_dev.mirror:drawable/frame0", null, null),
 	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror:string/frame_no_frame", null, null)),
 	    					  res);
-	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror:drawable/frame_thumb1", null, null),
-	    					  res.getIdentifier("com.wckd_dev.mirror:drawable/frame1", null, null),
-	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror:string/frame_low_light", null, null)),
+	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror:drawable/frame_thumb1_0", null, null),
+	    					  res.getIdentifier("com.wckd_dev.mirror:drawable/frame1_0", null, null),
+	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror:string/frame_low_light_thin", null, null)),
 	    					  res);
+	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror:drawable/frame_thumb1_1", null, null),
+					          res.getIdentifier("com.wckd_dev.mirror:drawable/frame1_1", null, null),
+					          res.getString(res.getIdentifier("com.wckd_dev.mirror:string/frame_low_light_medium", null, null)),
+					          res);
+	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror:drawable/frame_thumb1_2", null, null),
+					          res.getIdentifier("com.wckd_dev.mirror:drawable/frame1_2", null, null),
+					          res.getString(res.getIdentifier("com.wckd_dev.mirror:string/frame_low_light_thick", null, null)),
+					          res);
 	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror:drawable/frame_thumb2", null, null),
 	    					  res.getIdentifier("com.wckd_dev.mirror:drawable/frame2", null, null),
 	    					  res.getString(res.getIdentifier("com.wckd_dev.mirror:string/frame_soft_gold", null, null)),
@@ -875,10 +883,18 @@ public class MirrorActivity extends Activity implements OnTouchListener {
 						      res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame0", null, null),
 						      res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_no_frame", null, null)),
 						      res);
-	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame_thumb1", null, null),
-					   	      res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame1", null, null),
-					   	      res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_low_light", null, null)),
-					   	      res);
+	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame_thumb1_0", null, null),
+					  		  res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame1_0", null, null),
+					          res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_low_light_thin", null, null)),
+					          res);
+	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame_thumb1_1", null, null),
+			                  res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame1_1", null, null),
+			                  res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_low_light_medium", null, null)),
+			                  res);
+	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame_thumb1_2", null, null),
+			                  res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame1_2", null, null),
+			                  res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_low_light_thick", null, null)),
+			                  res);
 	    	frameMgr.addFrame(res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame_thumb2", null, null),
 					          res.getIdentifier("com.wckd_dev.mirror_paid:drawable/frame2", null, null),
 					          res.getString(res.getIdentifier("com.wckd_dev.mirror_paid:string/frame_soft_gold", null, null)),

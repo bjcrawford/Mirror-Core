@@ -147,7 +147,9 @@
     
 <!-- FRAME STRINGS -->
     <string name="frame_no_frame">어떤 프레임 없음</string>
-    <string name="frame_low_light">낮은 조명</string>
+    <string name="frame_low_light_thin">낮은 조명 - 얇은</string>
+    <string name="frame_low_light_medium">낮은 조명 - 중간</string>
+    <string name="frame_low_light_thick">낮은 조명 - 두께</string>
     <string name="frame_soft_gold">소프트 골드</string>
     <string name="frame_brushed">닦았 금속</string>
     

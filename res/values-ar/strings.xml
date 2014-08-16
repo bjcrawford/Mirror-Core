@@ -134,7 +134,9 @@
     
 <!-- FRAME STRINGS -->
     <string name="frame_no_frame">لا يوجد اطار</string>
-    <string name="frame_low_light">الإضاءة المنخفضة</string>
+    <string name="frame_low_light_thin">الإضاءة المنخفضة - رقيقة</string>
+    <string name="frame_low_light_medium">الإضاءة المنخفضة - المتوسطة</string>
+    <string name="frame_low_light_thick">الإضاءة المنخفضة - سميكة</string>
     <string name="frame_soft_gold">الذهب لينة</string>
     <string name="frame_brushed">نحى</string>
     

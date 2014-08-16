@@ -148,7 +148,9 @@
     
 <!-- FRAME STRINGS -->
     <string name="frame_no_frame">No Bilderrahmen</string>
-    <string name="frame_low_light">Wenig Licht</string>
+    <string name="frame_low_light_thin">Wenig Licht - dünn</string>
+    <string name="frame_low_light_medium">Wenig Licht - mittel</string>
+    <string name="frame_low_light_thick">Wenig Licht - dick</string>
     <string name="frame_soft_gold">Soft Gold</string>
     <string name="frame_brushed">Gebürstet</string>
     
