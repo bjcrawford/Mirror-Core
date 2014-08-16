@@ -80,7 +80,7 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     
     
     /** Change between 1 and 2 to display one time messages to users after upgrades */
-    private final int INFO_DIALOGS = 2; // v2.4 set to 2 for release
+    private final int INFO_DIALOGS = 1; // v2.5 set to 1 for release
 	
     /* Preferences Strings*/
     
