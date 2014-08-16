@@ -73,7 +73,8 @@
     
 <!-- DIALOG STRINGS -->
     <string name="dialog_default_text">Nunca se debe ver este cuadro de diálogo</string>
-    <string name="dialog_welcome_one_text">Toque en cualquier lugar para mostrar/ocultar la barra de acciones</string>
+    <string name="dialog_welcome_one_text">Toque en cualquier lugar para mostrar/ocultar la barra de acciones,
+                                           Doble toque para hacer una pausa en la pantalla</string>
     <string name="dialog_welcome_two_text">Una pizca de zoom in/out</string>
     <string name="dialog_new_pause_text">Toque para pausar la pantalla</string>
     <string name="dialog_new_snapshot_text">Toque para tomar una foto</string>

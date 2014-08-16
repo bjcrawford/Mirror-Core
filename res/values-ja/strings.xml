@@ -73,7 +73,7 @@
         				
 <!-- DIALOG STRINGS -->	  
     <string name="dialog_default_text">このダイアログが表示されてはいけません</string>
-    <string name="dialog_welcome_one_text">アクションバーを表示/非表示にする任意の場所をタップ</string>
+    <string name="dialog_welcome_one_text">画面を一時停止するアクションバー、ダブルタップ表示/非表示にするにはどこでもタップ</string>
     <string name="dialog_welcome_two_text">で/ズームアウトするピンチ</string>
     <string name="dialog_new_pause_text">一時停止画面をタップする</string>
     <string name="dialog_new_snapshot_text">スナップショットを作成する]をタップ</string>

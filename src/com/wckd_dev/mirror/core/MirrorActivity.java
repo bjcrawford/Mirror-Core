@@ -24,6 +24,8 @@ import android.hardware.Camera;
 import android.hardware.Camera.CameraInfo;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.provider.MediaStore.Images;
 import android.provider.Settings;
 import android.provider.Settings.SettingNotFoundException;
@@ -192,6 +194,12 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     private float  lastDist  = 0f;
     private float  minDist   = 10f;
     private float  zoomRate  = 0f;
+    
+    private long      pressTime;
+    private long      lastPressTime = 0;
+    private boolean   hasDoubleTapped = false;
+    
+    private static final long DOUBLE_TAP_LENGTH = 250;
     
     /* Brightness */
     
@@ -968,22 +976,10 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         pause.setOnClickListener(new View.OnClickListener() {
         	public void onClick(View v) {
         		
-        		if(isPaused) {
-        			mirrorView.startPreview();
-        			isPaused = false;
-        			if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
-        				pause.setImageResource(R.drawable.button_pause_holo_light);
-        			else
-        				pause.setImageResource(R.drawable.button_pause_holo_dark);
-        		}
-        		else {
-        			mirrorView.stopPreview();
-        			isPaused = true;
-        			if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
-        				pause.setImageResource(R.drawable.button_play_holo_light);
-        			else
-        				pause.setImageResource(R.drawable.button_play_holo_dark);
-        		}
+        		if(isPaused)
+        			unpausePreview();
+        		else
+        			pausePreview();
         	}
         });
     }
@@ -1359,6 +1355,24 @@ public class MirrorActivity extends Activity implements OnTouchListener {
         }
     }
     
+    private void pausePreview() {
+    	mirrorView.stopPreview();
+		isPaused = true;
+		if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
+			pause.setImageResource(R.drawable.button_play_holo_light);
+		else
+			pause.setImageResource(R.drawable.button_play_holo_dark);
+    }
+    
+    private void unpausePreview() {
+    	mirrorView.startPreview();
+		isPaused = false;
+		if(themePref == 2 || themePref == 4 || themePref == 5 || themePref == 7) 
+			pause.setImageResource(R.drawable.button_pause_holo_light);
+		else
+			pause.setImageResource(R.drawable.button_pause_holo_dark);
+    }
+    
      private void displayDialog(int id) {     
     	QustomDialogBuilder builder = new QustomDialogBuilder(this);
     	builder
@@ -1496,19 +1510,44 @@ public class MirrorActivity extends Activity implements OnTouchListener {
     			break;
     			
     		case MotionEvent.ACTION_POINTER_DOWN:
-    			startDist = spacing(event);
-    	        if (startDist > minDist) {
-    	           savedMatrix.set(matrix);
-    	           midPoint(mid, event);
-    	           touchState = ZOOM;
-    	        }
+    			if(!isPaused) {
+	    			startDist = spacing(event);
+	    	        if (startDist > minDist) {
+	    	           savedMatrix.set(matrix);
+	    	           midPoint(mid, event);
+	    	           touchState = ZOOM;
+	    	        }
+    			}
     			break;
     			
     		case MotionEvent.ACTION_UP:
     			if(touchState == PRESS) {
 	    			float moveDist = spacing(event, start);
 	    			if(moveDist < minDist) {
-	    				fullScreenClick();
+	    				
+	    				pressTime = System.currentTimeMillis();
+	    				
+	    				if(pressTime - lastPressTime < DOUBLE_TAP_LENGTH) {
+	    					if(isPaused)
+	    	        			unpausePreview();
+	    	        		else
+	    	        			pausePreview();
+	    					hasDoubleTapped = true;
+	    				}
+	    				else {
+	    					hasDoubleTapped = false;
+	    		            Handler myHandler = new Handler() {
+	    		                 public void handleMessage(Message emptyMessage) {
+	    		                      if (!hasDoubleTapped) 
+	    		                            fullScreenClick();
+	    		                 }
+	    		            };
+	    		            Message emptyMessage = new Message();
+	    		            myHandler.sendMessageDelayed(emptyMessage,DOUBLE_TAP_LENGTH);
+
+	    				}
+	    				
+	    				lastPressTime = pressTime;
 	    			}
     			}
     			break;

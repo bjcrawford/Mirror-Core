@@ -73,7 +73,7 @@
         					  
 <!-- DIALOG STRINGS -->
     <string name="dialog_default_text">이 대화 상자를 볼 수 없을 것</string>
-    <string name="dialog_welcome_one_text">작업 표시 줄을 표시 / 숨기기 위해 아무 곳이나 눌러</string>
+    <string name="dialog_welcome_one_text">화면을 일시 정지 작업 표시 줄, 더블 탭을 / 보여 숨길 아무 곳이나 눌러</string>
     <string name="dialog_welcome_two_text">확대 / 축소하는 핀치</string>
     <string name="dialog_new_pause_text">정지 화면에게로 눌러</string>
     <string name="dialog_new_snapshot_text">스냅 샷을 누릅니다</string>

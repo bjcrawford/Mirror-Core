@@ -73,7 +73,8 @@
         		
 <!-- DIALOG STRINGS -->
     <string name="dialog_default_text">Sie sollten niemals diesen text sehen</string>
-    <string name="dialog_welcome_one_text">Tippen sie irgendwo zum anzeigen/ausblenden der aktionsleiste</string>
+    <string name="dialog_welcome_one_text">Tippen sie irgendwo zum anzeigen/ausblenden der aktionsleiste,
+                                           Doppel-Tippen auf den Bildschirm pausieren</string>
     <string name="dialog_welcome_two_text">Pinch in/out zu erhöhen/verringern</string>
     <string name="dialog_new_pause_text">Tippen sie auf dem bildschirm anzuhalten</string>
     <string name="dialog_new_snapshot_text">Tippen Sie, um einen Schnappschuss zu machen</string>

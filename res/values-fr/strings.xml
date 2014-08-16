@@ -73,9 +73,10 @@
         				
 <!-- DIALOG STRINGS -->	  
     <string name="dialog_default_text">Vous ne devriez jamais voir ce texte</string>
-    <string name="dialog_welcome_one_text">Tapez n\'importe où pour afficher/masquer la barre d\'action</string>
+    <string name="dialog_welcome_one_text">Tapez n\'importe où pour afficher/masquer la barre d\'action,
+                                           Tapez deux fois sur pour mettre en pause l\'écran</string>
     <string name="dialog_welcome_two_text">Pincez pour zoomer avant/arrière</string>
-    <string name="dialog_new_pause_text">Touchez pour interrompre l\'écran</string>
+    <string name="dialog_new_pause_text">Touchez pour mettre en pause l\'écran</string>
     <string name="dialog_new_snapshot_text">Touchez pour prendre un instantané</string>
     <string name="dialog_new_photostrip_text">Appuyez quatre fois pour créer un PhotoStrip</string>
     

@@ -73,7 +73,7 @@
     
 <!-- DIALOG STRINGS -->
     <string name="dialog_default_text">يجب أن لا نرى هذا الحوار</string>
-    <string name="dialog_welcome_one_text">اضغط في أي مكان لإظهار / إخفاء شريط العمل</string>
+    <string name="dialog_welcome_one_text">اانقر في أي مكان لإظهار / إخفاء شريط الإجراءات، انقر نقرا مزدوجا لإيقاف الشاشة</string>
     <string name="dialog_welcome_two_text">قرصة للتكبير / التصغير</string>
     <string name="dialog_new_pause_text">اضغط لإيقاف الشاشة</string>
     <string name="dialog_new_snapshot_text">انقر لأخذ لقطة</string>

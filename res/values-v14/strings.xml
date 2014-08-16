@@ -73,7 +73,8 @@
     
 <!-- DIALOG STRINGS -->
     <string name="dialog_default_text">You should never see this dialog</string>
-    <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar</string>
+    <string name="dialog_welcome_one_text">Tap anywhere to show/hide the action bar,
+                                           Double tap to pause the screen</string>
     <string name="dialog_welcome_two_text">Pinch to zoom in/out</string>
     <string name="dialog_new_pause_text">Tap to pause the screen</string>
     <string name="dialog_new_snapshot_text">Tap to take a snapshot</string>
